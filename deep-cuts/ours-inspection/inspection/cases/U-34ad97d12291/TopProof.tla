@@ -1,0 +1,5 @@
+---- MODULE TopProof ----
+THEOREM TRUE
+OBVIOUS
+PROOF OBVIOUS
+====

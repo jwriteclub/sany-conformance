@@ -1,0 +1,3 @@
+---- MODULE A ----
+CONSTANT c
+====

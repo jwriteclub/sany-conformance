@@ -1,0 +1,4 @@
+---- MODULE RevAssumeChoose ----
+CONSTANT x, y, S
+THEOREM ASSUME CHOOSE z : TRUE PROVE TRUE
+====

@@ -1,0 +1,4 @@
+---- MODULE RevAssumeIfBad ----
+CONSTANT x, y, S
+THEOREM ASSUME IF , PROVE TRUE
+====

@@ -1,0 +1,4 @@
+---- MODULE ByAssume ----
+THEOREM T1 == TRUE
+BY ASSUME TRUE PROVE TRUE
+====

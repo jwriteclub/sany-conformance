@@ -1,0 +1,5 @@
+---- MODULE A ----
+VARIABLE x
+LOCAL INSTANCE B
+ASSUME x
+====

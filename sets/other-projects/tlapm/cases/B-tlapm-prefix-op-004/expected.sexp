@@ -1,0 +1,18 @@
+
+(source_file (module (header_line) name: (identifier) (header_line)
+  (extends (identifier_ref))
+  (operator_definition name: (identifier) (def_eq) definition: (bound_op name: (identifier_ref)
+    parameter: (prefix_op_symbol (lnot))
+    parameter: (prefix_op_symbol (lnot))
+    parameter: (prefix_op_symbol (lnot))
+    parameter: (prefix_op_symbol (union))
+    parameter: (prefix_op_symbol (powerset))
+    parameter: (prefix_op_symbol (domain))
+    parameter: (prefix_op_symbol (negative))
+    parameter: (prefix_op_symbol (enabled))
+    parameter: (prefix_op_symbol (unchanged))
+    parameter: (prefix_op_symbol (always))
+    parameter: (prefix_op_symbol (eventually))
+  ))
+(double_line)))
+

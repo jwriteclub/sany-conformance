@@ -1,0 +1,3 @@
+---- MODULE Sub ----
+A == TRUE
+====

@@ -1,0 +1,7 @@
+
+---- MODULE Test ----
+ASSUME TRUE
+ASSUMPTION TRUE
+AXIOM TRUE
+====
+

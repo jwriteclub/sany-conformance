@@ -1,0 +1,1 @@
+---- MODULE ASSU1PTIONa. DEF5

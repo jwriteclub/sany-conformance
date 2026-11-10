@@ -1,0 +1,7 @@
+
+(source_file (module (header_line) (identifier) (header_line)
+  (operator_definition (identifier) (def_eq)
+    (bound_nonfix_op (infix_op_symbol (circ)) (nat_number) (nat_number))
+  )
+(double_line)))
+

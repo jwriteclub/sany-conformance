@@ -1,0 +1,1 @@
+---- MODULE ---[]ASSUGEMOD@LE DE 

@@ -1,0 +1,5 @@
+---- MODULE Test ----
+THEOREM TRUE
+  <1>aYEOREM TRUE
+PROOF
+  <1>a 

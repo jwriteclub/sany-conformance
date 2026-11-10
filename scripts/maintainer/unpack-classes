@@ -1,0 +1,10 @@
+#!/bin/sh
+# Copyright 2026 Christopher O'Connell
+# SPDX-License-Identifier: Apache-2.0
+# Unpack the reference jar's class files for cmd/staticreach. usage: unpack-classes [jar]
+set -eu
+cd "$(dirname "$0")/../.."
+jar=${1:-.work/jars/dc6a944/tla2tools.jar}
+rm -rf .work/classes
+mkdir -p .work/classes
+unzip -qo "$jar" -d .work/classes

@@ -1,0 +1,6 @@
+# Copyright 2026 Christopher O'Connell
+# SPDX-License-Identifier: Apache-2.0
+# Stock results against the harness: the harness column of this run, and the earlier results that came through the wrapper with -XX:TieredStopAtLevel=1.
+set	id	field	reference	this_run
+tlaplus-test-models	B-test-model-bug156-te-9a905e	earlier-outcome	hang	ok
+fuzz-jazzer	D-5ac9249fe910	earlier-error-codes	4003,4221	4003,4220

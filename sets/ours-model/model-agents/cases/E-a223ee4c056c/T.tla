@@ -1,0 +1,8 @@
+---- MODULE T ----
+VARIABLE x
+RECURSIVE F(_)
+THEOREM TRUE
+op == 1
+HIDE x
+USE x
+====

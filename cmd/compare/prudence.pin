@@ -1,0 +1,6 @@
+# Copyright 2026 Christopher O'Connell
+# SPDX-License-Identifier: Apache-2.0
+#
+# The prudence commit cmd/compare builds against: github.com/jwriteclub/prudence
+# v0.1.0. scripts/compare.sh refuses any other checkout.
+54710e2da7c9aa4c53ca5df4a255b6c5fc0559e9

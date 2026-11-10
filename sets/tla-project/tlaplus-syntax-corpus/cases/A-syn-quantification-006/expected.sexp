@@ -1,0 +1,38 @@
+
+(source_file (module (header_line) name: (identifier) (header_line)
+  (operator_definition name: (identifier) (def_eq)
+    definition: (unbounded_quantification
+      quantifier: (forall)
+      intro: (identifier)
+      expression: (boolean)
+    )
+  )
+  (operator_definition name: (identifier) (def_eq)
+    definition: (unbounded_quantification
+      quantifier: (exists)
+      intro: (identifier)
+      intro: (identifier)
+      expression: (boolean)
+    )
+  )
+  (operator_definition name: (identifier) (def_eq)
+    definition: (unbounded_quantification
+      quantifier: (temporal_forall)
+      intro: (identifier)
+      intro: (identifier)
+      intro: (identifier)
+      expression: (boolean)
+    )
+  )
+  (operator_definition name: (identifier) (def_eq)
+    definition: (unbounded_quantification
+      quantifier: (temporal_exists)
+      intro: (identifier)
+      intro: (identifier)
+      intro: (identifier)
+      intro: (identifier)
+      expression: (boolean)
+    )
+  )
+(double_line)))
+

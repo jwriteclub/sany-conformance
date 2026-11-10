@@ -1,0 +1,15 @@
+
+---- MODULE Test ----
+EXTENDS TestPrelude
+THEOREM TRUE
+<1> SUFFICES TRUE OBVIOUS
+<1> TRUE OBVIOUS
+<1> CASE TRUE OBVIOUS
+<1> PICK x1 : TRUE OBVIOUS
+<1> PICK <<x2>> \in S : TRUE OBVIOUS
+<1> QED
+====
+---- MODULE TestPrelude ----
+VARIABLE S
+====
+

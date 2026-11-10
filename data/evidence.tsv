@@ -1,0 +1,89 @@
+# Copyright 2026 Christopher O'Connell
+# SPDX-License-Identifier: Apache-2.0
+# Cases kept for a stated purpose that coverage cannot measure. case<TAB>purpose.
+D-027940a247ed	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-1a969e12da5f	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-1c72b6b367c5	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-1e3cbf462cc1	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-2bbcc1873d94	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-3df094b55a37	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-4756e736f4f5	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-49342af3f06e	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-52f0518dc464	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-56ff7fc1aae2	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-5ac9249fe910	imports a standard module under a different case: shows how SANY depends on the file system; see FINDINGS.md
+D-5c52fd7ee423	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-61834fe31bb3	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-676adef98f80	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-6cbfbbd821ed	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-6f9bbec84c2d	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-85d02447bb17	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-8ab26a363710	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-9644ebabd5a8	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-968099cf4a32	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-979f2b50fba3	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-994b2eadf4fb	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-a7773a0086d4	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-a988ee83ab8f	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-bd168b61cdf2	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-c405f3b44082	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-d27cb5f259b0	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-d55c747ece8f	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-ebe4cc051b41	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-ef5c6005e423	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-f55509b7d940	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+D-f82fa4953e79	imports a standard module under a different case: shows how SANY depends on the file system; see FINDINGS.md
+D-fb8ead3fd0bb	its result depends on the environment (charset-posix:first_position): see results/depends-on.tsv
+U-03beb2989d46	a token at its bullet's column, the lookahead scan true and the column predicate false; JaCoCo cannot record it; shown by the patched parser trace
+U-04585df8b296	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-136058079408	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-14588c7b6e7f	a token at its bullet's column, the lookahead scan true and the column predicate false; JaCoCo cannot record it; shown by the patched parser trace
+U-176a6f5c6e88	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-1a4598162ee1	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-1aff423baebe	a token at its bullet's column, the lookahead scan true and the column predicate false; JaCoCo cannot record it; shown by the patched parser trace
+U-24041a7baad8	hits a lookahead outcome JaCoCo cannot record, since its probe follows a call that throws: ExtendableExpr:6112, outcome J false; shown by the patched parser trace
+U-245623ee68a1	a token at its bullet's column, the lookahead scan true and the column predicate false; JaCoCo cannot record it; shown by the patched parser trace
+U-2a5144185451	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-3417445c8a0d	a token at its bullet's column, the lookahead scan true and the column predicate false; JaCoCo cannot record it; shown by the patched parser trace
+U-39663f3bf606	hits a lookahead outcome JaCoCo cannot record, since its probe follows a call that throws: UseOrHideOrBy:3740, outcome J false; shown by the patched parser trace
+U-3f9d42fd27db	hits a lookahead outcome JaCoCo cannot record, since its probe follows a call that throws: NewSymb:3296, outcome J false; shown by the patched parser trace
+U-42dfd2a4da10	a token at its bullet's column, the lookahead scan true and the column predicate false; JaCoCo cannot record it; shown by the patched parser trace
+U-454205660774	a token at its bullet's column, the lookahead scan true and the column predicate false; JaCoCo cannot record it; shown by the patched parser trace
+U-46ab1547eedb	hits a lookahead outcome JaCoCo cannot record, since its probe follows a call that throws: UseOrHideOrBy:3709, outcome J false; shown by the patched parser trace
+U-4dabf3cce6b7	hits a lookahead outcome JaCoCo cannot record, since its probe follows a call that throws: Proof:3542, outcome J false; shown by the patched parser trace
+U-562d16252ad9	hits a lookahead outcome JaCoCo cannot record, since its probe follows a call that throws: BangExt:7170, outcome J false; shown by the patched parser trace
+U-563543277170	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-5f90a1937a58	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-625cb7231ac2	a token at its bullet's column, the lookahead scan true and the column predicate false; JaCoCo cannot record it; shown by the patched parser trace
+U-6347c21d4a1f	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-6a4d0a458a89	a token at its bullet's column, the lookahead scan true and the column predicate false; JaCoCo cannot record it; shown by the patched parser trace
+U-6ae68a52ecaf	hits a lookahead outcome JaCoCo cannot record, since its probe follows a call that throws: UseOrHideOrBy:3680, outcome J false; shown by the patched parser trace
+U-6b4c57a0282f	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-70e3c3bbb6a1	a token at its bullet's column, the lookahead scan true and the column predicate false; JaCoCo cannot record it; shown by the patched parser trace
+U-78466fbf102d	hits a lookahead outcome JaCoCo cannot record, since its probe follows a call that throws: Step:3901, outcome J false; shown by the patched parser trace
+U-792e96967b0c	hits a lookahead outcome JaCoCo cannot record, since its probe follows a call that throws: AssumeProve:3113, outcome J false; shown by the patched parser trace
+U-832a0305f326	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-8ba5c46c2a6e	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-8d1adebad178	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-8ebf023d246f	a token at its bullet's column, the lookahead scan true and the column predicate false; JaCoCo cannot record it; shown by the patched parser trace
+U-94067ed0fb44	hits a lookahead outcome JaCoCo cannot record, since its probe follows a call that throws: SBracketCases:5166, outcome J false; shown by the patched parser trace
+U-950e8105be7f	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-9f0f2324a299	a token at its bullet's column, the lookahead scan true and the column predicate false; JaCoCo cannot record it; shown by the patched parser trace
+U-9f712563bfa0	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-9fdc74992ddc	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-a2713330a83c	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-acb90346ac79	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-ace2347ca0c0	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-acf37e47e21c	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-ad23c2b3a80d	a token at its bullet's column, the lookahead scan true and the column predicate false; JaCoCo cannot record it; shown by the patched parser trace
+U-adb59e991743	reaches comment-joining arms in SyntaxTreeNode only under XMLExporter -u, which no coverage pass here runs
+U-b39bc21e05ea	a token at its bullet's column, the lookahead scan true and the column predicate false; JaCoCo cannot record it; shown by the patched parser trace
+U-c7afe423487d	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-c8314f176ce6	a token at its bullet's column, the lookahead scan true and the column predicate false; JaCoCo cannot record it; shown by the patched parser trace
+U-c862f44d5c46	a token at its bullet's column, the lookahead scan true and the column predicate false; JaCoCo cannot record it; shown by the patched parser trace
+U-da2b2541dcd6	hits a lookahead outcome JaCoCo cannot record, since its probe follows a call that throws: OpOrExpr:4640, outcome J false; shown by the patched parser trace
+U-e321734e60c6	hits a lookahead outcome JaCoCo cannot record, since its probe follows a call that throws: AssumeProve:3156, outcome J false; shown by the patched parser trace
+U-ecab9896da6a	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-ee20c6cd967c	hits a lookahead outcome JaCoCo cannot record, since its probe follows a call that throws: Theorem:3425, outcome J false; shown by the patched parser trace
+U-f4f75f7e5ebc	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit
+U-fbfbf6c60f65	one of the modules written for the eight alternatives of the OpenStart lookahead scan, run to confirm that OpenStart() itself is never called and the scan is reached; nothing JaCoCo can credit

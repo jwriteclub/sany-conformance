@@ -1,0 +1,17 @@
+---- MODULE ParamInstThm ----
+CONSTANT C
+VARIABLE x
+---- MODULE In ----
+CONSTANT K
+VARIABLE v
+THEOREM TI == K = K
+ASSUME AI == K = K
+====
+J(q) == INSTANCE In WITH K <- q, v <- x
+A3 == J(1)!AI
+A4 == J(1)!TI
+THEOREM T2 == TRUE
+BY J(1)!TI, J(1)!AI
+THEOREM T3 == TRUE
+BY DEF J
+====

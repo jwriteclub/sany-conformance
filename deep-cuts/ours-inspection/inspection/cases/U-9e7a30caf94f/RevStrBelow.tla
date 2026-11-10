@@ -1,0 +1,4 @@
+---- MODULE RevStrBelow ----
+A == /\
+"s"
+====

@@ -1,0 +1,7 @@
+---- MODULE Target ----
+VARIABLE v
+THEOREM T ==
+  ASSUME NEW CONSTANT x \in {v}
+  PROVE TRUE
+HIDE T!1
+====

@@ -1,0 +1,15 @@
+
+(source_file (module (header_line) name: (identifier) (header_line)
+  (operator_definition name: (prefix_op_symbol (lnot)) parameter: (identifier) (def_eq) definition: (nat_number))
+  (operator_definition name: (prefix_op_symbol (lnot)) parameter: (identifier) (def_eq) definition: (nat_number))
+  (operator_definition name: (prefix_op_symbol (lnot)) parameter: (identifier) (def_eq) definition: (nat_number))
+  (operator_definition name: (prefix_op_symbol (union)) parameter: (identifier) (def_eq) definition: (nat_number))
+  (operator_definition name: (prefix_op_symbol (powerset)) parameter: (identifier) (def_eq) definition: (nat_number))
+  (operator_definition name: (prefix_op_symbol (domain)) parameter: (identifier) (def_eq) definition: (nat_number))
+  (operator_definition name: (prefix_op_symbol (negative)) parameter: (identifier) (def_eq) definition: (nat_number))
+  (operator_definition name: (prefix_op_symbol (enabled)) parameter: (identifier) (def_eq) definition: (nat_number))
+  (operator_definition name: (prefix_op_symbol (unchanged)) parameter: (identifier) (def_eq) definition: (nat_number))
+  (operator_definition name: (prefix_op_symbol (always)) parameter: (identifier) (def_eq) definition: (nat_number))
+  (operator_definition name: (prefix_op_symbol (eventually)) parameter: (identifier) (def_eq) definition: (nat_number))
+(double_line)))
+

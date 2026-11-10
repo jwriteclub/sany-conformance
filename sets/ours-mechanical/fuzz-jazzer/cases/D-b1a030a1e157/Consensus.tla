@@ -1,0 +1,22 @@
+----------------------------- MODULE Consensus ------------------------------
+EXTENDS FiniteSetTheorems, TLAPS
+
+CONSTANT Value
+
+VARIABLE chosen
+
+Init == chosen = {}
+Next == /\ chosen = {}
+        /\<> \E v \in Value : chosen' = {v}
+Spec == Init /\ [][Next]_chosen
+
+-----------------------------------------------------------------------------
+
+Inv == /\ chosen' \subseteq Value
+       /\ IsFiniteSet(chosen)
+       /\ Cardinality(chosen) \leq 1
+
+-----------------------------------------------------------------------------
+
+THEOREM Invariance == Spec => []Inv
+=============================================================================

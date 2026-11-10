@@ -1,0 +1,83 @@
+{
+ "apache_change_notices": 12,
+ "copyright": "Copyright 2026 Christopher O'Connell",
+ "per_set": {
+  "fuzz-jazzer": {
+   "deep-cut": 103,
+   "selected": 1132
+  },
+  "grammar-sentences": {
+   "deep-cut": 373,
+   "selected": 15
+  },
+  "inspection": {
+   "deep-cut": 146,
+   "selected": 42
+  },
+  "inspection-pit-survivors": {
+   "deep-cut": 4,
+   "selected": 68
+  },
+  "model-agents": {
+   "deep-cut": 22,
+   "selected": 19
+  },
+  "model-one-shot": {
+   "deep-cut": 178,
+   "selected": 163
+  },
+  "model-openstart": {
+   "selected": 23
+  },
+  "model-pit-survivors": {
+   "deep-cut": 4,
+   "selected": 23
+  },
+  "model-scoring": {
+   "deep-cut": 3,
+   "selected": 5
+  },
+  "model-ternary-hunt": {},
+  "mutants": {
+   "deep-cut": 2937,
+   "selected": 63
+  },
+  "tlaplus-communitymodules": {
+   "upstream": 80
+  },
+  "tlaplus-examples": {
+   "upstream": 433
+  },
+  "tlaplus-inline-java": {
+   "upstream": 52
+  },
+  "tlaplus-other": {
+   "upstream": 296
+  },
+  "tlaplus-rfcs": {
+   "upstream": 475
+  },
+  "tlaplus-semantic-corpus": {
+   "upstream": 27
+  },
+  "tlaplus-semantic-error-corpus": {
+   "upstream": 121
+  },
+  "tlaplus-syntax-corpus": {
+   "upstream": 355
+  },
+  "tlaplus-test-models": {
+   "upstream": 670
+  },
+  "tlapm": {
+   "upstream": 677
+  },
+  "tlx": {
+   "upstream": 587
+  },
+  "tree-sitter-tlaplus": {
+   "upstream": 357
+  }
+ },
+ "spdx": "Apache-2.0"
+}

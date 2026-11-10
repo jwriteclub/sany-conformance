@@ -1,0 +1,1 @@
+---- MODULE LEMM\capA TR[]ASSUMEUE

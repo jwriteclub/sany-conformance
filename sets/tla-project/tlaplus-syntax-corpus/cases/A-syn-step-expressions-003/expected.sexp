@@ -1,0 +1,15 @@
+
+(source_file (module (header_line) name: (identifier) (header_line)
+  (operator_definition name: (identifier) (def_eq) definition:
+    (step_expr_or_stutter
+      (identifier_ref)
+      (prefixed_op
+        prefix: (subexpr_prefix (subexpr_component
+          (bound_op name: (identifier_ref) parameter: (identifier_ref))
+        ))
+        op: (identifier_ref)
+      )
+    )
+  )
+(double_line)))
+

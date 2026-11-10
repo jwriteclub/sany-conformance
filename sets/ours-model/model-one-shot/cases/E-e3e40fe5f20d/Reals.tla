@@ -1,0 +1,3 @@
+---- MODULE Reals ----
+Reals == TRUE
+====

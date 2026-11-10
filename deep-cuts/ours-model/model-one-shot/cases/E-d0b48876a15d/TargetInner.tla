@@ -1,0 +1,3 @@
+---- MODULE TargetInner ----
+VARIABLE y
+====

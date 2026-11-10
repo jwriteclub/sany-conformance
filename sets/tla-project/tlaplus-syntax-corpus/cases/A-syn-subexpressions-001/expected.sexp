@@ -1,0 +1,14 @@
+
+(source_file (module (header_line) (identifier) (header_line)
+  (operator_definition (identifier) (def_eq)
+    (prefixed_op
+      (subexpr_prefix
+        (subexpr_component (identifier_ref))
+        (subexpr_component (identifier_ref))
+        (subexpr_component (identifier_ref))
+      )
+      (identifier_ref)
+    )
+  )
+(double_line)))
+

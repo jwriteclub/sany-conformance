@@ -1,0 +1,56 @@
+----------------------------- MODULE SimpleLoop ----------------------------- 
+EXTENDS Naturals, TLC
+(*
+
+   --algorithm SimpleLoop                                                  
+     variable x = 0;                                                     
+     begin a : while x < 10                                              
+                 do x := x+1 ;                                           
+                    skip ;                                               
+                    assert x \in 1..10;                                             
+               end while ;                                               
+     end algorithm                                                         
+*)
+                    
+\* BEGIN TRANSLATION (chksum(pcal) = "a551c6d" /\ chksum(tla) = "ebecf3f")
+VARIABLES pc, x
+
+vars == << pc, x >>
+
+Init == (* Global variables *)
+        /\ x = 0
+        /\ pc = "a"
+
+a == /\ pc = "a"
+     /\ IF x < 10
+           THEN /\ x' = x+1
+                /\ TRUE
+                /\ Assert(x' \in 1..10, 
+                          "Failure of assertion at line 10, column 21.")
+                /\ pc' = "a"
+           ELSE /\ pc' = "Done"
+                /\ x' = x
+
+(* Allow infinite stuttering to prevent deadlock on termination. *)
+Terminating == pc = "Done" /\ UNCHANGED vars
+
+Next == a
+           \/ Terminating
+
+Spec == /\ Init /\ [][Next]_vars
+        /\ WF_vars(Next)
+
+Termination == <>(pc = "Done")
+
+\* END TRANSLATION
+
+HalfWay == x = 5
+
+CrossFive == x = 4 /\ x' = 5
+
+PossibleCounts ==
+    LET p == TLCGet("all:named")["s:_possible"][1]
+    IN /\ p["HalfWay"] = 1
+       /\ p["CrossFive"] = 1
+
+=============================================================================

@@ -1,0 +1,7 @@
+
+---- MODULE Test ----
+THEOREM TRUE
+<1> USE TRUE OBVIOUS
+<1> QED
+====
+

@@ -1,0 +1,1315 @@
+# Copyright 2026 Christopher O'Connell
+# SPDX-License-Identifier: Apache-2.0
+file	line	method	kind	missed_baseline	missed_now	covered_now	method_reached	text
+tla2sany/parser/TLAplusParser.java	92	parse	parser action code from tla+.jj	3	0	4	true	if ( (msg.indexOf("EOF") != -1) && (bl != el) )  {
+tla2sany/parser/TLAplusParser.java	100	parse	parser action code from tla+.jj	1	1	3	true	if ( PErrors.empty() ) Assert.check( heirsIndex == 0, EC.SANY_PARSER_CHECK_1
+tla2sany/parser/TLAplusParser.java	163	belchDEF	parser action code from tla+.jj	1	0	14	true	while (   nextT.kind != EOF
+tla2sany/parser/TLAplusParser.java	207	belchDEF	parser action code from tla+.jj	1	0	2	true	while (t.next != null) {
+tla2sany/parser/TLAplusParser.java	210	belchDEF	parser action code from tla+.jj	1	1	5	true	if ( (t.kind == LBR || t.kind == LSB) && depth >  1 ) depth--;
+tla2sany/parser/TLAplusParser.java	213	belchDEF	parser action code from tla+.jj	1	0	2	true	if (t.next == null ) break;
+tla2sany/parser/TLAplusParser.java	251	belchDEF	parser action code from tla+.jj	1	1	5	true	&& (    ! isInfixOp(t.next)
+tla2sany/parser/TLAplusParser.java	257	belchDEF	parser action code from tla+.jj	1	0	2	true	if ( t.next.kind == SUBSTITUTE )
+tla2sany/parser/TLAplusParser.java	325	isInfixOp	parser action code from tla+.jj	1	1	3	true	return t.kind >= op_1 && t.kind <= op_119;
+tla2sany/parser/TLAplusParser.java	329	isPostfixOp	parser action code from tla+.jj	1	1	3	true	return t.kind >= op_57 && t.kind <= op_70;
+tla2sany/parser/TLAplusParser.java	333	isPrefixOp	parser action code from tla+.jj	4	4	0	false	return t.kind >= op_26 && t.kind <= op_116;
+tla2sany/parser/TLAplusParser.java	345	isGenOp	parser action code from tla+.jj	5	4	6	true	if ( kind == N_GenPrefixOp
+tla2sany/parser/TLAplusParser.java	360	isFieldNameToken	parser action code from tla+.jj	1	0	22	true	if ( (t.kind >= ACTION && t.kind <= EXCEPT)
+tla2sany/parser/TLAplusParser.java	380	isLabel	parser action code from tla+.jj	1	1	1	true	if (node == null) {return false;} ;
+tla2sany/parser/TLAplusParser.java	382	isLabel	parser action code from tla+.jj	1	0	2	true	return (node.heirs()[0].heirs().length == 0) ;
+tla2sany/parser/TLAplusParser.java	384	isLabel	parser action code from tla+.jj	1	0	2	true	if (! node.isKind(N_OpApplication)) {return false;} ;
+tla2sany/parser/TLAplusParser.java	386	isLabel	parser action code from tla+.jj	1	1	1	true	if (opArgs.kind != N_OpArgs) {
+tla2sany/parser/TLAplusParser.java	399	isLabel	parser action code from tla+.jj	1	0	2	true	if (genId.kind != N_GeneralId) {return false;} ;
+tla2sany/parser/TLAplusParser.java	400	isLabel	parser action code from tla+.jj	1	0	2	true	if (genId.heirs()[0].heirs().length != 0){return false;}
+tla2sany/parser/TLAplusParser.java	417	labelDoesNotChangeParse	parser action code from tla+.jj	1	0	2	true	|| labeledExpr.isKind(N_PostfixExpr) ) ) {return true;} ;
+tla2sany/parser/TLAplusParser.java	422	labelDoesNotChangeParse	parser action code from tla+.jj	1	1	3	true	return (stackOp == null) || Operator.prec(stackOp, labelOp) ;
+tla2sany/parser/TLAplusParser.java	474	matchFcnConst	parser action code from tla+.jj	1	0	2	true	if (t.kind == EOF) return false;
+tla2sany/parser/TLAplusParser.java	633	popHeir	parser action code from tla+.jj	1	1	1	true	return heirsTable[ --heirsIndex ] == null;
+tla2sany/parser/TLAplusParser.java	675	reduceString	parser action code from tla+.jj	1	1	1	true	else if (c == '"')  copy.append( '"');
+tla2sany/parser/TLAplusParser.java	728	correctedStepNum	parser action code from tla+.jj	1	1	3	true	if ((level < 0) && (proofDepth > 0)) {
+tla2sany/parser/TLAplusParser.java	751	pushProofLevel	parser action code from tla+.jj	1	0	2	true	if (proofDepth >= MaxProofDepth) {
+tla2sany/parser/TLAplusParser.java	759	popProofLevel	parser action code from tla+.jj	1	1	1	true	if (proofDepth < 0) {
+tla2sany/parser/TLAplusParser.java	790	beginsProof	parser action code from tla+.jj	1	1	3	true	return    (proofLevelStack[proofDepth] >= 0)
+tla2sany/parser/TLAplusParser.java	832	correctLevel	parser action code from tla+.jj	1	0	2	true	if (proofLevelStack[proofDepth] < 0) {
+tla2sany/parser/TLAplusParser.java	841	correctLevel	parser action code from tla+.jj	1	0	2	true	return   (tokLevel > lastLevel) ;
+tla2sany/parser/TLAplusParser.java	843	correctLevel	parser action code from tla+.jj	1	0	2	true	else return (proofLevelStack[proofDepth] == tokLevel) ;
+tla2sany/parser/TLAplusParser.java	850	PrefixOpToken	parser choice switch	2	2	11	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	896	NEPrefixOpToken	parser choice switch	2	2	12	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	941	InfixOpToken	parser choice switch	1	1	163	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	1436	PostfixOpToken	parser choice switch	1	1	6	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	1461	CompilationUnit	parser choice switch	2	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	1480	Prelude	parser choice switch	4	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	1489	Prelude	parser choice switch	5	2	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	1529	BeginModule	parser choice switch	2	1	5	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	1547	BeginModule	parser action code from tla+.jj	1	0	2	true	if (isFieldNameToken( t )) t.kind = IDENTIFIER;
+tla2sany/parser/TLAplusParser.java	1570	Extends	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	1582	Extends	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	1637	Body	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	1650	Body	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	1659	Body	parser action code from tla+.jj	1	1	3	true	if ((getToken(1).kind == USE && getToken(2).kind != ONLY)
+tla2sany/parser/TLAplusParser.java	1660	Body	parser action code from tla+.jj	1	1	1	true	|| (getToken(1).kind == HIDE)) {
+tla2sany/parser/TLAplusParser.java	1691	VariableDeclaration	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	1723	ParamDeclaration	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	1776	Recursive	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	1802	ConstantDeclarationItems	parser choice switch	1	1	5	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	1827	ConstantDeclarationItems	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	1869	ConstantDeclarationItems	parser choice switch	2	1	4	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	2159	OperatorOrFunctionDefinition	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	2172	OperatorOrFunctionDefinition	parser choice switch	2	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	2214	IdentifierTuple	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	2221	IdentifierTuple	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	2255	IdentLHS	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	2260	IdentLHS	parser choice switch	1	1	4	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	2298	IdentLHS	parser choice switch	1	1	4	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	2385	IdentDecl	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	2395	IdentDecl	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	2430	SomeFixDecl	parser choice switch	2	2	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	2453	SomeFixDecl	parser choice switch	1	1	4	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	2653	Instance	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	2682	Instantiation	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	2720	Substitution	parser choice switch	2	1	6	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	2977	Assumption	parser choice switch	2	2	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	2991	Assumption	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3080	AssumeProve	parser choice switch	3	1	4	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3094	AssumeProve	parser action code from tla+.jj	1	0	4	true	if ((getToken(1).kind == ASSUME || getToken(1).kind == BOXASSUME)
+tla2sany/parser/TLAplusParser.java	3096	AssumeProve	parser action code from tla+.jj	1	0	4	true	(getToken(3).kind == ASSUME || getToken(3).kind == BOXASSUME)  )) {
+tla2sany/parser/TLAplusParser.java	3102	AssumeProve	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3113	AssumeProve	parser LOOKAHEAD decision	1	1	1	true	if (jj_2_14(1)) {
+tla2sany/parser/TLAplusParser.java	3137	AssumeProve	parser action code from tla+.jj	1	0	4	true	if ((getToken(1).kind == ASSUME || getToken(1).kind == BOXASSUME)
+tla2sany/parser/TLAplusParser.java	3139	AssumeProve	parser action code from tla+.jj	1	0	4	true	(getToken(3).kind == ASSUME || getToken(3).kind == BOXASSUME)  )) {
+tla2sany/parser/TLAplusParser.java	3145	AssumeProve	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3156	AssumeProve	parser LOOKAHEAD decision	1	1	1	true	if (jj_2_15(1)) {
+tla2sany/parser/TLAplusParser.java	3167	AssumeProve	parser choice switch	2	1	4	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3214	NewSymb	parser choice switch	2	2	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3237	NewSymb	parser action code from tla+.jj	1	0	2	true	if (hasArgs) {
+tla2sany/parser/TLAplusParser.java	3252	NewSymb	parser choice switch	2	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3275	NewSymb	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3296	NewSymb	parser LOOKAHEAD decision	1	1	1	true	} else if (jj_2_20(2)) {
+tla2sany/parser/TLAplusParser.java	3297	NewSymb	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3306	NewSymb	parser choice switch	1	1	5	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3323	NewSymb	parser choice switch	2	1	4	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3362	MaybeBound	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3391	Theorem	parser choice switch	2	2	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3418	Theorem	parser action code from tla+.jj	3	1	3	true	if (getToken(1).kind == ASSUME || getToken(1).kind == BOXASSUME) {
+tla2sany/parser/TLAplusParser.java	3425	Theorem	parser LOOKAHEAD decision	1	1	1	true	} else if (jj_2_23(1)) {
+tla2sany/parser/TLAplusParser.java	3519	Proof	parser choice switch	1	1	4	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3542	Proof	parser LOOKAHEAD decision	1	1	1	true	} else if (jj_2_26(1)) {
+tla2sany/parser/TLAplusParser.java	3590	UseOrHideOrBy	parser choice switch	1	0	6	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3593	UseOrHideOrBy	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3605	UseOrHideOrBy	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3618	UseOrHideOrBy	parser choice switch	2	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3649	UseOrHideOrBy	parser LOOKAHEAD decision	1	1	1	true	if (jj_2_27(1)) {
+tla2sany/parser/TLAplusParser.java	3670	UseOrHideOrBy	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3680	UseOrHideOrBy	parser LOOKAHEAD decision	1	1	1	true	if (jj_2_28(1)) {
+tla2sany/parser/TLAplusParser.java	3699	UseOrHideOrBy	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3709	UseOrHideOrBy	parser LOOKAHEAD decision	1	1	1	true	if (jj_2_30(1)) {
+tla2sany/parser/TLAplusParser.java	3730	UseOrHideOrBy	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3740	UseOrHideOrBy	parser LOOKAHEAD decision	1	1	1	true	if (jj_2_31(1)) {
+tla2sany/parser/TLAplusParser.java	3802	QEDStep	parser action code from tla+.jj	1	0	2	true	if (!correctLevel(t)) {
+tla2sany/parser/TLAplusParser.java	3855	Step	parser action code from tla+.jj	1	0	2	true	if (!correctLevel(t)) {
+tla2sany/parser/TLAplusParser.java	3878	Step	parser choice switch	1	1	7	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	3901	Step	parser LOOKAHEAD decision	1	1	1	true	if (jj_2_32(1)) {
+tla2sany/parser/TLAplusParser.java	3935	DefStep	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	4013	TakeStep	parser choice switch	2	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	4020	TakeStep	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	4104	PickStep	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	4120	PickStep	parser choice switch	2	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	4188	AssertStep	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	4200	AssertStep	parser action code from tla+.jj	3	1	3	true	} else if (getToken(1).kind == ASSUME || getToken(1).kind == BOXASSUME) {
+tla2sany/parser/TLAplusParser.java	4215	ParenthesesExpression	parser choice switch	2	2	6	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	4243	OpenExpression	parser choice switch	1	1	8	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	4429	OpOrExpr	parser LOOKAHEAD decision	1	0	4	true	if (jj_2_38(2) && (junctionListCtx.isAboveCurrent( getToken(1).beginColumn))) {
+tla2sany/parser/TLAplusParser.java	4430	OpOrExpr	parser choice switch	2	2	4	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	4609	OpOrExpr	parser action code from tla+.jj	1	0	2	true	|| (tn.image == UniqueString.uniqueStringOf("\\times"))){
+tla2sany/parser/TLAplusParser.java	4631	OpOrExpr	parser LOOKAHEAD decision	1	0	4	true	} else if (jj_2_39(2147483647) && (junctionListCtx.isAboveCurrent( getToken(1).beginColumn))) {
+tla2sany/parser/TLAplusParser.java	4640	OpOrExpr	parser LOOKAHEAD decision	1	1	1	true	} else if (jj_2_40(1)) {
+tla2sany/parser/TLAplusParser.java	4675	SomeQuant	parser choice switch	2	2	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	4694	SomeQuant	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	4708	SomeQuant	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	4749	SomeTQuant	parser choice switch	2	2	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	4766	SomeTQuant	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	4802	QuantBound	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	4847	BraceCases	parser choice switch	2	2	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	4895	BraceCases	parser choice switch	2	2	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	4911	BraceCases	parser action code from tla+.jj	1	0	2	true	if (htn != null) {
+tla2sany/parser/TLAplusParser.java	4917	BraceCases	parser choice switch	2	0	4	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	4979	BraceCases	parser LOOKAHEAD decision	1	1	1	true	} else if (jj_2_44(1)) {
+tla2sany/parser/TLAplusParser.java	4985	BraceCases	parser choice switch	2	2	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	4999	BraceCases	parser action code from tla+.jj	1	0	2	true	if (Hone.length>1) { // better make sure it's long enough.
+tla2sany/parser/TLAplusParser.java	5001	BraceCases	parser action code from tla+.jj	1	0	4	true	if ( tn.isKind( N_InfixExpr ) && Hone[1].getImage().equals("\\in") ) {
+tla2sany/parser/TLAplusParser.java	5122	SBracketCases	parser action code from tla+.jj	3	0	4	true	} else if ((getToken(2).kind == MAPTO) && isFieldNameToken( getToken(1))) {
+tla2sany/parser/TLAplusParser.java	5129	SBracketCases	parser choice switch	4	0	4	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	5166	SBracketCases	parser LOOKAHEAD decision	1	1	1	true	} else if (jj_2_48(1)) {
+tla2sany/parser/TLAplusParser.java	5244	SBracketCases	parser action code from tla+.jj	1	1	1	true	Assert.check(kind !=0, EC.SANY_PARSER_CHECK_3);
+tla2sany/parser/TLAplusParser.java	5286	ExceptSpec	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	5311	ExceptComponent	parser choice switch	1	0	5	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	5322	ExceptComponent	parser action code from tla+.jj	1	0	2	true	if (tn.getUS().equals(At) ) {
+tla2sany/parser/TLAplusParser.java	5420	NoOpExtension	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	5461	ReducedExpression	parser choice switch	4	1	7	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	5497	FairnessExpr	parser choice switch	2	2	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	5530	FairnessExpr	parser action code from tla+.jj	2	1	3	true	if ( parameters != null && parameters.length == 3) { // was FairnessHook
+tla2sany/parser/TLAplusParser.java	5546	FairnessExpr	parser action code from tla+.jj	1	1	3	true	if ( zn[1].isKind( N_GeneralId ) &&  FairnessHook != null ) {
+tla2sany/parser/TLAplusParser.java	5551	FairnessExpr	parser action code from tla+.jj	19	3	19	true	} else if ( ! (zn[1].isKind( N_Tuple )|| zn[1].isKind( N_ParenExpr ) || zn[1].isKind( N_SetEnumerate )|| zn[1].isKind( N_SubsetOf )|| zn[1].isKind( N_SetOfAll )|| zn[1].isKind( N_SetOfFcns )|| zn[1].isKind( N_RcdConstructor )|| zn[1].isKind( N_SetOfRcds )|| zn[1].isKind( N_Except )|| zn[1].isKind( N_FcnConst )|| zn[1].isKind( N_ActionExpr )) ){
+tla2sany/parser/TLAplusParser.java	5666	LetDefinitions	parser choice switch	1	0	5	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	5709	Junctions	parser LOOKAHEAD decision	1	1	1	true	} else if (jj_2_53(2147483647)) {
+tla2sany/parser/TLAplusParser.java	5759	JuncItem	parser choice switch	1	1	4	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	5793	UnboundOrBoundChoose	parser choice switch	1	1	4	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	5834	Lambda	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	5873	Expression	parser choice switch	1	1	4	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	6067	Expression	parser LOOKAHEAD decision	1	0	4	true	if (jj_2_55(2147483647) && (junctionListCtx.isAboveCurrent( getToken(1).beginColumn))) {
+tla2sany/parser/TLAplusParser.java	6070	Expression	parser action code from tla+.jj	1	1	1	true	} else if (junctionListCtx.isAboveCurrent( getToken(1).beginColumn)) {
+tla2sany/parser/TLAplusParser.java	6078	Expression	parser action code from tla+.jj	1	1	1	true	if (tn==null) {
+tla2sany/parser/TLAplusParser.java	6093	ExtendableExpr	parser LOOKAHEAD decision	1	1	3	true	if (jj_2_56(2147483647) && (OperatorStack.preInEmptyTop())) {
+tla2sany/parser/TLAplusParser.java	6112	ExtendableExpr	parser LOOKAHEAD decision	1	1	1	true	if (jj_2_57(1)) {
+tla2sany/parser/TLAplusParser.java	6131	ExtendableExpr	parser LOOKAHEAD decision	1	1	3	true	if (jj_2_59(2147483647) && (junctionListCtx.isAboveCurrent( getToken(1).beginColumn))) {
+tla2sany/parser/TLAplusParser.java	6139	ExtendableExpr	parser action code from tla+.jj	1	1	1	true	if (OperatorStack.size() != 1) {OperatorStack.reduceStack();} ;
+tla2sany/parser/TLAplusParser.java	6140	ExtendableExpr	parser LOOKAHEAD decision	1	1	3	true	} else if (jj_2_60(2147483647) && (junctionListCtx.isAboveCurrent( getToken(1).beginColumn))) {
+tla2sany/parser/TLAplusParser.java	6144	ExtendableExpr	parser action code from tla+.jj	1	1	1	true	if (junctionListCtx.isAboveCurrent( getToken(1).beginColumn)) {
+tla2sany/parser/TLAplusParser.java	6152	ExtendableExpr	parser LOOKAHEAD decision	2	2	2	true	} else if (jj_2_61(2147483647) && (junctionListCtx.isAboveCurrent( getToken(1).beginColumn))) {
+tla2sany/parser/TLAplusParser.java	6155	ExtendableExpr	parser action code from tla+.jj	1	0	2	true	if ( isGenOp( tn ) ) {
+tla2sany/parser/TLAplusParser.java	6165	ExtendableExpr	parser action code from tla+.jj	1	1	1	true	if (OperatorStack.size() != 1) {OperatorStack.reduceStack();} ;
+tla2sany/parser/TLAplusParser.java	6174	ExtendableExpr	parser LOOKAHEAD decision	1	1	3	true	if (jj_2_64(2147483647) && (junctionListCtx.isAboveCurrent( getToken(1).beginColumn))) {
+tla2sany/parser/TLAplusParser.java	6181	ExtendableExpr	parser action code from tla+.jj	1	1	1	true	if (OperatorStack.size() != 1) {OperatorStack.reduceStack();} ;
+tla2sany/parser/TLAplusParser.java	6184	ExtendableExpr	parser LOOKAHEAD decision	1	0	4	true	if (jj_2_62(2147483647) && (junctionListCtx.isAboveCurrent( getToken(1).beginColumn))) {
+tla2sany/parser/TLAplusParser.java	6189	ExtendableExpr	parser choice switch	2	2	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	6376	ExtendableExpr	parser action code from tla+.jj	1	1	1	true	if (OperatorStack.size() != 1) {OperatorStack.reduceStack();} ;
+tla2sany/parser/TLAplusParser.java	6383	ExtendableExpr	parser LOOKAHEAD decision	1	0	4	true	if (jj_2_63(2147483647) && (junctionListCtx.isAboveCurrent( getToken(1).beginColumn))) {
+tla2sany/parser/TLAplusParser.java	6386	ExtendableExpr	parser action code from tla+.jj	1	1	1	true	} else if (junctionListCtx.isAboveCurrent( getToken(1).beginColumn)) {
+tla2sany/parser/TLAplusParser.java	6392	ExtendableExpr	parser LOOKAHEAD decision	2	2	2	true	} else if (jj_2_65(2147483647) && (junctionListCtx.isAboveCurrent( getToken(1).beginColumn))) {
+tla2sany/parser/TLAplusParser.java	6396	ExtendableExpr	parser action code from tla+.jj	1	0	2	true	if (! isLabel(tn0)) {
+tla2sany/parser/TLAplusParser.java	6433	PrimitiveExp	parser LOOKAHEAD decision	1	1	3	true	if (jj_2_69(2147483647) && (junctionListCtx.isAboveCurrent( getToken(1).beginColumn))) {
+tla2sany/parser/TLAplusParser.java	6435	PrimitiveExp	parser LOOKAHEAD decision	1	1	3	true	} else if (jj_2_70(2147483647) && (junctionListCtx.isAboveCurrent( getToken(1).beginColumn))) {
+tla2sany/parser/TLAplusParser.java	6438	PrimitiveExp	parser choice switch	2	2	2	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	6618	PrimitiveExp	parser choice switch	1	1	6	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	6624	PrimitiveExp	parser choice switch	2	2	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	6642	PrimitiveExp	parser action code from tla+.jj	1	0	2	true	if (t.image.substring(1,2).equals("+")) {
+tla2sany/parser/TLAplusParser.java	6822	PrimitiveExp	parser LOOKAHEAD decision	1	1	1	true	if (jj_2_67(2147483647)) {
+tla2sany/parser/TLAplusParser.java	6836	PrimitiveExp	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	6963	BangExt	parser LOOKAHEAD decision	1	1	3	true	if (jj_2_71(2147483647) && (!getToken(1).image.equals("@"))) {
+tla2sany/parser/TLAplusParser.java	6966	BangExt	parser choice switch	2	2	4	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	7163	BangExt	parser choice switch	1	1	3	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	7170	BangExt	parser LOOKAHEAD decision	1	1	1	true	if (jj_2_74(1)) {
+tla2sany/parser/TLAplusParser.java	7191	StructOp	parser choice switch	1	1	6	true	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	7206	StructOp	parser action code from tla+.jj	1	1	1	true	if (getToken(1).image.equals("@")) {
+tla2sany/parser/TLAplusParser.java	7215	StructOp	parser action code from tla+.jj	1	0	2	true	else { if (tn.getKind() == N_Real) {
+tla2sany/parser/TLAplusParser.java	7227	OpenStart	parser choice switch	11	11	0	false	switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+tla2sany/parser/TLAplusParser.java	7261	jj_2_1	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_1(); }
+tla2sany/parser/TLAplusParser.java	7268	jj_2_2	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_2(); }
+tla2sany/parser/TLAplusParser.java	7275	jj_2_3	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_3(); }
+tla2sany/parser/TLAplusParser.java	7282	jj_2_4	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_4(); }
+tla2sany/parser/TLAplusParser.java	7289	jj_2_5	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_5(); }
+tla2sany/parser/TLAplusParser.java	7296	jj_2_6	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_6(); }
+tla2sany/parser/TLAplusParser.java	7303	jj_2_7	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_7(); }
+tla2sany/parser/TLAplusParser.java	7338	jj_2_12	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_12(); }
+tla2sany/parser/TLAplusParser.java	7345	jj_2_13	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_13(); }
+tla2sany/parser/TLAplusParser.java	7352	jj_2_14	parser lookahead scaffolding jj_2	2	1	1	true	try { return !jj_3_14(); }
+tla2sany/parser/TLAplusParser.java	7359	jj_2_15	parser lookahead scaffolding jj_2	2	1	1	true	try { return !jj_3_15(); }
+tla2sany/parser/TLAplusParser.java	7366	jj_2_16	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_16(); }
+tla2sany/parser/TLAplusParser.java	7380	jj_2_18	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_18(); }
+tla2sany/parser/TLAplusParser.java	7387	jj_2_19	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_19(); }
+tla2sany/parser/TLAplusParser.java	7394	jj_2_20	parser lookahead scaffolding jj_2	2	1	1	true	try { return !jj_3_20(); }
+tla2sany/parser/TLAplusParser.java	7401	jj_2_21	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_21(); }
+tla2sany/parser/TLAplusParser.java	7408	jj_2_22	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_22(); }
+tla2sany/parser/TLAplusParser.java	7415	jj_2_23	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_23(); }
+tla2sany/parser/TLAplusParser.java	7436	jj_2_26	parser lookahead scaffolding jj_2	2	1	1	true	try { return !jj_3_26(); }
+tla2sany/parser/TLAplusParser.java	7443	jj_2_27	parser lookahead scaffolding jj_2	2	2	0	true	try { return !jj_3_27(); }
+tla2sany/parser/TLAplusParser.java	7450	jj_2_28	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_28(); }
+tla2sany/parser/TLAplusParser.java	7457	jj_2_29	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_29(); }
+tla2sany/parser/TLAplusParser.java	7464	jj_2_30	parser lookahead scaffolding jj_2	2	1	1	true	try { return !jj_3_30(); }
+tla2sany/parser/TLAplusParser.java	7471	jj_2_31	parser lookahead scaffolding jj_2	2	1	1	true	try { return !jj_3_31(); }
+tla2sany/parser/TLAplusParser.java	7478	jj_2_32	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_32(); }
+tla2sany/parser/TLAplusParser.java	7485	jj_2_33	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_33(); }
+tla2sany/parser/TLAplusParser.java	7506	jj_2_36	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_36(); }
+tla2sany/parser/TLAplusParser.java	7513	jj_2_37	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_37(); }
+tla2sany/parser/TLAplusParser.java	7520	jj_2_38	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_38(); }
+tla2sany/parser/TLAplusParser.java	7534	jj_2_40	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_40(); }
+tla2sany/parser/TLAplusParser.java	7562	jj_2_44	parser lookahead scaffolding jj_2	2	2	0	true	try { return !jj_3_44(); }
+tla2sany/parser/TLAplusParser.java	7569	jj_2_45	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_45(); }
+tla2sany/parser/TLAplusParser.java	7590	jj_2_48	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_48(); }
+tla2sany/parser/TLAplusParser.java	7597	jj_2_49	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_49(); }
+tla2sany/parser/TLAplusParser.java	7604	jj_2_50	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_50(); }
+tla2sany/parser/TLAplusParser.java	7611	jj_2_51	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_51(); }
+tla2sany/parser/TLAplusParser.java	7625	jj_2_53	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_53(); }
+tla2sany/parser/TLAplusParser.java	7653	jj_2_57	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_57(); }
+tla2sany/parser/TLAplusParser.java	7660	jj_2_58	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_58(); }
+tla2sany/parser/TLAplusParser.java	7681	jj_2_61	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_61(); }
+tla2sany/parser/TLAplusParser.java	7709	jj_2_65	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_65(); }
+tla2sany/parser/TLAplusParser.java	7716	jj_2_66	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_66(); }
+tla2sany/parser/TLAplusParser.java	7723	jj_2_67	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_67(); }
+tla2sany/parser/TLAplusParser.java	7730	jj_2_68	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_68(); }
+tla2sany/parser/TLAplusParser.java	7758	jj_2_72	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_72(); }
+tla2sany/parser/TLAplusParser.java	7765	jj_2_73	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_73(); }
+tla2sany/parser/TLAplusParser.java	7772	jj_2_74	parser lookahead scaffolding jj_2	1	1	1	true	try { return !jj_3_74(); }
+tla2sany/parser/TLAplusParser.java	7778	jj_3R_210	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_215()) return true;
+tla2sany/parser/TLAplusParser.java	7784	jj_3R_92	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_145()) return true;
+tla2sany/parser/TLAplusParser.java	7789	jj_3R_181	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_192()) return true;
+tla2sany/parser/TLAplusParser.java	7794	jj_3R_209	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_215()) return true;
+tla2sany/parser/TLAplusParser.java	7799	jj_3R_184	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_195()) return true;
+tla2sany/parser/TLAplusParser.java	7804	jj_3R_206	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_150()) return true;
+tla2sany/parser/TLAplusParser.java	7809	jj_3R_203	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_210()) return true;
+tla2sany/parser/TLAplusParser.java	7814	jj_3R_202	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_209()) return true;
+tla2sany/parser/TLAplusParser.java	7820	jj_3_37	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(NUMBER_LITERAL)) return true;
+tla2sany/parser/TLAplusParser.java	7827	jj_3R_196	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_202()) {
+tla2sany/parser/TLAplusParser.java	7829	jj_3R_196	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_203()) return true;
+tla2sany/parser/TLAplusParser.java	7835	jj_3R_171	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(NUMBER_LITERAL)) return true;
+tla2sany/parser/TLAplusParser.java	7838	jj_3R_171	parser lookahead routine jj_3R	2	1	1	true	if (jj_3_37()) jj_scanpos = xsp;
+tla2sany/parser/TLAplusParser.java	7843	jj_3R_180	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_191()) return true;
+tla2sany/parser/TLAplusParser.java	7848	jj_3R_208	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_214()) return true;
+tla2sany/parser/TLAplusParser.java	7853	jj_3R_183	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_194()) return true;
+tla2sany/parser/TLAplusParser.java	7858	jj_3R_228	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_112()) return true;
+tla2sany/parser/TLAplusParser.java	7863	jj_3R_227	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_57()) return true;
+tla2sany/parser/TLAplusParser.java	7870	jj_3R_223	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_227()) {
+tla2sany/parser/TLAplusParser.java	7872	jj_3R_223	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_228()) return true;
+tla2sany/parser/TLAplusParser.java	7878	jj_3R_205	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_212()) return true;
+tla2sany/parser/TLAplusParser.java	7889	jj_3R_219	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_223()) return true;
+tla2sany/parser/TLAplusParser.java	7892	jj_3R_219	parser lookahead routine jj_3R	2	2	0	true	if (jj_3R_223()) { jj_scanpos = xsp; break; }
+tla2sany/parser/TLAplusParser.java	7902	jj_3_13	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(DEF)) return true;
+tla2sany/parser/TLAplusParser.java	7914	jj_3R_59	parser lookahead routine jj_3R	1	1	1	true	if (jj_3_13()) jj_scanpos = xsp;
+tla2sany/parser/TLAplusParser.java	7915	jj_3R_59	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_61()) return true;
+tla2sany/parser/TLAplusParser.java	7920	jj_3R_182	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_193()) return true;
+tla2sany/parser/TLAplusParser.java	7925	jj_3R_179	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_190()) return true;
+tla2sany/parser/TLAplusParser.java	7932	jj_3R_164	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_179()) {
+tla2sany/parser/TLAplusParser.java	7934	jj_3R_164	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_180()) {
+tla2sany/parser/TLAplusParser.java	7936	jj_3R_164	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_181()) {
+tla2sany/parser/TLAplusParser.java	7938	jj_3R_164	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_182()) {
+tla2sany/parser/TLAplusParser.java	7940	jj_3R_164	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_183()) {
+tla2sany/parser/TLAplusParser.java	7942	jj_3R_164	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_184()) return true;
+tla2sany/parser/TLAplusParser.java	7952	jj_3R_194	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(LET)) return true;
+tla2sany/parser/TLAplusParser.java	7953	jj_3R_194	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_219()) return true;
+tla2sany/parser/TLAplusParser.java	7958	jj_3R_207	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_213()) return true;
+tla2sany/parser/TLAplusParser.java	7963	jj_3R_204	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_211()) return true;
+tla2sany/parser/TLAplusParser.java	7970	jj_3R_197	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_204()) {
+tla2sany/parser/TLAplusParser.java	7972	jj_3R_197	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_205()) {
+tla2sany/parser/TLAplusParser.java	7974	jj_3R_197	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_206()) {
+tla2sany/parser/TLAplusParser.java	7976	jj_3R_197	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_207()) {
+tla2sany/parser/TLAplusParser.java	7978	jj_3R_197	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_208()) return true;
+tla2sany/parser/TLAplusParser.java	7992	jj_3R_139	parser lookahead routine jj_3R	2	2	0	false	if (jj_3R_76()) return true;
+tla2sany/parser/TLAplusParser.java	8002	jj_3_36	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_61()) return true;
+tla2sany/parser/TLAplusParser.java	8007	jj_3R_138	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(SUFFICES)) return true;
+tla2sany/parser/TLAplusParser.java	8501	jj_3R_80	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_138()) jj_scanpos = xsp;
+tla2sany/parser/TLAplusParser.java	8503	jj_3R_80	parser lookahead routine jj_3R	1	1	1	true	if (jj_3_36()) {
+tla2sany/parser/TLAplusParser.java	8506	jj_3R_80	parser lookahead routine jj_3R	1	0	4	true	jj_semLA = getToken(1).kind == ASSUME || getToken(1).kind == BOXASSUME;
+tla2sany/parser/TLAplusParser.java	8508	jj_3R_80	parser lookahead routine jj_3R	3	3	1	true	if (!jj_semLA || jj_3R_139()) return true;
+tla2sany/parser/TLAplusParser.java	8519	jj_3R_218	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_61()) return true;
+tla2sany/parser/TLAplusParser.java	8571	jj_3R_193	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(CASE)) return true;
+tla2sany/parser/TLAplusParser.java	8572	jj_3R_193	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_218()) return true;
+tla2sany/parser/TLAplusParser.java	8578	jj_3R_82	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(IDENTIFIER)) return true;
+tla2sany/parser/TLAplusParser.java	8583	jj_3R_129	parser lookahead routine jj_3R	1	0	2	true	if (jj_3R_99()) return true;
+tla2sany/parser/TLAplusParser.java	8632	jj_3R_192	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(IF)) return true;
+tla2sany/parser/TLAplusParser.java	8633	jj_3R_192	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_61()) return true;
+tla2sany/parser/TLAplusParser.java	8662	jj_3R_64	parser lookahead routine jj_3R	1	0	2	true	if (jj_3R_129()) return true;
+tla2sany/parser/TLAplusParser.java	8666	jj_3R_64	parser lookahead routine jj_3R	2	1	1	true	if (jj_scan_token(SUBSTITUTE)) return true;
+tla2sany/parser/TLAplusParser.java	8671	jj_3_12	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(COMMA)) return true;
+tla2sany/parser/TLAplusParser.java	8672	jj_3_12	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_64()) return true;
+tla2sany/parser/TLAplusParser.java	8678	jj_3R_122	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_65()) return true;
+tla2sany/parser/TLAplusParser.java	8684	jj_3R_140	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(IDENTIFIER)) return true;
+tla2sany/parser/TLAplusParser.java	8690	jj_3_51	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_61()) return true;
+tla2sany/parser/TLAplusParser.java	8702	jj_3R_214	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(86)) {
+tla2sany/parser/TLAplusParser.java	8704	jj_3R_214	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(59)) return true;
+tla2sany/parser/TLAplusParser.java	8706	jj_3R_214	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_235()) return true;
+tla2sany/parser/TLAplusParser.java	8714	jj_3R_58	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_122()) return true;
+tla2sany/parser/TLAplusParser.java	8740	jj_3R_243	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_213()) return true;
+tla2sany/parser/TLAplusParser.java	8745	jj_3R_242	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_150()) return true;
+tla2sany/parser/TLAplusParser.java	8750	jj_3R_241	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_212()) return true;
+tla2sany/parser/TLAplusParser.java	8755	jj_3R_240	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_211()) return true;
+tla2sany/parser/TLAplusParser.java	8760	jj_3R_239	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_244()) return true;
+tla2sany/parser/TLAplusParser.java	8767	jj_3R_235	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_239()) {
+tla2sany/parser/TLAplusParser.java	8769	jj_3R_235	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_240()) {
+tla2sany/parser/TLAplusParser.java	8771	jj_3R_235	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_241()) {
+tla2sany/parser/TLAplusParser.java	8773	jj_3R_235	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_242()) {
+tla2sany/parser/TLAplusParser.java	8775	jj_3R_235	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_243()) return true;
+tla2sany/parser/TLAplusParser.java	8784	jj_3R_167	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(US)) return true;
+tla2sany/parser/TLAplusParser.java	8789	jj_3R_166	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_151()) return true;
+tla2sany/parser/TLAplusParser.java	8796	jj_3R_131	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_166()) {
+tla2sany/parser/TLAplusParser.java	8798	jj_3R_131	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_167()) return true;
+tla2sany/parser/TLAplusParser.java	8804	jj_3R_130	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(LBR)) return true;
+tla2sany/parser/TLAplusParser.java	8809	jj_3_33	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_57()) return true;
+tla2sany/parser/TLAplusParser.java	8814	jj_3_50	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_92()) return true;
+tla2sany/parser/TLAplusParser.java	8822	jj_3R_66	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_130()) jj_scanpos = xsp;
+tla2sany/parser/TLAplusParser.java	8827	jj_3R_244	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_65()) return true;
+tla2sany/parser/TLAplusParser.java	8832	jj_3R_158	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_65()) return true;
+tla2sany/parser/TLAplusParser.java	8837	jj_3R_234	parser lookahead routine jj_3R	2	1	1	true	if (jj_scan_token(ARAB)) return true;
+tla2sany/parser/TLAplusParser.java	8842	jj_3R_233	parser lookahead routine jj_3R	2	1	1	true	if (jj_scan_token(RAB)) return true;
+tla2sany/parser/TLAplusParser.java	8847	jj_3_49	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_61()) return true;
+tla2sany/parser/TLAplusParser.java	8852	jj_3R_213	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(LAB)) return true;
+tla2sany/parser/TLAplusParser.java	8855	jj_3R_213	parser lookahead routine jj_3R	2	1	1	true	if (jj_3_49()) jj_scanpos = xsp;
+tla2sany/parser/TLAplusParser.java	8857	jj_3R_213	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_233()) {
+tla2sany/parser/TLAplusParser.java	8859	jj_3R_213	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_234()) return true;
+tla2sany/parser/TLAplusParser.java	8865	jj_3R_159	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_65()) return true;
+tla2sany/parser/TLAplusParser.java	8870	jj_3_32	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_80()) return true;
+tla2sany/parser/TLAplusParser.java	8875	jj_3R_161	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_141()) return true;
+tla2sany/parser/TLAplusParser.java	8880	jj_3R_152	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_171()) return true;
+tla2sany/parser/TLAplusParser.java	8885	jj_3R_160	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_65()) return true;
+tla2sany/parser/TLAplusParser.java	8924	jj_3R_136	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_137()) return true;
+tla2sany/parser/TLAplusParser.java	8950	jj_3R_109	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(102)) {
+tla2sany/parser/TLAplusParser.java	8952	jj_3R_109	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(104)) {
+tla2sany/parser/TLAplusParser.java	8954	jj_3R_109	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(89)) {
+tla2sany/parser/TLAplusParser.java	8956	jj_3R_109	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_152()) {
+tla2sany/parser/TLAplusParser.java	8961	jj_3R_109	parser lookahead routine jj_3R	3	3	1	true	if (!jj_semLA || jj_scan_token(289)) return true;
+tla2sany/parser/TLAplusParser.java	8970	jj_3R_238	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_65()) return true;
+tla2sany/parser/TLAplusParser.java	8975	jj_3_74	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_109()) return true;
+tla2sany/parser/TLAplusParser.java	8985	jj_3_11	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(93)) return true;
+tla2sany/parser/TLAplusParser.java	8991	jj_3_72	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_92()) return true;
+tla2sany/parser/TLAplusParser.java	9001	jj_3R_108	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_99()) return true;
+tla2sany/parser/TLAplusParser.java	9006	jj_3_7	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_61()) return true;
+tla2sany/parser/TLAplusParser.java	9011	jj_3R_120	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_161()) return true;
+tla2sany/parser/TLAplusParser.java	9016	jj_3R_237	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_65()) return true;
+tla2sany/parser/TLAplusParser.java	9027	jj_3R_107	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_101()) return true;
+tla2sany/parser/TLAplusParser.java	9032	jj_3R_106	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_151()) return true;
+tla2sany/parser/TLAplusParser.java	9037	jj_3R_105	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_65()) return true;
+tla2sany/parser/TLAplusParser.java	9042	jj_3R_119	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_160()) return true;
+tla2sany/parser/TLAplusParser.java	9052	jj_3_73	parser lookahead routine jj_3R	1	1	3	true	if (!jj_semLA || jj_3R_105()) {
+tla2sany/parser/TLAplusParser.java	9054	jj_3_73	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_106()) {
+tla2sany/parser/TLAplusParser.java	9056	jj_3_73	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_107()) {
+tla2sany/parser/TLAplusParser.java	9058	jj_3_73	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_108()) return true;
+tla2sany/parser/TLAplusParser.java	9072	jj_3R_236	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(BANG)) return true;
+tla2sany/parser/TLAplusParser.java	9077	jj_3R_118	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_159()) return true;
+tla2sany/parser/TLAplusParser.java	9082	jj_3R_117	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_158()) return true;
+tla2sany/parser/TLAplusParser.java	9087	jj_3R_78	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_137()) return true;
+tla2sany/parser/TLAplusParser.java	9104	jj_3_48	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_61()) return true;
+tla2sany/parser/TLAplusParser.java	9109	jj_3R_232	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_238()) return true;
+tla2sany/parser/TLAplusParser.java	9120	jj_3R_116	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_65()) return true;
+tla2sany/parser/TLAplusParser.java	9127	jj_3R_137	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(290)) {
+tla2sany/parser/TLAplusParser.java	9129	jj_3R_137	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(291)) {
+tla2sany/parser/TLAplusParser.java	9131	jj_3R_137	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(292)) {
+tla2sany/parser/TLAplusParser.java	9133	jj_3R_137	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(293)) {
+tla2sany/parser/TLAplusParser.java	9135	jj_3R_137	parser lookahead routine jj_3R	2	1	1	true	if (jj_scan_token(294)) return true;
+tla2sany/parser/TLAplusParser.java	9149	jj_3R_231	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_237()) return true;
+tla2sany/parser/TLAplusParser.java	9159	jj_3R_57	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_116()) {
+tla2sany/parser/TLAplusParser.java	9161	jj_3R_57	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_117()) {
+tla2sany/parser/TLAplusParser.java	9163	jj_3R_57	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_118()) {
+tla2sany/parser/TLAplusParser.java	9165	jj_3R_57	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_119()) {
+tla2sany/parser/TLAplusParser.java	9167	jj_3R_57	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_120()) return true;
+tla2sany/parser/TLAplusParser.java	9176	jj_3R_230	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_237()) return true;
+tla2sany/parser/TLAplusParser.java	9181	jj_3_31	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_61()) return true;
+tla2sany/parser/TLAplusParser.java	9186	jj_3R_229	parser lookahead routine jj_3R	2	2	0	false	if (jj_3R_222()) return true;
+tla2sany/parser/TLAplusParser.java	9191	jj_3_30	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_61()) return true;
+tla2sany/parser/TLAplusParser.java	9196	jj_3R_150	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(LSB)) return true;
+tla2sany/parser/TLAplusParser.java	9202	jj_3R_150	parser lookahead routine jj_3R	4	3	1	true	if (!jj_semLA || jj_3R_229()) {
+tla2sany/parser/TLAplusParser.java	9204	jj_3R_150	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_230()) {
+tla2sany/parser/TLAplusParser.java	9207	jj_3R_150	parser lookahead routine jj_3R	4	0	4	true	jj_semLA = (getToken(2).kind == MAPTO) && isFieldNameToken( getToken(1));
+tla2sany/parser/TLAplusParser.java	9209	jj_3R_150	parser lookahead routine jj_3R	4	1	3	true	if (!jj_semLA || jj_3R_231()) {
+tla2sany/parser/TLAplusParser.java	9211	jj_3R_150	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_232()) {
+tla2sany/parser/TLAplusParser.java	9213	jj_3R_150	parser lookahead routine jj_3R	2	1	1	true	if (jj_3_48()) return true;
+tla2sany/parser/TLAplusParser.java	9222	jj_3_28	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_61()) return true;
+tla2sany/parser/TLAplusParser.java	9227	jj_3_27	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_61()) return true;
+tla2sany/parser/TLAplusParser.java	9232	jj_3R_79	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(MODULE)) return true;
+tla2sany/parser/TLAplusParser.java	9239	jj_3_29	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_79()) {
+tla2sany/parser/TLAplusParser.java	9241	jj_3_29	parser lookahead routine jj_3R	1	1	1	true	if (jj_3_27()) return true;
+tla2sany/parser/TLAplusParser.java	9247	jj_3R_157	parser lookahead routine jj_3R	2	2	0	false	if (jj_scan_token(HIDE)) return true;
+tla2sany/parser/TLAplusParser.java	9252	jj_3R_156	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(USE)) return true;
+tla2sany/parser/TLAplusParser.java	9257	jj_3R_177	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(PROOF)) return true;
+tla2sany/parser/TLAplusParser.java	9264	jj_3R_155	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_177()) jj_scanpos = xsp;
+tla2sany/parser/TLAplusParser.java	9265	jj_3R_155	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(BY)) return true;
+tla2sany/parser/TLAplusParser.java	9272	jj_3R_114	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_155()) {
+tla2sany/parser/TLAplusParser.java	9274	jj_3R_114	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_156()) {
+tla2sany/parser/TLAplusParser.java	9276	jj_3R_114	parser lookahead routine jj_3R	2	2	0	true	if (jj_3R_157()) return true;
+tla2sany/parser/TLAplusParser.java	9300	jj_3_6	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(US)) return true;
+tla2sany/parser/TLAplusParser.java	9305	jj_3_44	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_61()) return true;
+tla2sany/parser/TLAplusParser.java	9315	jj_3_67	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(op_76)) return true;
+tla2sany/parser/TLAplusParser.java	9331	jj_3R_224	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_236()) return true;
+tla2sany/parser/TLAplusParser.java	9336	jj_3R_91	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_61()) return true;
+tla2sany/parser/TLAplusParser.java	9341	jj_3_68	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_92()) return true;
+tla2sany/parser/TLAplusParser.java	9346	jj_3R_176	parser lookahead routine jj_3R	1	0	2	true	if (jj_3R_151()) return true;
+tla2sany/parser/TLAplusParser.java	9351	jj_3R_175	parser lookahead routine jj_3R	1	0	2	true	if (jj_3R_99()) return true;
+tla2sany/parser/TLAplusParser.java	9356	jj_3R_90	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_61()) return true;
+tla2sany/parser/TLAplusParser.java	9361	jj_3R_174	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_101()) return true;
+tla2sany/parser/TLAplusParser.java	9366	jj_3R_77	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_136()) return true;
+tla2sany/parser/TLAplusParser.java	9371	jj_3R_112	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(RECURSIVE)) return true;
+tla2sany/parser/TLAplusParser.java	9383	jj_3_26	parser lookahead routine jj_3R	1	1	1	true	if (jj_3_24()) jj_scanpos = xsp;
+tla2sany/parser/TLAplusParser.java	9386	jj_3_26	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_77()) { jj_scanpos = xsp; break; }
+tla2sany/parser/TLAplusParser.java	9388	jj_3_26	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_78()) return true;
+tla2sany/parser/TLAplusParser.java	9400	jj_3R_173	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(290)) {
+tla2sany/parser/TLAplusParser.java	9402	jj_3R_173	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(291)) return true;
+tla2sany/parser/TLAplusParser.java	9422	jj_3R_149	parser lookahead routine jj_3R	1	0	2	true	if (jj_3R_173()) {
+tla2sany/parser/TLAplusParser.java	9424	jj_3R_149	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_174()) {
+tla2sany/parser/TLAplusParser.java	9426	jj_3R_149	parser lookahead routine jj_3R	1	0	2	true	if (jj_3R_175()) {
+tla2sany/parser/TLAplusParser.java	9428	jj_3R_149	parser lookahead routine jj_3R	1	0	2	true	if (jj_3R_176()) return true;
+tla2sany/parser/TLAplusParser.java	9434	jj_3R_149	parser lookahead routine jj_3R	1	1	1	true	if (jj_3_68()) jj_scanpos = xsp;
+tla2sany/parser/TLAplusParser.java	9437	jj_3R_149	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_224()) { jj_scanpos = xsp; break; }
+tla2sany/parser/TLAplusParser.java	9443	jj_3R_144	parser lookahead routine jj_3R	2	2	0	false	if (jj_3R_65()) return true;
+tla2sany/parser/TLAplusParser.java	9448	jj_3R_148	parser lookahead routine jj_3R	1	0	2	true	if (jj_3R_171()) return true;
+tla2sany/parser/TLAplusParser.java	9453	jj_3R_147	parser lookahead routine jj_3R	1	0	2	true	if (jj_3R_104()) return true;
+tla2sany/parser/TLAplusParser.java	9470	jj_3R_153	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(CONSTANT)) return true;
+tla2sany/parser/TLAplusParser.java	9480	jj_3R_95	parser lookahead routine jj_3R	2	1	3	true	if (!jj_semLA || jj_3R_147()) {
+tla2sany/parser/TLAplusParser.java	9485	jj_3R_95	parser lookahead routine jj_3R	2	1	3	true	if (!jj_semLA || jj_3R_148()) {
+tla2sany/parser/TLAplusParser.java	9494	jj_3R_143	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_142()) return true;
+tla2sany/parser/TLAplusParser.java	9501	jj_3R_89	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_143()) {
+tla2sany/parser/TLAplusParser.java	9503	jj_3R_89	parser lookahead routine jj_3R	2	2	0	true	if (jj_3R_144()) return true;
+tla2sany/parser/TLAplusParser.java	9514	jj_3_45	parser lookahead routine jj_3R	3	3	1	true	if (!jj_semLA || jj_3R_89()) {
+tla2sany/parser/TLAplusParser.java	9516	jj_3_45	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_90()) {
+tla2sany/parser/TLAplusParser.java	9518	jj_3_45	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_91()) {
+tla2sany/parser/TLAplusParser.java	9520	jj_3_45	parser lookahead routine jj_3R	1	1	1	true	if (jj_3_44()) return true;
+tla2sany/parser/TLAplusParser.java	9528	jj_3R_111	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_153()) return true;
+tla2sany/parser/TLAplusParser.java	9533	jj_3R_212	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(LBC)) return true;
+tla2sany/parser/TLAplusParser.java	9536	jj_3R_212	parser lookahead routine jj_3R	2	1	1	true	if (jj_3_45()) jj_scanpos = xsp;
+tla2sany/parser/TLAplusParser.java	9537	jj_3R_212	parser lookahead routine jj_3R	2	1	1	true	if (jj_scan_token(RBC)) return true;
+tla2sany/parser/TLAplusParser.java	9542	jj_3_65	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(COLONCOLON)) return true;
+tla2sany/parser/TLAplusParser.java	9552	jj_3R_103	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(COLONCOLON)) return true;
+tla2sany/parser/TLAplusParser.java	9557	jj_3R_110	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(VARIABLE)) return true;
+tla2sany/parser/TLAplusParser.java	9562	jj_3R_54	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_112()) return true;
+tla2sany/parser/TLAplusParser.java	9567	jj_3R_226	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_65()) return true;
+tla2sany/parser/TLAplusParser.java	9572	jj_3R_56	parser lookahead routine jj_3R	2	2	0	false	if (jj_3R_114()) return true;
+tla2sany/parser/TLAplusParser.java	9592	jj_3R_55	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_113()) return true;
+tla2sany/parser/TLAplusParser.java	9597	jj_3R_225	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_142()) return true;
+tla2sany/parser/TLAplusParser.java	9602	jj_3_5	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_60()) return true;
+tla2sany/parser/TLAplusParser.java	9607	jj_3_4	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_59()) return true;
+tla2sany/parser/TLAplusParser.java	9614	jj_3R_222	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_225()) {
+tla2sany/parser/TLAplusParser.java	9616	jj_3R_222	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_226()) return true;
+tla2sany/parser/TLAplusParser.java	9622	jj_3_3	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_58()) return true;
+tla2sany/parser/TLAplusParser.java	9627	jj_3_2	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_57()) return true;
+tla2sany/parser/TLAplusParser.java	9632	jj_3R_53	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_111()) return true;
+tla2sany/parser/TLAplusParser.java	9637	jj_3R_52	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_110()) return true;
+tla2sany/parser/TLAplusParser.java	9642	jj_3R_51	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(SEPARATOR)) return true;
+tla2sany/parser/TLAplusParser.java	9654	jj_3_1	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_51()) {
+tla2sany/parser/TLAplusParser.java	9656	jj_3_1	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_52()) {
+tla2sany/parser/TLAplusParser.java	9658	jj_3_1	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_53()) {
+tla2sany/parser/TLAplusParser.java	9660	jj_3_1	parser lookahead routine jj_3R	1	1	1	true	if (jj_3_2()) {
+tla2sany/parser/TLAplusParser.java	9662	jj_3_1	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_54()) {
+tla2sany/parser/TLAplusParser.java	9664	jj_3_1	parser lookahead routine jj_3R	1	1	1	true	if (jj_3_3()) {
+tla2sany/parser/TLAplusParser.java	9666	jj_3_1	parser lookahead routine jj_3R	1	1	1	true	if (jj_3_4()) {
+tla2sany/parser/TLAplusParser.java	9668	jj_3_1	parser lookahead routine jj_3R	1	1	1	true	if (jj_3_5()) {
+tla2sany/parser/TLAplusParser.java	9670	jj_3_1	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_55()) {
+tla2sany/parser/TLAplusParser.java	9673	jj_3_1	parser lookahead routine jj_3R	1	0	4	true	jj_semLA = (getToken(1).kind == USE && getToken(2).kind != ONLY)
+tla2sany/parser/TLAplusParser.java	9676	jj_3_1	parser lookahead routine jj_3R	3	3	1	true	if (!jj_semLA || jj_3R_56()) return true;
+tla2sany/parser/TLAplusParser.java	9698	jj_3R_191	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(60)) {
+tla2sany/parser/TLAplusParser.java	9700	jj_3R_191	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(61)) return true;
+tla2sany/parser/TLAplusParser.java	9702	jj_3R_191	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_65()) return true;
+tla2sany/parser/TLAplusParser.java	9707	jj_3R_102	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_101()) return true;
+tla2sany/parser/TLAplusParser.java	9717	jj_3_66	parser lookahead routine jj_3R	1	1	3	true	if (!jj_semLA || jj_3R_102()) {
+tla2sany/parser/TLAplusParser.java	9722	jj_3_66	parser lookahead routine jj_3R	1	1	3	true	if (!jj_semLA || jj_3R_103()) return true;
+tla2sany/parser/TLAplusParser.java	9728	jj_3_23	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_61()) return true;
+tla2sany/parser/TLAplusParser.java	9740	jj_3_22	parser lookahead routine jj_3R	1	0	4	true	jj_semLA = getToken(1).kind == ASSUME || getToken(1).kind == BOXASSUME;
+tla2sany/parser/TLAplusParser.java	9742	jj_3_22	parser lookahead routine jj_3R	1	1	3	true	if (!jj_semLA || jj_3R_75()) return true;
+tla2sany/parser/TLAplusParser.java	9743	jj_3_22	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_76()) return true;
+tla2sany/parser/TLAplusParser.java	9748	jj_3_61	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(LSB)) return true;
+tla2sany/parser/TLAplusParser.java	9764	jj_3R_217	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_222()) return true;
+tla2sany/parser/TLAplusParser.java	9770	jj_3_21	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(DEF)) return true;
+tla2sany/parser/TLAplusParser.java	9780	jj_3R_98	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_150()) return true;
+tla2sany/parser/TLAplusParser.java	9792	jj_3R_60	parser lookahead routine jj_3R	1	1	1	true	if (jj_3_21()) jj_scanpos = xsp;
+tla2sany/parser/TLAplusParser.java	9794	jj_3R_60	parser lookahead routine jj_3R	1	1	1	true	if (jj_3_22()) {
+tla2sany/parser/TLAplusParser.java	9796	jj_3R_60	parser lookahead routine jj_3R	1	1	1	true	if (jj_3_23()) return true;
+tla2sany/parser/TLAplusParser.java	9802	jj_3R_216	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_65()) return true;
+tla2sany/parser/TLAplusParser.java	9809	jj_3R_190	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(47)) {
+tla2sany/parser/TLAplusParser.java	9811	jj_3R_190	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(49)) return true;
+tla2sany/parser/TLAplusParser.java	9814	jj_3R_190	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_216()) {
+tla2sany/parser/TLAplusParser.java	9816	jj_3R_190	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_217()) return true;
+tla2sany/parser/TLAplusParser.java	9827	jj_3R_97	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(DOT)) return true;
+tla2sany/parser/TLAplusParser.java	9832	jj_3R_96	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_99()) return true;
+tla2sany/parser/TLAplusParser.java	9842	jj_3_58	parser lookahead routine jj_3R	1	1	3	true	if (!jj_semLA || jj_3R_96()) {
+tla2sany/parser/TLAplusParser.java	9847	jj_3_58	parser lookahead routine jj_3R	1	1	3	true	if (!jj_semLA || jj_3R_97()) {
+tla2sany/parser/TLAplusParser.java	9852	jj_3_58	parser lookahead routine jj_3R	1	1	3	true	if (!jj_semLA || jj_3R_98()) return true;
+tla2sany/parser/TLAplusParser.java	9869	jj_3R_211	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(LBR)) return true;
+tla2sany/parser/TLAplusParser.java	9870	jj_3R_211	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_61()) return true;
+tla2sany/parser/TLAplusParser.java	9885	jj_3R_186	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_197()) return true;
+tla2sany/parser/TLAplusParser.java	9892	jj_3R_154	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(35)) {
+tla2sany/parser/TLAplusParser.java	9894	jj_3R_154	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(3)) {
+tla2sany/parser/TLAplusParser.java	9896	jj_3R_154	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(21)) return true;
+tla2sany/parser/TLAplusParser.java	9903	jj_3R_145	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_170()) return true;
+tla2sany/parser/TLAplusParser.java	9908	jj_3R_185	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_196()) return true;
+tla2sany/parser/TLAplusParser.java	9913	jj_3R_74	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_131()) return true;
+tla2sany/parser/TLAplusParser.java	9918	jj_3R_73	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_66()) return true;
+tla2sany/parser/TLAplusParser.java	9933	jj_3R_165	parser lookahead routine jj_3R	1	1	3	true	if (!jj_semLA || jj_3R_185()) {
+tla2sany/parser/TLAplusParser.java	9935	jj_3R_165	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_186()) {
+tla2sany/parser/TLAplusParser.java	9942	jj_3R_165	parser lookahead routine jj_3R	1	1	1	true	if (jj_3_58()) { jj_scanpos = xsp; break; }
+tla2sany/parser/TLAplusParser.java	9945	jj_3R_165	parser lookahead routine jj_3R	1	1	1	true	if (jj_3_66()) jj_scanpos = xsp;
+tla2sany/parser/TLAplusParser.java	9960	jj_3_40	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_61()) return true;
+tla2sany/parser/TLAplusParser.java	9977	jj_3_20	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_73()) {
+tla2sany/parser/TLAplusParser.java	9979	jj_3_20	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_74()) return true;
+tla2sany/parser/TLAplusParser.java	9985	jj_3R_113	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_154()) return true;
+tla2sany/parser/TLAplusParser.java	9990	jj_3R_189	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_201()) return true;
+tla2sany/parser/TLAplusParser.java	9995	jj_3R_200	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_99()) return true;
+tla2sany/parser/TLAplusParser.java	10010	jj_3R_70	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_131()) return true;
+tla2sany/parser/TLAplusParser.java	10018	jj_3_19	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(VARIABLE)) return true;
+tla2sany/parser/TLAplusParser.java	10019	jj_3_19	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_65()) return true;
+tla2sany/parser/TLAplusParser.java	10039	jj_3_38	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(88)) {
+tla2sany/parser/TLAplusParser.java	10041	jj_3_38	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(95)) {
+tla2sany/parser/TLAplusParser.java	10043	jj_3_38	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(96)) {
+tla2sany/parser/TLAplusParser.java	10045	jj_3_38	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(54)) {
+tla2sany/parser/TLAplusParser.java	10047	jj_3_38	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(51)) {
+tla2sany/parser/TLAplusParser.java	10049	jj_3_38	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(67)) {
+tla2sany/parser/TLAplusParser.java	10051	jj_3_38	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(39)) {
+tla2sany/parser/TLAplusParser.java	10053	jj_3_38	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(37)) {
+tla2sany/parser/TLAplusParser.java	10055	jj_3_38	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(36)) {
+tla2sany/parser/TLAplusParser.java	10057	jj_3_38	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(35)) {
+tla2sany/parser/TLAplusParser.java	10059	jj_3_38	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(41)) {
+tla2sany/parser/TLAplusParser.java	10061	jj_3_38	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(44)) {
+tla2sany/parser/TLAplusParser.java	10063	jj_3_38	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(85)) {
+tla2sany/parser/TLAplusParser.java	10065	jj_3_38	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(79)) return true;
+tla2sany/parser/TLAplusParser.java	10083	jj_3R_199	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_101()) return true;
+tla2sany/parser/TLAplusParser.java	10088	jj_3R_198	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_151()) return true;
+tla2sany/parser/TLAplusParser.java	10098	jj_3R_67	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(IN)) return true;
+tla2sany/parser/TLAplusParser.java	10103	jj_3R_124	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_164()) return true;
+tla2sany/parser/TLAplusParser.java	10111	jj_3_17	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_67()) jj_scanpos = xsp;
+tla2sany/parser/TLAplusParser.java	10123	jj_3R_188	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_198()) {
+tla2sany/parser/TLAplusParser.java	10125	jj_3R_188	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_199()) {
+tla2sany/parser/TLAplusParser.java	10127	jj_3R_188	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_200()) return true;
+tla2sany/parser/TLAplusParser.java	10159	jj_3R_170	parser lookahead routine jj_3R	2	1	3	true	if (!jj_semLA || jj_3R_188()) {
+tla2sany/parser/TLAplusParser.java	10164	jj_3R_170	parser lookahead routine jj_3R	2	1	3	true	if (!jj_semLA || jj_3R_189()) {
+tla2sany/parser/TLAplusParser.java	10166	jj_3R_170	parser lookahead routine jj_3R	1	1	1	true	if (jj_3_40()) return true;
+tla2sany/parser/TLAplusParser.java	10174	jj_3_16	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(CONSTANT)) return true;
+tla2sany/parser/TLAplusParser.java	10179	jj_3R_163	parser lookahead routine jj_3R	1	0	2	true	if (jj_3R_101()) return true;
+tla2sany/parser/TLAplusParser.java	10207	jj_3_18	parser lookahead routine jj_3R	1	1	1	true	if (jj_3_16()) {
+tla2sany/parser/TLAplusParser.java	10215	jj_3_18	parser lookahead routine jj_3R	1	1	1	true	if (jj_3_17()) {
+tla2sany/parser/TLAplusParser.java	10217	jj_3_18	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_70()) return true;
+tla2sany/parser/TLAplusParser.java	10227	jj_3R_123	parser lookahead routine jj_3R	1	0	2	true	if (jj_3R_163()) return true;
+tla2sany/parser/TLAplusParser.java	10235	jj_3R_168	parser lookahead routine jj_3R	1	1	1	true	if (jj_3_18()) {
+tla2sany/parser/TLAplusParser.java	10237	jj_3R_168	parser lookahead routine jj_3R	1	1	1	true	if (jj_3_19()) {
+tla2sany/parser/TLAplusParser.java	10239	jj_3R_168	parser lookahead routine jj_3R	1	1	1	true	if (jj_3_20()) return true;
+tla2sany/parser/TLAplusParser.java	10255	jj_3R_61	parser lookahead routine jj_3R	2	1	3	true	if (!jj_semLA || jj_3R_124()) {
+tla2sany/parser/TLAplusParser.java	10260	jj_3R_61	parser lookahead routine jj_3R	1	0	4	true	if (!jj_semLA || jj_3R_125()) return true;
+tla2sany/parser/TLAplusParser.java	10266	jj_3R_201	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(LAMBDA)) return true;
+tla2sany/parser/TLAplusParser.java	10271	jj_3_15	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_61()) return true;
+tla2sany/parser/TLAplusParser.java	10276	jj_3R_135	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(COMMA)) return true;
+tla2sany/parser/TLAplusParser.java	10286	jj_3R_134	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_168()) return true;
+tla2sany/parser/TLAplusParser.java	10291	jj_3R_221	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_142()) return true;
+tla2sany/parser/TLAplusParser.java	10296	jj_3R_220	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_65()) return true;
+tla2sany/parser/TLAplusParser.java	10301	jj_3R_195	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(CHOOSE)) return true;
+tla2sany/parser/TLAplusParser.java	10304	jj_3R_195	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_220()) {
+tla2sany/parser/TLAplusParser.java	10306	jj_3R_195	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_221()) return true;
+tla2sany/parser/TLAplusParser.java	10312	jj_3R_133	parser lookahead routine jj_3R	2	1	1	true	if (jj_3R_76()) return true;
+tla2sany/parser/TLAplusParser.java	10319	jj_3R_215	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(132)) {
+tla2sany/parser/TLAplusParser.java	10321	jj_3R_215	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(129)) return true;
+tla2sany/parser/TLAplusParser.java	10323	jj_3R_215	parser lookahead routine jj_3R	2	2	0	true	if (jj_3R_61()) return true;
+tla2sany/parser/TLAplusParser.java	10328	jj_3R_132	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_65()) return true;
+tla2sany/parser/TLAplusParser.java	10329	jj_3R_132	parser lookahead routine jj_3R	2	2	0	true	if (jj_scan_token(COLONCOLON)) return true;
+tla2sany/parser/TLAplusParser.java	10330	jj_3R_132	parser lookahead routine jj_3R	2	2	0	true	if (jj_3R_76()) return true;
+tla2sany/parser/TLAplusParser.java	10337	jj_3R_76	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_132()) jj_scanpos = xsp;
+tla2sany/parser/TLAplusParser.java	10339	jj_3R_76	parser lookahead routine jj_3R	1	0	2	true	if (jj_scan_token(39)) {
+tla2sany/parser/TLAplusParser.java	10341	jj_3R_76	parser lookahead routine jj_3R	2	0	2	true	if (jj_scan_token(40)) return true;
+tla2sany/parser/TLAplusParser.java	10345	jj_3R_76	parser lookahead routine jj_3R	1	0	4	true	jj_semLA = (getToken(1).kind == ASSUME || getToken(1).kind == BOXASSUME)
+tla2sany/parser/TLAplusParser.java	10347	jj_3R_76	parser lookahead routine jj_3R	3	0	4	true	(getToken(3).kind == ASSUME || getToken(3).kind == BOXASSUME)  );
+tla2sany/parser/TLAplusParser.java	10349	jj_3R_76	parser lookahead routine jj_3R	3	1	3	true	if (!jj_semLA || jj_3R_133()) {
+tla2sany/parser/TLAplusParser.java	10351	jj_3R_76	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_134()) {
+tla2sany/parser/TLAplusParser.java	10358	jj_3R_76	parser lookahead routine jj_3R	1	1	1	true	if (jj_3R_135()) { jj_scanpos = xsp; break; }
+tla2sany/parser/TLAplusParser.java	10361	jj_3R_76	parser lookahead routine jj_3R	2	1	1	true	if (jj_scan_token(76)) {
+tla2sany/parser/TLAplusParser.java	10363	jj_3R_76	parser lookahead routine jj_3R	2	1	1	true	if (jj_scan_token(77)) return true;
+tla2sany/parser/TLAplusParser.java	10369	jj_3_53	parser lookahead routine jj_3R	1	1	1	true	if (jj_scan_token(AND)) return true;
+tla2sany/parser/TLAplusParser.java	10466	ReInit	parser scaffolding	2	2	0	false	for (int i = 0; i < 130; i++) jj_la1[i] = -1;
+tla2sany/parser/TLAplusParser.java	10467	ReInit	parser scaffolding	2	2	0	false	for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
+tla2sany/parser/TLAplusParser.java	10476	<init>	parser scaffolding	2	2	0	true	for (int i = 0; i < 130; i++) jj_la1[i] = -1;
+tla2sany/parser/TLAplusParser.java	10477	<init>	parser scaffolding	2	2	0	true	for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
+tla2sany/parser/TLAplusParser.java	10486	ReInit	parser scaffolding	2	2	0	false	for (int i = 0; i < 130; i++) jj_la1[i] = -1;
+tla2sany/parser/TLAplusParser.java	10487	ReInit	parser scaffolding	2	2	0	false	for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
+tla2sany/parser/TLAplusParser.java	10495	<init>	parser scaffolding	2	2	0	true	for (int i = 0; i < 130; i++) jj_la1[i] = -1;
+tla2sany/parser/TLAplusParser.java	10496	<init>	parser scaffolding	2	2	0	true	for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
+tla2sany/parser/TLAplusParser.java	10504	ReInit	parser scaffolding	2	2	0	false	for (int i = 0; i < 130; i++) jj_la1[i] = -1;
+tla2sany/parser/TLAplusParser.java	10505	ReInit	parser scaffolding	2	2	0	false	for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
+tla2sany/parser/TLAplusParser.java	10510	jj_consume_token	parser scaffolding	1	0	2	true	if ((oldToken = token).next != null) token = token.next;
+tla2sany/parser/TLAplusParser.java	10586	jj_add_error_token	parser scaffolding	1	1	1	true	if (pos >= 100) return;
+tla2sany/parser/TLAplusParser.java	10690	jj_rescan_token	parser choice switch	33	16	59	true	switch (i) {
+tla2sany/parser/ParseException.java	98	getMessage	runtime scaffolding: ParseException	1	1	1	true	if (!specialConstructor) {
+tla2sany/parser/ParseException.java	103	getMessage	runtime scaffolding: ParseException	2	2	0	true	for (int i = 0; i < expectedTokenSequences.length; i++) {
+tla2sany/parser/ParseException.java	104	getMessage	runtime scaffolding: ParseException	2	2	0	true	if (maxSize < expectedTokenSequences[i].length) {
+tla2sany/parser/ParseException.java	107	getMessage	runtime scaffolding: ParseException	2	2	0	true	for (int j = 0; j < expectedTokenSequences[i].length; j++) {
+tla2sany/parser/ParseException.java	110	getMessage	runtime scaffolding: ParseException	2	2	0	true	if (expectedTokenSequences[i][expectedTokenSequences[i].length - 1] != 0) {
+tla2sany/parser/ParseException.java	117	getMessage	runtime scaffolding: ParseException	2	2	0	true	for (int i = 0; i < maxSize; i++) {
+tla2sany/parser/ParseException.java	118	getMessage	runtime scaffolding: ParseException	2	2	0	true	if (i != 0) retval += " ";
+tla2sany/parser/ParseException.java	119	getMessage	runtime scaffolding: ParseException	2	2	0	true	if (tok.kind == 0) {
+tla2sany/parser/ParseException.java	128	getMessage	runtime scaffolding: ParseException	2	2	0	true	if (expectedTokenSequences.length == 1) {
+tla2sany/parser/ParseException.java	151	add_escapes	runtime scaffolding: ParseException	6	2	8	true	switch (str.charAt(i))
+tla2sany/parser/ParseException.java	180	add_escapes	runtime scaffolding: ParseException	1	0	4	true	if ((ch = str.charAt(i)) < 0x20 || ch > 0x7e) {
+tla2sany/parser/SimpleCharStream.java	104	FillBuff	runtime scaffolding: SimpleCharStream	1	1	1	true	else if ((tokenBegin - available) < 2048)
+tla2sany/parser/SimpleCharStream.java	152	UpdateLineColumn	runtime scaffolding: SimpleCharStream	1	0	2	true	if (c == '\n')
+tla2sany/parser/SimpleCharStream.java	272	ReInit	runtime scaffolding: SimpleCharStream	4	4	0	false	if (buffer == null || buffersize != buffer.length)
+tla2sany/parser/SimpleCharStream.java	297	<init>	runtime scaffolding: SimpleCharStream	1	1	1	true	this(encoding == null ? new java.io.InputStreamReader(dstream) : new java.io.InputStreamReader(dstream, encoding), startline, startcolumn, buffersize);
+tla2sany/parser/SimpleCharStream.java	331	ReInit	runtime scaffolding: SimpleCharStream	2	2	0	false	ReInit(encoding == null ? new java.io.InputStreamReader(dstream) : new java.io.InputStreamReader(dstream, encoding), startline, startcolumn, buffersize);
+tla2sany/parser/SimpleCharStream.java	399	adjustBeginLineColumn	runtime scaffolding: SimpleCharStream	2	2	0	false	if (bufpos >= tokenBegin)
+tla2sany/parser/SimpleCharStream.java	411	adjustBeginLineColumn	runtime scaffolding: SimpleCharStream	4	4	0	false	while (i < len &&
+tla2sany/parser/SimpleCharStream.java	421	adjustBeginLineColumn	runtime scaffolding: SimpleCharStream	2	2	0	false	if (i < len)
+tla2sany/parser/SimpleCharStream.java	426	adjustBeginLineColumn	runtime scaffolding: SimpleCharStream	2	2	0	false	while (i++ < len)
+tla2sany/parser/SimpleCharStream.java	428	adjustBeginLineColumn	runtime scaffolding: SimpleCharStream	2	2	0	false	if (bufline[j = start % bufsize] != bufline[++start % bufsize])
+tla2sany/parser/TLAplusParserTokenManager.java	21	jjStopStringLiteralDfa_0	lexer DFA, literal tokens	1	1	3	true	switch (pos)
+tla2sany/parser/TLAplusParserTokenManager.java	24	jjStopStringLiteralDfa_0	lexer DFA, literal tokens	1	1	1	true	if ((active0 & 0x4L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	28	jjStopStringLiteralDfa_0	lexer DFA, literal tokens	1	1	1	true	if ((active0 & 0x4L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	32	jjStopStringLiteralDfa_0	lexer DFA, literal tokens	1	1	1	true	if ((active0 & 0x4L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	85	jjMoveStringLiteralDfa2_0	lexer DFA, literal tokens	1	1	1	true	if (((active0 &= old0)) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	103	jjMoveStringLiteralDfa3_0	lexer DFA, literal tokens	1	1	1	true	if (((active0 &= old0)) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	113	jjMoveStringLiteralDfa3_0	lexer DFA, literal tokens	1	1	1	true	if ((active0 & 0x4L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	161	jjMoveNfa_0	lexer NFA, other	1	1	1	true	if (++jjround == 0x7fffffff)
+tla2sany/parser/TLAplusParserTokenManager.java	180	jjMoveNfa_0	lexer NFA, char below 64	1	1	1	true	if (curChar == 45)
+tla2sany/parser/TLAplusParserTokenManager.java	184	jjMoveNfa_0	lexer NFA, char below 64	1	1	1	true	if (curChar == 45)
+tla2sany/parser/TLAplusParserTokenManager.java	188	jjMoveNfa_0	lexer NFA, char below 64	1	1	1	true	if (curChar == 45)
+tla2sany/parser/TLAplusParserTokenManager.java	203	jjMoveNfa_0	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 69)
+tla2sany/parser/TLAplusParserTokenManager.java	207	jjMoveNfa_0	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 76)
+tla2sany/parser/TLAplusParserTokenManager.java	211	jjMoveNfa_0	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 85)
+tla2sany/parser/TLAplusParserTokenManager.java	215	jjMoveNfa_0	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 68)
+tla2sany/parser/TLAplusParserTokenManager.java	219	jjMoveNfa_0	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 79)
+tla2sany/parser/TLAplusParserTokenManager.java	243	jjMoveNfa_0	lexer NFA, non-ASCII	1	0	2	true	} while(i != startsAt);
+tla2sany/parser/TLAplusParserTokenManager.java	298	jjMoveStringLiteralDfa1_4	lexer DFA, literal tokens	1	1	1	true	if ((active0 & 0x80000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	316	jjMoveNfa_4	lexer NFA, non-ASCII	1	1	1	true	if (++jjround == 0x7fffffff)
+tla2sany/parser/TLAplusParserTokenManager.java	330	jjMoveNfa_4	lexer NFA, char below 64	1	0	2	true	if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	338	jjMoveNfa_4	lexer NFA, char below 64	1	1	3	true	if (curChar == 42 && kind > 32)
+tla2sany/parser/TLAplusParserTokenManager.java	345	jjMoveNfa_4	lexer NFA, char below 64	1	0	2	true	else if (curChar < 128)
+tla2sany/parser/TLAplusParserTokenManager.java	369	jjMoveNfa_4	lexer NFA, non-ASCII	2	0	2	true	} while(i != startsAt);
+tla2sany/parser/TLAplusParserTokenManager.java	401	jjMoveNfa_1	lexer NFA, non-ASCII	1	1	1	true	if (++jjround == 0x7fffffff)
+tla2sany/parser/TLAplusParserTokenManager.java	408	jjMoveNfa_1	lexer NFA, char below 64	14	2	30	true	switch(jjstateSet[--i])
+tla2sany/parser/TLAplusParserTokenManager.java	413	jjMoveNfa_1	lexer NFA, char below 64	1	1	1	true	if (kind > 20)
+tla2sany/parser/TLAplusParserTokenManager.java	419	jjMoveNfa_1	lexer NFA, char below 64	1	0	2	true	if (curChar == 48)
+tla2sany/parser/TLAplusParserTokenManager.java	421	jjMoveNfa_1	lexer NFA, char below 64	2	1	1	true	if (kind > 20)
+tla2sany/parser/TLAplusParserTokenManager.java	431	jjMoveNfa_1	lexer NFA, char below 64	1	0	2	true	if (curChar == 32)
+tla2sany/parser/TLAplusParserTokenManager.java	435	jjMoveNfa_1	lexer NFA, char below 64	1	0	2	true	if (curChar == 45)
+tla2sany/parser/TLAplusParserTokenManager.java	439	jjMoveNfa_1	lexer NFA, char below 64	1	0	2	true	if (curChar == 45)
+tla2sany/parser/TLAplusParserTokenManager.java	443	jjMoveNfa_1	lexer NFA, char below 64	2	2	0	true	if (curChar == 45)
+tla2sany/parser/TLAplusParserTokenManager.java	447	jjMoveNfa_1	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	451	jjMoveNfa_1	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	453	jjMoveNfa_1	lexer NFA, char below 64	2	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	459	jjMoveNfa_1	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	461	jjMoveNfa_1	lexer NFA, char below 64	2	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	466	jjMoveNfa_1	lexer NFA, char below 64	2	2	0	true	if ((0x3ff000000000000L & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	468	jjMoveNfa_1	lexer NFA, char below 64	2	2	0	true	if (kind > 20)
+tla2sany/parser/TLAplusParserTokenManager.java	473	jjMoveNfa_1	lexer NFA, char below 64	1	0	2	true	if ((0x3ff000000000000L & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	475	jjMoveNfa_1	lexer NFA, char below 64	2	1	1	true	if (kind > 20)
+tla2sany/parser/TLAplusParserTokenManager.java	480	jjMoveNfa_1	lexer NFA, char below 64	1	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	486	jjMoveNfa_1	lexer NFA, char below 64	2	0	2	true	if (curChar == 47)
+tla2sany/parser/TLAplusParserTokenManager.java	490	jjMoveNfa_1	lexer NFA, char below 64	1	0	2	true	if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	494	jjMoveNfa_1	lexer NFA, char below 64	1	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	498	jjMoveNfa_1	lexer NFA, char below 64	4	1	3	true	if (curChar == 47 && kind > 112)
+tla2sany/parser/TLAplusParserTokenManager.java	502	jjMoveNfa_1	lexer NFA, char below 64	1	0	2	true	if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	506	jjMoveNfa_1	lexer NFA, char below 64	1	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	510	jjMoveNfa_1	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	512	jjMoveNfa_1	lexer NFA, char below 64	2	0	2	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	517	jjMoveNfa_1	lexer NFA, char below 64	1	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	521	jjMoveNfa_1	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	523	jjMoveNfa_1	lexer NFA, char below 64	2	0	2	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	529	jjMoveNfa_1	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	533	jjMoveNfa_1	lexer NFA, char below 64	2	0	2	true	if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	538	jjMoveNfa_1	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	542	jjMoveNfa_1	lexer NFA, char below 64	2	0	2	true	if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	547	jjMoveNfa_1	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	549	jjMoveNfa_1	lexer NFA, char below 64	2	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	558	jjMoveNfa_1	lexer NFA, char below 64	1	0	2	true	if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	566	jjMoveNfa_1	lexer NFA, char below 64	1	0	2	true	if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	572	jjMoveNfa_1	lexer NFA, char below 64	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	580	jjMoveNfa_1	lexer NFA, char below 64	1	0	2	true	else if (curChar < 128)
+tla2sany/parser/TLAplusParserTokenManager.java	585	jjMoveNfa_1	lexer NFA, char 64 to 127	27	6	32	true	switch(jjstateSet[--i])
+tla2sany/parser/TLAplusParserTokenManager.java	588	jjMoveNfa_1	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe0777fffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	590	jjMoveNfa_1	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	594	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	else if ((0x880000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	596	jjMoveNfa_1	lexer NFA, char 64 to 127	2	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	600	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	else if (curChar == 64)
+tla2sany/parser/TLAplusParserTokenManager.java	602	jjMoveNfa_1	lexer NFA, char 64 to 127	2	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	605	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	else if (curChar == 95)
+tla2sany/parser/TLAplusParserTokenManager.java	607	jjMoveNfa_1	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 83)
+tla2sany/parser/TLAplusParserTokenManager.java	609	jjMoveNfa_1	lexer NFA, char 64 to 127	1	0	2	true	else if (curChar == 87)
+tla2sany/parser/TLAplusParserTokenManager.java	613	jjMoveNfa_1	lexer NFA, char 64 to 127	2	1	3	true	if (curChar == 69 && kind > 21)
+tla2sany/parser/TLAplusParserTokenManager.java	617	jjMoveNfa_1	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 76)
+tla2sany/parser/TLAplusParserTokenManager.java	621	jjMoveNfa_1	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 85)
+tla2sany/parser/TLAplusParserTokenManager.java	625	jjMoveNfa_1	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 68)
+tla2sany/parser/TLAplusParserTokenManager.java	629	jjMoveNfa_1	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 79)
+tla2sany/parser/TLAplusParserTokenManager.java	633	jjMoveNfa_1	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 77)
+tla2sany/parser/TLAplusParserTokenManager.java	637	jjMoveNfa_1	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 95)
+tla2sany/parser/TLAplusParserTokenManager.java	641	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe87fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	645	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe07fffffeL & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	647	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	652	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe87fffffeL & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	654	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	659	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if (curChar != 70)
+tla2sany/parser/TLAplusParserTokenManager.java	661	jjMoveNfa_1	lexer NFA, char 64 to 127	2	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	666	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe07fffffeL & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	668	jjMoveNfa_1	lexer NFA, char 64 to 127	2	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	673	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe87fffffeL & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	675	jjMoveNfa_1	lexer NFA, char 64 to 127	2	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	680	jjMoveNfa_1	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 87)
+tla2sany/parser/TLAplusParserTokenManager.java	684	jjMoveNfa_1	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 83)
+tla2sany/parser/TLAplusParserTokenManager.java	688	jjMoveNfa_1	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 64)
+tla2sany/parser/TLAplusParserTokenManager.java	692	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe07fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	696	jjMoveNfa_1	lexer NFA, char 64 to 127	4	1	3	true	if (curChar == 92 && kind > 111)
+tla2sany/parser/TLAplusParserTokenManager.java	700	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe07fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	706	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if (curChar == 92)
+tla2sany/parser/TLAplusParserTokenManager.java	710	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe87fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	714	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe07fffffeL & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	716	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	721	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe87fffffeL & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	723	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	728	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe07fffffeL & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	730	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	735	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe87fffffeL & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	737	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	742	jjMoveNfa_1	lexer NFA, char 64 to 127	2	2	0	true	if ((0x880000L & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	744	jjMoveNfa_1	lexer NFA, char 64 to 127	2	2	0	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	749	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe07ffffbeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	753	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe07fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	757	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe07ffffbeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	761	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe07fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	765	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe87ffffbeL & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	767	jjMoveNfa_1	lexer NFA, char 64 to 127	2	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	772	jjMoveNfa_1	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe87fffffeL & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	774	jjMoveNfa_1	lexer NFA, char 64 to 127	2	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	779	jjMoveNfa_1	lexer NFA, char 64 to 127	2	2	0	true	if ((0x7fffffe0777fffeL & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	781	jjMoveNfa_1	lexer NFA, char 64 to 127	2	2	0	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	786	jjMoveNfa_1	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe07fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	790	jjMoveNfa_1	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe07fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	794	jjMoveNfa_1	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe87fffffeL & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	796	jjMoveNfa_1	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	813	jjMoveNfa_1	lexer NFA, non-ASCII	2	0	2	true	switch(jjstateSet[--i])
+tla2sany/parser/TLAplusParserTokenManager.java	816	jjMoveNfa_1	lexer NFA, non-ASCII	4	1	3	true	if (jjCanMove_0(hiByte, i1, i2, l1, l2) && kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	821	jjMoveNfa_1	lexer NFA, non-ASCII	2	0	2	true	} while(i != startsAt);
+tla2sany/parser/TLAplusParserTokenManager.java	850	jjMoveNfa_5	lexer NFA, non-ASCII	1	1	1	true	if (++jjround == 0x7fffffff)
+tla2sany/parser/TLAplusParserTokenManager.java	857	jjMoveNfa_5	lexer NFA, char below 64	2	2	2	true	switch(jjstateSet[--i])
+tla2sany/parser/TLAplusParserTokenManager.java	862	jjMoveNfa_5	lexer NFA, char below 64	1	1	1	true	if (kind > 33)
+tla2sany/parser/TLAplusParserTokenManager.java	869	jjMoveNfa_5	lexer NFA, char below 64	2	1	3	true	if (curChar == 10 && kind > 33)
+tla2sany/parser/TLAplusParserTokenManager.java	873	jjMoveNfa_5	lexer NFA, char below 64	2	2	0	true	if (curChar == 13)
+tla2sany/parser/TLAplusParserTokenManager.java	878	jjMoveNfa_5	lexer NFA, char below 64	1	1	1	true	} while(i != startsAt);
+tla2sany/parser/TLAplusParserTokenManager.java	889	jjMoveNfa_5	lexer NFA, char 64 to 127	1	1	1	true	} while(i != startsAt);
+tla2sany/parser/TLAplusParserTokenManager.java	904	jjMoveNfa_5	lexer NFA, non-ASCII	1	1	1	true	} while(i != startsAt);
+tla2sany/parser/TLAplusParserTokenManager.java	921	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	4	1	10	true	switch (pos)
+tla2sany/parser/TLAplusParserTokenManager.java	924	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	3	true	if ((active1 & 0x40000000L) != 0L || (active3 & 0x7c0000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	931	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	3	true	if ((active1 & 0x2000000L) != 0L || (active3 & 0x38000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	933	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	2	4	true	if ((active1 & 0x20000100000000L) != 0L || (active2 & 0xc000000000000000L) != 0L || (active3 & 0x3L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	954	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	3	true	if ((active1 & 0x18000000000000L) != 0L || (active2 & 0x3000000000000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	956	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if ((active1 & 0x10000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	968	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	4	4	6	true	if ((active0 & 0x3000000010000000L) != 0L || (active1 & 0x80000000000000L) != 0L || (active2 & 0x1ffffffff7ffe0L) != 0L || (active3 & 0x800000000L) != 0L || (active4 & 0x180000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	972	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	3	true	if ((active0 & 0x10000000000L) != 0L || (active1 & 0x200002000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	981	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	3	true	if ((active0 & 0x50000000000000L) != 0L || (active1 & 0x200L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	988	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	3	true	if ((active0 & 0x4000000000000000L) != 0L || (active1 & 0x408L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	995	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	0	2	true	if ((active2 & 0x100000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	997	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if ((active3 & 0x10000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1003	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if (jjmatchedPos != 1)
+tla2sany/parser/TLAplusParserTokenManager.java	1012	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if (jjmatchedPos != 1)
+tla2sany/parser/TLAplusParserTokenManager.java	1021	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if (jjmatchedPos != 1)
+tla2sany/parser/TLAplusParserTokenManager.java	1030	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if (jjmatchedPos != 1)
+tla2sany/parser/TLAplusParserTokenManager.java	1039	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if (jjmatchedPos != 1)
+tla2sany/parser/TLAplusParserTokenManager.java	1050	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if (jjmatchedPos != 1)
+tla2sany/parser/TLAplusParserTokenManager.java	1061	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if (jjmatchedPos != 1)
+tla2sany/parser/TLAplusParserTokenManager.java	1072	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if (jjmatchedPos != 1)
+tla2sany/parser/TLAplusParserTokenManager.java	1079	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	3	true	if ((active0 & 0x10000000000L) != 0L || (active1 & 0x2000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1081	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if (jjmatchedPos != 1)
+tla2sany/parser/TLAplusParserTokenManager.java	1090	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if (jjmatchedPos != 1)
+tla2sany/parser/TLAplusParserTokenManager.java	1097	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if ((active2 & 0x4000000000000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1099	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if ((active3 & 0x2000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1101	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	2	0	true	if (jjmatchedPos == 0)
+tla2sany/parser/TLAplusParserTokenManager.java	1112	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if (jjmatchedPos != 1)
+tla2sany/parser/TLAplusParserTokenManager.java	1123	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if (jjmatchedPos < 1)
+tla2sany/parser/TLAplusParserTokenManager.java	1136	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	2	2	true	if ((active0 & 0x110000000000000L) != 0L || (active1 & 0x4010L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1144	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if ((active0 & 0x1000000000000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1146	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	2	0	true	if (jjmatchedPos < 1)
+tla2sany/parser/TLAplusParserTokenManager.java	1159	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	0	2	true	if ((active0 & 0x8000000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1171	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if ((active3 & 0x20000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1173	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	2	0	true	if (jjmatchedPos < 1)
+tla2sany/parser/TLAplusParserTokenManager.java	1186	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if ((active0 & 0x2000000000000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1188	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	2	0	true	if (jjmatchedPos < 1)
+tla2sany/parser/TLAplusParserTokenManager.java	1197	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	0	2	true	if ((active2 & 0x100000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1199	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	1	true	if (jjmatchedPos < 2)
+tla2sany/parser/TLAplusParserTokenManager.java	1206	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	0	4	true	if ((active0 & 0x10000000000L) != 0L || (active1 & 0x2000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1208	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	1	true	if (jjmatchedPos < 1)
+tla2sany/parser/TLAplusParserTokenManager.java	1215	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	0	4	true	if ((active0 & 0x2c9480000000000L) != 0L || (active1 & 0xd800000000009b8aL) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1217	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	1	true	if (jjmatchedPos != 3)
+tla2sany/parser/TLAplusParserTokenManager.java	1226	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if (jjmatchedPos != 3)
+tla2sany/parser/TLAplusParserTokenManager.java	1233	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	2	2	true	if ((active0 & 0x4000240000000000L) != 0L || (active1 & 0x40461L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1235	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if ((active1 & 0x800000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1237	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	0	2	true	if ((active0 & 0x8000000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1239	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	1	true	if (jjmatchedPos != 3)
+tla2sany/parser/TLAplusParserTokenManager.java	1248	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	0	2	true	if ((active2 & 0x100000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1250	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	1	true	if (jjmatchedPos < 2)
+tla2sany/parser/TLAplusParserTokenManager.java	1259	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if (jjmatchedPos != 4)
+tla2sany/parser/TLAplusParserTokenManager.java	1266	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	0	2	true	if ((active1 & 0x2000000000180000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1268	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	1	true	if (jjmatchedPos != 4)
+tla2sany/parser/TLAplusParserTokenManager.java	1275	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	0	4	true	if ((active0 & 0x89480000000000L) != 0L || (active1 & 0x980000000000838aL) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1277	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	1	true	if (jjmatchedPos != 4)
+tla2sany/parser/TLAplusParserTokenManager.java	1284	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	0	4	true	if ((active0 & 0x10000000000L) != 0L || (active1 & 0x2000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1286	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	1	true	if (jjmatchedPos < 1)
+tla2sany/parser/TLAplusParserTokenManager.java	1293	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	2	2	true	if ((active0 & 0x240000000000000L) != 0L || (active1 & 0x4000000000001800L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1295	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if ((active1 & 0x10000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1299	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	0	2	true	if ((active2 & 0x100000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1301	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	1	true	if (jjmatchedPos < 2)
+tla2sany/parser/TLAplusParserTokenManager.java	1308	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	4	0	4	true	if ((active0 & 0x9000000000000L) != 0L || (active1 & 0x1800000000008188L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1314	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	4	0	4	true	if ((active0 & 0x10000000000L) != 0L || (active1 & 0x2000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1316	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	1	true	if (jjmatchedPos < 1)
+tla2sany/parser/TLAplusParserTokenManager.java	1323	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	4	2	2	true	if ((active0 & 0x80488000000000L) != 0L || (active1 & 0x8000000000000202L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1325	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	1	true	if ((active1 & 0x2000000000000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1327	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	0	2	true	if ((active1 & 0x180000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1335	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	0	2	true	if ((active2 & 0x100000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1337	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	1	true	if (jjmatchedPos < 2)
+tla2sany/parser/TLAplusParserTokenManager.java	1344	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	3	true	if ((active0 & 0x10000000000L) != 0L || (active1 & 0x2000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1346	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	1	true	if (jjmatchedPos < 1)
+tla2sany/parser/TLAplusParserTokenManager.java	1353	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	0	2	true	if ((active1 & 0x100000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1355	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	1	true	if (jjmatchedPos != 6)
+tla2sany/parser/TLAplusParserTokenManager.java	1362	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	0	4	true	if ((active0 & 0x8000000000000L) != 0L || (active1 & 0x1000000000008000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1364	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	1	true	if (jjmatchedPos != 6)
+tla2sany/parser/TLAplusParserTokenManager.java	1371	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	2	2	true	if ((active0 & 0x1000000000000L) != 0L || (active1 & 0x800000000000188L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1373	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if ((active1 & 0x80000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1377	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	0	2	true	if ((active2 & 0x100000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1379	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	1	true	if (jjmatchedPos < 2)
+tla2sany/parser/TLAplusParserTokenManager.java	1386	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	0	2	true	if ((active1 & 0x1000000000008000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1392	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	1	true	if ((active0 & 0x10000000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1394	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	2	0	true	if (jjmatchedPos < 1)
+tla2sany/parser/TLAplusParserTokenManager.java	1401	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	1	true	if ((active0 & 0x8000000000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1403	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	1	true	if ((active1 & 0x100000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1407	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	0	2	true	if ((active2 & 0x100000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1409	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	1	true	if (jjmatchedPos < 2)
+tla2sany/parser/TLAplusParserTokenManager.java	1416	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	1	1	1	true	if ((active1 & 0x1000000000008000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1420	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	1	1	true	if ((active2 & 0x100000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	1422	jjStopStringLiteralDfa_2	lexer DFA, literal tokens	2	2	0	true	if (jjmatchedPos < 2)
+tla2sany/parser/TLAplusParserTokenManager.java	1916	jjMoveStringLiteralDfa2_2	lexer DFA, literal tokens	1	0	2	true	if ((active1 & 0x100000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2042	jjMoveStringLiteralDfa3_2	lexer DFA, literal tokens	1	0	2	true	if ((active3 & 0x1L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2070	jjMoveStringLiteralDfa3_2	lexer DFA, literal tokens	1	0	2	true	if ((active1 & 0x40000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2090	jjMoveStringLiteralDfa3_2	lexer DFA, literal tokens	1	0	2	true	if ((active1 & 0x1L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2143	jjMoveStringLiteralDfa3_2	lexer DFA, literal tokens	1	0	2	true	if ((active2 & 0x4000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2175	jjMoveStringLiteralDfa4_2	lexer DFA, literal tokens	1	0	2	true	if ((active1 & 0x800L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2219	jjMoveStringLiteralDfa4_2	lexer DFA, literal tokens	1	0	2	true	if ((active2 & 0x400000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2225	jjMoveStringLiteralDfa4_2	lexer DFA, literal tokens	1	0	2	true	if ((active2 & 0x1000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2249	jjMoveStringLiteralDfa4_2	lexer DFA, literal tokens	1	0	2	true	else if ((active2 & 0x8000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2261	jjMoveStringLiteralDfa5_2	lexer DFA, literal tokens	1	0	2	true	if (((active0 &= old0) | (active1 &= old1) | (active2 &= old2) | (active3 &= old3) | (active4 &= old4)) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2268	jjMoveStringLiteralDfa5_2	lexer DFA, literal tokens	1	0	22	true	switch(curChar)
+tla2sany/parser/TLAplusParserTokenManager.java	2271	jjMoveStringLiteralDfa5_2	lexer DFA, literal tokens	1	0	2	true	if ((active1 & 0x200L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2297	jjMoveStringLiteralDfa5_2	lexer DFA, literal tokens	1	0	2	true	else if ((active1 & 0x2000000000000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2313	jjMoveStringLiteralDfa5_2	lexer DFA, literal tokens	1	0	2	true	else if ((active3 & 0x800000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2329	jjMoveStringLiteralDfa5_2	lexer DFA, literal tokens	1	0	2	true	else if ((active2 & 0x1000000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2347	jjMoveStringLiteralDfa5_2	lexer DFA, literal tokens	1	0	2	true	if ((active2 & 0x10000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2357	jjMoveStringLiteralDfa6_2	lexer DFA, literal tokens	1	0	2	true	if (((active0 &= old0) | (active1 &= old1) | (active2 &= old2) | (active3 &= old3) | (active4 &= old4)) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2364	jjMoveStringLiteralDfa6_2	lexer DFA, literal tokens	1	0	15	true	switch(curChar)
+tla2sany/parser/TLAplusParserTokenManager.java	2371	jjMoveStringLiteralDfa6_2	lexer DFA, literal tokens	1	0	2	true	else if ((active1 & 0x800000000000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2375	jjMoveStringLiteralDfa6_2	lexer DFA, literal tokens	1	0	2	true	if ((active1 & 0x2000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2383	jjMoveStringLiteralDfa6_2	lexer DFA, literal tokens	1	0	2	true	if ((active1 & 0x8L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2391	jjMoveStringLiteralDfa6_2	lexer DFA, literal tokens	1	0	2	true	else if ((active1 & 0x80000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2395	jjMoveStringLiteralDfa6_2	lexer DFA, literal tokens	1	0	2	true	if ((active2 & 0x40000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2399	jjMoveStringLiteralDfa6_2	lexer DFA, literal tokens	1	0	2	true	if ((active2 & 0x400000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2405	jjMoveStringLiteralDfa6_2	lexer DFA, literal tokens	1	0	2	true	else if ((active2 & 0x800000000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2424	jjMoveStringLiteralDfa6_2	lexer DFA, literal tokens	1	0	2	true	else if ((active2 & 0x1000000000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2431	jjMoveStringLiteralDfa6_2	lexer DFA, literal tokens	1	0	2	true	if ((active2 & 0x20L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2441	jjMoveStringLiteralDfa7_2	lexer DFA, literal tokens	1	0	2	true	if (((active0 &= old0) | (active1 &= old1) | (active2 &= old2)) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2451	jjMoveStringLiteralDfa7_2	lexer DFA, literal tokens	1	0	2	true	if ((active0 & 0x10000000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2457	jjMoveStringLiteralDfa7_2	lexer DFA, literal tokens	1	0	2	true	if ((active1 & 0x100000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2463	jjMoveStringLiteralDfa7_2	lexer DFA, literal tokens	1	0	2	true	if ((active2 & 0x80L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2475	jjMoveStringLiteralDfa8_2	lexer DFA, literal tokens	1	0	2	true	if (((active0 &= old0) | (active1 &= old1) | (active2 &= old2)) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2482	jjMoveStringLiteralDfa8_2	lexer DFA, literal tokens	1	0	6	true	switch(curChar)
+tla2sany/parser/TLAplusParserTokenManager.java	2485	jjMoveStringLiteralDfa8_2	lexer DFA, literal tokens	1	0	2	true	if ((active1 & 0x1000000000000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2489	jjMoveStringLiteralDfa8_2	lexer DFA, literal tokens	1	0	2	true	if ((active1 & 0x8000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2497	jjMoveStringLiteralDfa8_2	lexer DFA, literal tokens	1	0	2	true	else if ((active2 & 0x2000000000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2506	jjMoveStringLiteralDfa8_2	lexer DFA, literal tokens	1	0	2	true	else if ((active2 & 0x10000000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2519	jjMoveStringLiteralDfa9_2	lexer DFA, literal tokens	1	0	2	true	if (((active1 &= old1) | (active2 &= old2)) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2531	jjMoveStringLiteralDfa9_2	lexer DFA, literal tokens	1	0	2	true	if ((active2 & 0x100000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2541	jjMoveStringLiteralDfa10_2	lexer DFA, literal tokens	1	0	2	true	if (((active2 &= old2)) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2548	jjMoveStringLiteralDfa10_2	lexer DFA, literal tokens	1	0	2	true	switch(curChar)
+tla2sany/parser/TLAplusParserTokenManager.java	2553	jjMoveStringLiteralDfa10_2	lexer DFA, literal tokens	1	1	1	true	else if ((active2 & 0x40000000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2625	jjMoveNfa_2	lexer NFA, non-ASCII	1	1	1	true	if (++jjround == 0x7fffffff)
+tla2sany/parser/TLAplusParserTokenManager.java	2632	jjMoveNfa_2	lexer NFA, char below 64	33	24	85	true	switch(jjstateSet[--i])
+tla2sany/parser/TLAplusParserTokenManager.java	2635	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2637	jjMoveNfa_2	lexer NFA, char below 64	2	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	2641	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2643	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2645	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2647	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2651	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2653	jjMoveNfa_2	lexer NFA, char below 64	2	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	2657	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2659	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2661	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2663	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2669	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	2673	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2677	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2685	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 27)
+tla2sany/parser/TLAplusParserTokenManager.java	2698	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 122)
+tla2sany/parser/TLAplusParserTokenManager.java	2703	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 107)
+tla2sany/parser/TLAplusParserTokenManager.java	2708	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 102)
+tla2sany/parser/TLAplusParserTokenManager.java	2727	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	2743	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	2755	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 109)
+tla2sany/parser/TLAplusParserTokenManager.java	2759	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	else if (curChar == 60)
+tla2sany/parser/TLAplusParserTokenManager.java	2761	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	else if (curChar == 62)
+tla2sany/parser/TLAplusParserTokenManager.java	2763	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	else if (curChar == 61)
+tla2sany/parser/TLAplusParserTokenManager.java	2765	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	else if (curChar == 45)
+tla2sany/parser/TLAplusParserTokenManager.java	2767	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	else if (curChar == 40)
+tla2sany/parser/TLAplusParserTokenManager.java	2769	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	else if (curChar == 47)
+tla2sany/parser/TLAplusParserTokenManager.java	2771	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	else if (curChar == 34)
+tla2sany/parser/TLAplusParserTokenManager.java	2773	jjMoveNfa_2	lexer NFA, char below 64	2	1	1	true	else if (curChar == 58)
+tla2sany/parser/TLAplusParserTokenManager.java	2775	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (curChar == 60)
+tla2sany/parser/TLAplusParserTokenManager.java	2779	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 109)
+tla2sany/parser/TLAplusParserTokenManager.java	2784	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2786	jjMoveNfa_2	lexer NFA, char below 64	2	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	2790	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2792	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2794	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2796	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2807	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 104)
+tla2sany/parser/TLAplusParserTokenManager.java	2814	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2816	jjMoveNfa_2	lexer NFA, char below 64	2	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	2820	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2822	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2824	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2826	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2832	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 93)
+tla2sany/parser/TLAplusParserTokenManager.java	2841	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	2845	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2849	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2857	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	2861	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2865	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2873	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	2887	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2889	jjMoveNfa_2	lexer NFA, char below 64	2	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	2893	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2895	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2897	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2899	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2903	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2905	jjMoveNfa_2	lexer NFA, char below 64	2	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	2909	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2911	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2913	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2915	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2921	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 106)
+tla2sany/parser/TLAplusParserTokenManager.java	2924	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	else if (curChar == 45)
+tla2sany/parser/TLAplusParserTokenManager.java	2926	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (curChar == 45)
+tla2sany/parser/TLAplusParserTokenManager.java	2930	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2932	jjMoveNfa_2	lexer NFA, char below 64	2	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	2936	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2938	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2940	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2942	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	2948	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	2952	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2956	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2962	jjMoveNfa_2	lexer NFA, char below 64	1	1	3	true	if (curChar == 47 && kind > 132)
+tla2sany/parser/TLAplusParserTokenManager.java	2968	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	2972	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2976	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2990	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	2994	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	2998	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	else if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	3006	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3022	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3036	jjMoveNfa_2	lexer NFA, char below 64	3	3	1	true	if (curChar == 58 && kind > 90)
+tla2sany/parser/TLAplusParserTokenManager.java	3040	jjMoveNfa_2	lexer NFA, char below 64	2	2	0	true	if (curChar == 58)
+tla2sany/parser/TLAplusParserTokenManager.java	3044	jjMoveNfa_2	lexer NFA, char below 64	1	1	3	true	if (curChar == 62 && kind > 108)
+tla2sany/parser/TLAplusParserTokenManager.java	3048	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (curChar == 45)
+tla2sany/parser/TLAplusParserTokenManager.java	3052	jjMoveNfa_2	lexer NFA, char below 64	4	4	0	true	if (curChar == 48 && kind > 109)
+tla2sany/parser/TLAplusParserTokenManager.java	3065	jjMoveNfa_2	lexer NFA, char below 64	1	1	3	true	if (curChar == 34 && kind > 110)
+tla2sany/parser/TLAplusParserTokenManager.java	3069	jjMoveNfa_2	lexer NFA, char below 64	1	1	3	true	if (curChar == 43 && kind > 114)
+tla2sany/parser/TLAplusParserTokenManager.java	3073	jjMoveNfa_2	lexer NFA, char below 64	2	2	0	true	if (curChar == 47)
+tla2sany/parser/TLAplusParserTokenManager.java	3079	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3085	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	if ((0x3ff000000000000L & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3087	jjMoveNfa_2	lexer NFA, char below 64	2	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3094	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 109)
+tla2sany/parser/TLAplusParserTokenManager.java	3101	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 109)
+tla2sany/parser/TLAplusParserTokenManager.java	3108	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 109)
+tla2sany/parser/TLAplusParserTokenManager.java	3113	jjMoveNfa_2	lexer NFA, char below 64	2	2	0	true	if (curChar == 40)
+tla2sany/parser/TLAplusParserTokenManager.java	3117	jjMoveNfa_2	lexer NFA, char below 64	3	1	3	true	if (curChar == 46 && kind > 27)
+tla2sany/parser/TLAplusParserTokenManager.java	3121	jjMoveNfa_2	lexer NFA, char below 64	4	4	0	true	if (curChar == 42 && kind > 27)
+tla2sany/parser/TLAplusParserTokenManager.java	3125	jjMoveNfa_2	lexer NFA, char below 64	2	2	0	true	if (curChar == 45)
+tla2sany/parser/TLAplusParserTokenManager.java	3141	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 36)
+tla2sany/parser/TLAplusParserTokenManager.java	3146	jjMoveNfa_2	lexer NFA, char below 64	2	2	0	true	if (curChar == 45)
+tla2sany/parser/TLAplusParserTokenManager.java	3150	jjMoveNfa_2	lexer NFA, char below 64	2	2	0	true	if (curChar == 45)
+tla2sany/parser/TLAplusParserTokenManager.java	3154	jjMoveNfa_2	lexer NFA, char below 64	4	4	0	true	if (curChar == 62 && kind > 106)
+tla2sany/parser/TLAplusParserTokenManager.java	3158	jjMoveNfa_2	lexer NFA, char below 64	2	2	0	true	if (curChar == 61)
+tla2sany/parser/TLAplusParserTokenManager.java	3165	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 37)
+tla2sany/parser/TLAplusParserTokenManager.java	3174	jjMoveNfa_2	lexer NFA, char below 64	4	4	0	true	if (curChar == 61 && kind > 93)
+tla2sany/parser/TLAplusParserTokenManager.java	3178	jjMoveNfa_2	lexer NFA, char below 64	2	2	0	true	if (curChar == 60)
+tla2sany/parser/TLAplusParserTokenManager.java	3182	jjMoveNfa_2	lexer NFA, char below 64	4	4	0	true	if (curChar == 45 && kind > 107)
+tla2sany/parser/TLAplusParserTokenManager.java	3186	jjMoveNfa_2	lexer NFA, char below 64	4	4	0	true	if (curChar == 62 && kind > 122)
+tla2sany/parser/TLAplusParserTokenManager.java	3190	jjMoveNfa_2	lexer NFA, char below 64	2	2	0	true	if (curChar == 62)
+tla2sany/parser/TLAplusParserTokenManager.java	3194	jjMoveNfa_2	lexer NFA, char below 64	4	4	0	true	if (curChar == 62 && kind > 104)
+tla2sany/parser/TLAplusParserTokenManager.java	3198	jjMoveNfa_2	lexer NFA, char below 64	2	2	0	true	if ((0x3ff000000000000L & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3200	jjMoveNfa_2	lexer NFA, char below 64	2	2	0	true	if (kind > 109)
+tla2sany/parser/TLAplusParserTokenManager.java	3207	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 109)
+tla2sany/parser/TLAplusParserTokenManager.java	3218	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	if (curChar == 47)
+tla2sany/parser/TLAplusParserTokenManager.java	3230	jjMoveNfa_2	lexer NFA, char below 64	4	1	3	true	if (curChar == 47 && kind > 112)
+tla2sany/parser/TLAplusParserTokenManager.java	3268	jjMoveNfa_2	lexer NFA, char below 64	2	2	0	true	if ((0x3ff000000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3280	jjMoveNfa_2	lexer NFA, char below 64	2	2	0	true	if ((0x3ff000000000000L & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3282	jjMoveNfa_2	lexer NFA, char below 64	2	2	0	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3289	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3312	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3317	jjMoveNfa_2	lexer NFA, char below 64	2	2	0	true	if (curChar == 60)
+tla2sany/parser/TLAplusParserTokenManager.java	3331	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 290)
+tla2sany/parser/TLAplusParserTokenManager.java	3336	jjMoveNfa_2	lexer NFA, char below 64	2	2	0	true	if ((0xc0000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3340	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	if (curChar == 62)
+tla2sany/parser/TLAplusParserTokenManager.java	3346	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 291)
+tla2sany/parser/TLAplusParserTokenManager.java	3365	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 292)
+tla2sany/parser/TLAplusParserTokenManager.java	3370	jjMoveNfa_2	lexer NFA, char below 64	2	2	0	true	if ((0xc0000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3378	jjMoveNfa_2	lexer NFA, char below 64	1	1	3	true	if (curChar == 62 && kind > 293)
+tla2sany/parser/TLAplusParserTokenManager.java	3382	jjMoveNfa_2	lexer NFA, char below 64	2	2	0	true	if ((0xc0000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3394	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	if (curChar != 42)
+tla2sany/parser/TLAplusParserTokenManager.java	3396	jjMoveNfa_2	lexer NFA, char below 64	2	1	1	true	if (kind > 294)
+tla2sany/parser/TLAplusParserTokenManager.java	3401	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	if (curChar != 46)
+tla2sany/parser/TLAplusParserTokenManager.java	3403	jjMoveNfa_2	lexer NFA, char below 64	2	1	1	true	if (kind > 294)
+tla2sany/parser/TLAplusParserTokenManager.java	3408	jjMoveNfa_2	lexer NFA, char below 64	1	0	2	true	if (curChar != 45)
+tla2sany/parser/TLAplusParserTokenManager.java	3410	jjMoveNfa_2	lexer NFA, char below 64	2	1	1	true	if (kind > 294)
+tla2sany/parser/TLAplusParserTokenManager.java	3415	jjMoveNfa_2	lexer NFA, char below 64	2	0	2	true	if (curChar != 46)
+tla2sany/parser/TLAplusParserTokenManager.java	3417	jjMoveNfa_2	lexer NFA, char below 64	2	1	1	true	if (kind > 294)
+tla2sany/parser/TLAplusParserTokenManager.java	3424	jjMoveNfa_2	lexer NFA, char below 64	1	1	1	true	if (kind > 294)
+tla2sany/parser/TLAplusParserTokenManager.java	3429	jjMoveNfa_2	lexer NFA, char below 64	2	2	0	true	if ((0xc0000000000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3441	jjMoveNfa_2	lexer NFA, char 64 to 127	42	37	145	true	switch(jjstateSet[--i])
+tla2sany/parser/TLAplusParserTokenManager.java	3444	jjMoveNfa_2	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe87fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3446	jjMoveNfa_2	lexer NFA, char 64 to 127	2	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3450	jjMoveNfa_2	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe07fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3452	jjMoveNfa_2	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe07fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3454	jjMoveNfa_2	lexer NFA, char 64 to 127	2	1	1	true	if (curChar == 85)
+tla2sany/parser/TLAplusParserTokenManager.java	3458	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe87fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3460	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3464	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe07fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3466	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe07fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3468	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (curChar == 79)
+tla2sany/parser/TLAplusParserTokenManager.java	3474	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3482	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (curChar == 69)
+tla2sany/parser/TLAplusParserTokenManager.java	3488	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3506	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3510	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if (curChar == 70)
+tla2sany/parser/TLAplusParserTokenManager.java	3512	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3524	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3528	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if ((0x880000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3530	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3534	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if (curChar == 92)
+tla2sany/parser/TLAplusParserTokenManager.java	3536	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if (curChar == 64)
+tla2sany/parser/TLAplusParserTokenManager.java	3538	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3541	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if (curChar == 95)
+tla2sany/parser/TLAplusParserTokenManager.java	3543	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if (curChar == 91)
+tla2sany/parser/TLAplusParserTokenManager.java	3545	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if (curChar == 94)
+tla2sany/parser/TLAplusParserTokenManager.java	3547	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if (curChar == 124)
+tla2sany/parser/TLAplusParserTokenManager.java	3549	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (curChar == 65)
+tla2sany/parser/TLAplusParserTokenManager.java	3551	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if (curChar == 67)
+tla2sany/parser/TLAplusParserTokenManager.java	3553	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if (curChar == 68)
+tla2sany/parser/TLAplusParserTokenManager.java	3555	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if (curChar == 84)
+tla2sany/parser/TLAplusParserTokenManager.java	3559	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if (curChar == 92)
+tla2sany/parser/TLAplusParserTokenManager.java	3561	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if (curChar == 83)
+tla2sany/parser/TLAplusParserTokenManager.java	3563	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if (curChar == 87)
+tla2sany/parser/TLAplusParserTokenManager.java	3565	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if (curChar == 76)
+tla2sany/parser/TLAplusParserTokenManager.java	3567	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if (curChar == 80)
+tla2sany/parser/TLAplusParserTokenManager.java	3571	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe87fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3573	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3577	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe07fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3579	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe07fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3581	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 83)
+tla2sany/parser/TLAplusParserTokenManager.java	3583	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 66)
+tla2sany/parser/TLAplusParserTokenManager.java	3592	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3598	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe87fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3600	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3604	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe07fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3606	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe07fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3608	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 80)
+tla2sany/parser/TLAplusParserTokenManager.java	3614	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3622	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (curChar == 83)
+tla2sany/parser/TLAplusParserTokenManager.java	3628	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3636	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (curChar == 82)
+tla2sany/parser/TLAplusParserTokenManager.java	3642	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3652	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if (curChar == 83)
+tla2sany/parser/TLAplusParserTokenManager.java	3660	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe87fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3662	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3666	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe07fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3668	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe07fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3670	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 80)
+tla2sany/parser/TLAplusParserTokenManager.java	3674	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe87fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3676	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3680	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe07fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3682	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe07fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3684	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (curChar == 70)
+tla2sany/parser/TLAplusParserTokenManager.java	3686	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (curChar == 70)
+tla2sany/parser/TLAplusParserTokenManager.java	3688	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (kind > 66)
+tla2sany/parser/TLAplusParserTokenManager.java	3693	jjMoveNfa_2	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe87fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3695	jjMoveNfa_2	lexer NFA, char 64 to 127	2	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3699	jjMoveNfa_2	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe07fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3701	jjMoveNfa_2	lexer NFA, char 64 to 127	2	0	2	true	if ((0x7fffffe07fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3703	jjMoveNfa_2	lexer NFA, char 64 to 127	2	1	1	true	if (curChar == 77)
+tla2sany/parser/TLAplusParserTokenManager.java	3707	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe87fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3709	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3727	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if (curChar == 105)
+tla2sany/parser/TLAplusParserTokenManager.java	3729	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if (curChar == 108)
+tla2sany/parser/TLAplusParserTokenManager.java	3733	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if (curChar == 65)
+tla2sany/parser/TLAplusParserTokenManager.java	3735	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (kind > 49)
+tla2sany/parser/TLAplusParserTokenManager.java	3738	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if (curChar == 101)
+tla2sany/parser/TLAplusParserTokenManager.java	3740	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	else if (curChar == 69)
+tla2sany/parser/TLAplusParserTokenManager.java	3742	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (kind > 47)
+tla2sany/parser/TLAplusParserTokenManager.java	3749	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3761	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3769	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (curChar == 69)
+tla2sany/parser/TLAplusParserTokenManager.java	3771	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (curChar == 69)
+tla2sany/parser/TLAplusParserTokenManager.java	3777	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3793	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3803	jjMoveNfa_2	lexer NFA, char 64 to 127	2	1	3	true	if (curChar == 78 && kind > 58)
+tla2sany/parser/TLAplusParserTokenManager.java	3807	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 79)
+tla2sany/parser/TLAplusParserTokenManager.java	3811	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 73)
+tla2sany/parser/TLAplusParserTokenManager.java	3815	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 84)
+tla2sany/parser/TLAplusParserTokenManager.java	3819	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 73)
+tla2sany/parser/TLAplusParserTokenManager.java	3823	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 83)
+tla2sany/parser/TLAplusParserTokenManager.java	3831	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 80)
+tla2sany/parser/TLAplusParserTokenManager.java	3835	jjMoveNfa_2	lexer NFA, char 64 to 127	2	1	3	true	if (curChar == 65 && kind > 58)
+tla2sany/parser/TLAplusParserTokenManager.java	3839	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 77)
+tla2sany/parser/TLAplusParserTokenManager.java	3843	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 76)
+tla2sany/parser/TLAplusParserTokenManager.java	3847	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	3	true	if (curChar == 95 && kind > 103)
+tla2sany/parser/TLAplusParserTokenManager.java	3851	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 124)
+tla2sany/parser/TLAplusParserTokenManager.java	3867	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 94)
+tla2sany/parser/TLAplusParserTokenManager.java	3871	jjMoveNfa_2	lexer NFA, char 64 to 127	3	3	1	true	if (curChar == 93 && kind > 121)
+tla2sany/parser/TLAplusParserTokenManager.java	3875	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 91)
+tla2sany/parser/TLAplusParserTokenManager.java	3879	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	3	true	if (curChar == 92 && kind > 129)
+tla2sany/parser/TLAplusParserTokenManager.java	3883	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 95)
+tla2sany/parser/TLAplusParserTokenManager.java	3905	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar != 70)
+tla2sany/parser/TLAplusParserTokenManager.java	3907	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3912	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe07fffffeL & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3914	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3919	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe87fffffeL & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3921	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3926	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 87)
+tla2sany/parser/TLAplusParserTokenManager.java	3930	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 83)
+tla2sany/parser/TLAplusParserTokenManager.java	3934	jjMoveNfa_2	lexer NFA, char 64 to 127	4	4	0	true	if (curChar == 64 && kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	3938	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 92)
+tla2sany/parser/TLAplusParserTokenManager.java	3942	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if ((0x800000008000L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3946	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if ((0x400000004L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3950	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if ((0x10000000100L & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3954	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7e0000007eL & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	3956	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 109)
+tla2sany/parser/TLAplusParserTokenManager.java	3961	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 86)
+tla2sany/parser/TLAplusParserTokenManager.java	3965	jjMoveNfa_2	lexer NFA, char 64 to 127	2	1	3	true	if (curChar == 69 && kind > 85)
+tla2sany/parser/TLAplusParserTokenManager.java	3969	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 76)
+tla2sany/parser/TLAplusParserTokenManager.java	3973	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 66)
+tla2sany/parser/TLAplusParserTokenManager.java	3977	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 65)
+tla2sany/parser/TLAplusParserTokenManager.java	3981	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 73)
+tla2sany/parser/TLAplusParserTokenManager.java	3985	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 82)
+tla2sany/parser/TLAplusParserTokenManager.java	3993	jjMoveNfa_2	lexer NFA, char 64 to 127	2	1	3	true	if (curChar == 83 && kind > 85)
+tla2sany/parser/TLAplusParserTokenManager.java	3997	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 69)
+tla2sany/parser/TLAplusParserTokenManager.java	4001	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 76)
+tla2sany/parser/TLAplusParserTokenManager.java	4005	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 66)
+tla2sany/parser/TLAplusParserTokenManager.java	4009	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 65)
+tla2sany/parser/TLAplusParserTokenManager.java	4013	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 73)
+tla2sany/parser/TLAplusParserTokenManager.java	4017	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 82)
+tla2sany/parser/TLAplusParserTokenManager.java	4025	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 84)
+tla2sany/parser/TLAplusParserTokenManager.java	4029	jjMoveNfa_2	lexer NFA, char 64 to 127	2	1	3	true	if (curChar == 76 && kind > 81)
+tla2sany/parser/TLAplusParserTokenManager.java	4033	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 65)
+tla2sany/parser/TLAplusParserTokenManager.java	4037	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 82)
+tla2sany/parser/TLAplusParserTokenManager.java	4041	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 79)
+tla2sany/parser/TLAplusParserTokenManager.java	4045	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 80)
+tla2sany/parser/TLAplusParserTokenManager.java	4053	jjMoveNfa_2	lexer NFA, char 64 to 127	4	1	3	true	if (curChar == 83 && kind > 81)
+tla2sany/parser/TLAplusParserTokenManager.java	4057	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 76)
+tla2sany/parser/TLAplusParserTokenManager.java	4061	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 65)
+tla2sany/parser/TLAplusParserTokenManager.java	4065	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 82)
+tla2sany/parser/TLAplusParserTokenManager.java	4069	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 79)
+tla2sany/parser/TLAplusParserTokenManager.java	4073	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 80)
+tla2sany/parser/TLAplusParserTokenManager.java	4081	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 69)
+tla2sany/parser/TLAplusParserTokenManager.java	4085	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 68)
+tla2sany/parser/TLAplusParserTokenManager.java	4089	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 70)
+tla2sany/parser/TLAplusParserTokenManager.java	4093	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 69)
+tla2sany/parser/TLAplusParserTokenManager.java	4097	jjMoveNfa_2	lexer NFA, char 64 to 127	2	1	3	true	if (curChar == 69 && kind > 35)
+tla2sany/parser/TLAplusParserTokenManager.java	4101	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 76)
+tla2sany/parser/TLAplusParserTokenManager.java	4105	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 85)
+tla2sany/parser/TLAplusParserTokenManager.java	4109	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 68)
+tla2sany/parser/TLAplusParserTokenManager.java	4113	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 79)
+tla2sany/parser/TLAplusParserTokenManager.java	4117	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 77)
+tla2sany/parser/TLAplusParserTokenManager.java	4121	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 67)
+tla2sany/parser/TLAplusParserTokenManager.java	4125	jjMoveNfa_2	lexer NFA, char 64 to 127	2	1	3	true	if (curChar == 84 && kind > 44)
+tla2sany/parser/TLAplusParserTokenManager.java	4129	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 78)
+tla2sany/parser/TLAplusParserTokenManager.java	4137	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 84)
+tla2sany/parser/TLAplusParserTokenManager.java	4141	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 83)
+tla2sany/parser/TLAplusParserTokenManager.java	4149	jjMoveNfa_2	lexer NFA, char 64 to 127	2	1	3	true	if (curChar == 83 && kind > 44)
+tla2sany/parser/TLAplusParserTokenManager.java	4153	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 84)
+tla2sany/parser/TLAplusParserTokenManager.java	4157	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 78)
+tla2sany/parser/TLAplusParserTokenManager.java	4165	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 84)
+tla2sany/parser/TLAplusParserTokenManager.java	4169	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 83)
+tla2sany/parser/TLAplusParserTokenManager.java	4177	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 79)
+tla2sany/parser/TLAplusParserTokenManager.java	4181	jjMoveNfa_2	lexer NFA, char 64 to 127	2	1	3	true	if (curChar == 89 && kind > 58)
+tla2sany/parser/TLAplusParserTokenManager.java	4185	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 82)
+tla2sany/parser/TLAplusParserTokenManager.java	4189	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 65)
+tla2sany/parser/TLAplusParserTokenManager.java	4193	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 76)
+tla2sany/parser/TLAplusParserTokenManager.java	4197	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 76)
+tla2sany/parser/TLAplusParserTokenManager.java	4201	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 79)
+tla2sany/parser/TLAplusParserTokenManager.java	4209	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 79)
+tla2sany/parser/TLAplusParserTokenManager.java	4217	jjMoveNfa_2	lexer NFA, char 64 to 127	4	1	3	true	if (curChar == 92 && kind > 111)
+tla2sany/parser/TLAplusParserTokenManager.java	4227	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 92)
+tla2sany/parser/TLAplusParserTokenManager.java	4244	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	4251	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	4263	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if ((0x880000L & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	4265	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	4274	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if ((0x7fffffe07ffffbeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	4282	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if ((0x7fffffe87ffffbeL & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	4284	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	4291	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	4296	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if ((0x7fffffe0777fffeL & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	4298	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	4318	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 92)
+tla2sany/parser/TLAplusParserTokenManager.java	4322	jjMoveNfa_2	lexer NFA, char 64 to 127	2	1	3	true	if (curChar == 115 && kind > 47)
+tla2sany/parser/TLAplusParserTokenManager.java	4326	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 116)
+tla2sany/parser/TLAplusParserTokenManager.java	4330	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 115)
+tla2sany/parser/TLAplusParserTokenManager.java	4334	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 105)
+tla2sany/parser/TLAplusParserTokenManager.java	4338	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 120)
+tla2sany/parser/TLAplusParserTokenManager.java	4342	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 101)
+tla2sany/parser/TLAplusParserTokenManager.java	4346	jjMoveNfa_2	lexer NFA, char 64 to 127	4	4	0	true	if (curChar == 65 && kind > 49)
+tla2sany/parser/TLAplusParserTokenManager.java	4350	jjMoveNfa_2	lexer NFA, char 64 to 127	2	1	3	true	if (curChar == 108 && kind > 49)
+tla2sany/parser/TLAplusParserTokenManager.java	4354	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 108)
+tla2sany/parser/TLAplusParserTokenManager.java	4358	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 97)
+tla2sany/parser/TLAplusParserTokenManager.java	4362	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 114)
+tla2sany/parser/TLAplusParserTokenManager.java	4366	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 111)
+tla2sany/parser/TLAplusParserTokenManager.java	4370	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 102)
+tla2sany/parser/TLAplusParserTokenManager.java	4374	jjMoveNfa_2	lexer NFA, char 64 to 127	2	1	3	true	if (curChar == 116 && kind > 118)
+tla2sany/parser/TLAplusParserTokenManager.java	4378	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 111)
+tla2sany/parser/TLAplusParserTokenManager.java	4382	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 110)
+tla2sany/parser/TLAplusParserTokenManager.java	4386	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 108)
+tla2sany/parser/TLAplusParserTokenManager.java	4390	jjMoveNfa_2	lexer NFA, char 64 to 127	4	3	1	true	if (curChar == 110 && kind > 147)
+tla2sany/parser/TLAplusParserTokenManager.java	4394	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 105)
+tla2sany/parser/TLAplusParserTokenManager.java	4398	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe87fffffeL & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	4400	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 290)
+tla2sany/parser/TLAplusParserTokenManager.java	4405	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe07fffffeL & l) == 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	4407	jjMoveNfa_2	lexer NFA, char 64 to 127	1	1	1	true	if (kind > 291)
+tla2sany/parser/TLAplusParserTokenManager.java	4412	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if ((0x7fffffe87fffffeL & l) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	4416	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 65)
+tla2sany/parser/TLAplusParserTokenManager.java	4420	jjMoveNfa_2	lexer NFA, char 64 to 127	2	1	3	true	if (curChar == 78 && kind > 38)
+tla2sany/parser/TLAplusParserTokenManager.java	4428	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 73)
+tla2sany/parser/TLAplusParserTokenManager.java	4436	jjMoveNfa_2	lexer NFA, char 64 to 127	3	1	3	true	if (curChar == 83 && kind > 38)
+tla2sany/parser/TLAplusParserTokenManager.java	4440	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 78)
+tla2sany/parser/TLAplusParserTokenManager.java	4448	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 73)
+tla2sany/parser/TLAplusParserTokenManager.java	4456	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 67)
+tla2sany/parser/TLAplusParserTokenManager.java	4460	jjMoveNfa_2	lexer NFA, char 64 to 127	2	1	3	true	if (curChar == 78 && kind > 41)
+tla2sany/parser/TLAplusParserTokenManager.java	4464	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 79)
+tla2sany/parser/TLAplusParserTokenManager.java	4468	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 73)
+tla2sany/parser/TLAplusParserTokenManager.java	4472	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 84)
+tla2sany/parser/TLAplusParserTokenManager.java	4476	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 83)
+tla2sany/parser/TLAplusParserTokenManager.java	4480	jjMoveNfa_2	lexer NFA, char 64 to 127	2	1	3	true	if (curChar == 77 && kind > 41)
+tla2sany/parser/TLAplusParserTokenManager.java	4484	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 79)
+tla2sany/parser/TLAplusParserTokenManager.java	4488	jjMoveNfa_2	lexer NFA, char 64 to 127	1	0	2	true	if (curChar == 73)
+tla2sany/parser/TLAplusParserTokenManager.java	4492	jjMoveNfa_2	lexer NFA, char 64 to 127	2	2	0	true	if (curChar == 88)
+tla2sany/parser/TLAplusParserTokenManager.java	4508	jjMoveNfa_2	lexer NFA, non-ASCII	17	17	3	true	switch(jjstateSet[--i])
+tla2sany/parser/TLAplusParserTokenManager.java	4513	jjMoveNfa_2	lexer NFA, non-ASCII	1	1	1	true	if (kind > 47)
+tla2sany/parser/TLAplusParserTokenManager.java	4518	jjMoveNfa_2	lexer NFA, non-ASCII	1	1	1	true	if (kind > 49)
+tla2sany/parser/TLAplusParserTokenManager.java	4523	jjMoveNfa_2	lexer NFA, non-ASCII	1	1	1	true	if (kind > 90)
+tla2sany/parser/TLAplusParserTokenManager.java	4528	jjMoveNfa_2	lexer NFA, non-ASCII	1	1	1	true	if (kind > 93)
+tla2sany/parser/TLAplusParserTokenManager.java	4533	jjMoveNfa_2	lexer NFA, non-ASCII	1	1	1	true	if (kind > 102)
+tla2sany/parser/TLAplusParserTokenManager.java	4540	jjMoveNfa_2	lexer NFA, non-ASCII	1	1	1	true	if (kind > 104)
+tla2sany/parser/TLAplusParserTokenManager.java	4545	jjMoveNfa_2	lexer NFA, non-ASCII	1	1	1	true	if (kind > 106)
+tla2sany/parser/TLAplusParserTokenManager.java	4550	jjMoveNfa_2	lexer NFA, non-ASCII	1	1	1	true	if (kind > 107)
+tla2sany/parser/TLAplusParserTokenManager.java	4555	jjMoveNfa_2	lexer NFA, non-ASCII	1	1	1	true	if (kind > 108)
+tla2sany/parser/TLAplusParserTokenManager.java	4560	jjMoveNfa_2	lexer NFA, non-ASCII	1	1	1	true	if (kind > 114)
+tla2sany/parser/TLAplusParserTokenManager.java	4565	jjMoveNfa_2	lexer NFA, non-ASCII	1	1	1	true	if (kind > 118)
+tla2sany/parser/TLAplusParserTokenManager.java	4570	jjMoveNfa_2	lexer NFA, non-ASCII	1	1	1	true	if (kind > 121)
+tla2sany/parser/TLAplusParserTokenManager.java	4575	jjMoveNfa_2	lexer NFA, non-ASCII	1	1	1	true	if (kind > 122)
+tla2sany/parser/TLAplusParserTokenManager.java	4580	jjMoveNfa_2	lexer NFA, non-ASCII	1	1	1	true	if (kind > 129)
+tla2sany/parser/TLAplusParserTokenManager.java	4585	jjMoveNfa_2	lexer NFA, non-ASCII	1	1	1	true	if (kind > 132)
+tla2sany/parser/TLAplusParserTokenManager.java	4590	jjMoveNfa_2	lexer NFA, non-ASCII	1	1	1	true	if (kind > 147)
+tla2sany/parser/TLAplusParserTokenManager.java	4595	jjMoveNfa_2	lexer NFA, non-ASCII	1	1	1	true	if (kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	4600	jjMoveNfa_2	lexer NFA, non-ASCII	4	4	0	true	if (jjCanMove_2(hiByte, i1, i2, l1, l2) && kind > 49)
+tla2sany/parser/TLAplusParserTokenManager.java	4604	jjMoveNfa_2	lexer NFA, non-ASCII	4	4	0	true	if (jjCanMove_3(hiByte, i1, i2, l1, l2) && kind > 90)
+tla2sany/parser/TLAplusParserTokenManager.java	4608	jjMoveNfa_2	lexer NFA, non-ASCII	4	4	0	true	if (jjCanMove_4(hiByte, i1, i2, l1, l2) && kind > 93)
+tla2sany/parser/TLAplusParserTokenManager.java	4612	jjMoveNfa_2	lexer NFA, non-ASCII	4	4	0	true	if (jjCanMove_5(hiByte, i1, i2, l1, l2) && kind > 102)
+tla2sany/parser/TLAplusParserTokenManager.java	4616	jjMoveNfa_2	lexer NFA, non-ASCII	2	2	0	true	if (jjCanMove_6(hiByte, i1, i2, l1, l2))
+tla2sany/parser/TLAplusParserTokenManager.java	4620	jjMoveNfa_2	lexer NFA, non-ASCII	4	4	0	true	if (jjCanMove_6(hiByte, i1, i2, l1, l2) && kind > 104)
+tla2sany/parser/TLAplusParserTokenManager.java	4624	jjMoveNfa_2	lexer NFA, non-ASCII	4	4	0	true	if (jjCanMove_7(hiByte, i1, i2, l1, l2) && kind > 106)
+tla2sany/parser/TLAplusParserTokenManager.java	4628	jjMoveNfa_2	lexer NFA, non-ASCII	4	4	0	true	if (jjCanMove_8(hiByte, i1, i2, l1, l2) && kind > 107)
+tla2sany/parser/TLAplusParserTokenManager.java	4632	jjMoveNfa_2	lexer NFA, non-ASCII	4	4	0	true	if (jjCanMove_9(hiByte, i1, i2, l1, l2) && kind > 108)
+tla2sany/parser/TLAplusParserTokenManager.java	4636	jjMoveNfa_2	lexer NFA, non-ASCII	1	1	1	true	if (jjCanMove_10(hiByte, i1, i2, l1, l2))
+tla2sany/parser/TLAplusParserTokenManager.java	4640	jjMoveNfa_2	lexer NFA, non-ASCII	4	4	0	true	if (jjCanMove_11(hiByte, i1, i2, l1, l2) && kind > 114)
+tla2sany/parser/TLAplusParserTokenManager.java	4644	jjMoveNfa_2	lexer NFA, non-ASCII	4	4	0	true	if (jjCanMove_12(hiByte, i1, i2, l1, l2) && kind > 118)
+tla2sany/parser/TLAplusParserTokenManager.java	4648	jjMoveNfa_2	lexer NFA, non-ASCII	4	4	0	true	if (jjCanMove_13(hiByte, i1, i2, l1, l2) && kind > 121)
+tla2sany/parser/TLAplusParserTokenManager.java	4652	jjMoveNfa_2	lexer NFA, non-ASCII	4	4	0	true	if (jjCanMove_14(hiByte, i1, i2, l1, l2) && kind > 122)
+tla2sany/parser/TLAplusParserTokenManager.java	4656	jjMoveNfa_2	lexer NFA, non-ASCII	4	4	0	true	if (jjCanMove_15(hiByte, i1, i2, l1, l2) && kind > 129)
+tla2sany/parser/TLAplusParserTokenManager.java	4660	jjMoveNfa_2	lexer NFA, non-ASCII	4	4	0	true	if (jjCanMove_16(hiByte, i1, i2, l1, l2) && kind > 132)
+tla2sany/parser/TLAplusParserTokenManager.java	4664	jjMoveNfa_2	lexer NFA, non-ASCII	4	4	0	true	if (jjCanMove_17(hiByte, i1, i2, l1, l2) && kind > 147)
+tla2sany/parser/TLAplusParserTokenManager.java	4668	jjMoveNfa_2	lexer NFA, non-ASCII	4	4	0	true	if (jjCanMove_0(hiByte, i1, i2, l1, l2) && kind > 289)
+tla2sany/parser/TLAplusParserTokenManager.java	4728	jjMoveStringLiteralDfa1_3	lexer DFA, literal tokens	1	1	1	true	if ((active0 & 0x40000000L) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	4746	jjMoveNfa_3	lexer NFA, non-ASCII	1	1	1	true	if (++jjround == 0x7fffffff)
+tla2sany/parser/TLAplusParserTokenManager.java	4760	jjMoveNfa_3	lexer NFA, char below 64	1	0	2	true	if (curChar == 46)
+tla2sany/parser/TLAplusParserTokenManager.java	4768	jjMoveNfa_3	lexer NFA, char below 64	1	1	3	true	if (curChar == 42 && kind > 29)
+tla2sany/parser/TLAplusParserTokenManager.java	4799	jjMoveNfa_3	lexer NFA, non-ASCII	1	0	2	true	} while(i != startsAt);
+tla2sany/parser/TLAplusParserTokenManager.java	4929	jjCanMove_10	lexer NFA, non-ASCII	1	1	1	true	return ((jjbitVec12[i2] & l2) != 0L);
+tla2sany/parser/TLAplusParserTokenManager.java	4931	jjCanMove_10	lexer NFA, non-ASCII	1	1	1	true	if ((jjbitVec10[i1] & l1) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	4941	jjCanMove_11	lexer NFA, non-ASCII	1	0	2	true	return ((jjbitVec13[i2] & l2) != 0L);
+tla2sany/parser/TLAplusParserTokenManager.java	4951	jjCanMove_12	lexer NFA, non-ASCII	1	0	2	true	return ((jjbitVec14[i2] & l2) != 0L);
+tla2sany/parser/TLAplusParserTokenManager.java	5121	ReInitRounds	lexer scaffolding	2	2	0	false	for (i = 269; i-- > 0;)
+tla2sany/parser/TLAplusParserTokenManager.java	5131	SwitchTo	lexer scaffolding	2	2	2	true	if (lexState >= 6 || lexState < 0)
+tla2sany/parser/TLAplusParserTokenManager.java	5183	getNextToken	lexer scaffolding	1	1	6	true	switch(curLexState)
+tla2sany/parser/TLAplusParserTokenManager.java	5189	getNextToken	lexer scaffolding	1	1	3	true	if (jjmatchedPos == 0 && jjmatchedKind > 4)
+tla2sany/parser/TLAplusParserTokenManager.java	5205	getNextToken	lexer scaffolding	1	0	4	true	while (curChar <= 32 && (0x100002600L & (1L << curChar)) != 0L)
+tla2sany/parser/TLAplusParserTokenManager.java	5217	getNextToken	lexer scaffolding	1	1	3	true	if (jjmatchedPos == 0 && jjmatchedKind > 34)
+tla2sany/parser/TLAplusParserTokenManager.java	5226	getNextToken	lexer scaffolding	1	1	3	true	if (jjmatchedPos == 0 && jjmatchedKind > 34)
+tla2sany/parser/TLAplusParserTokenManager.java	5291	getNextToken	lexer scaffolding	1	0	2	true	error_after = curPos <= 1 ? "" : input_stream.GetImage();
+tla2sany/parser/TLAplusParserTokenManager.java	5292	getNextToken	lexer scaffolding	3	0	4	true	if (curChar == '\n' || curChar == '\r') {
+tla2sany/parser/TLAplusParserTokenManager.java	5313	SkipLexicalActions	lexer actions	1	1	1	true	if (image == null)
+tla2sany/parser/TLAplusParserTokenManager.java	5319	SkipLexicalActions	lexer actions	1	1	1	true	if (image == null)
+tla2sany/parser/TLAplusParserTokenManager.java	5325	SkipLexicalActions	lexer actions	1	1	1	true	if (image == null)
+tla2sany/parser/TokenMgrError.java	44	addEscapes	runtime scaffolding: TokenMgrError	6	0	10	true	switch (str.charAt(i))
+tla2sany/parser/TokenMgrError.java	73	addEscapes	runtime scaffolding: TokenMgrError	2	0	4	true	if ((ch = str.charAt(i)) < 0x20 || ch > 0x7e) {

@@ -1,0 +1,18 @@
+
+(source_file (module (header_line) (identifier) (header_line)
+  (operator_definition (identifier) (def_eq)
+    (conj_list
+      (conj_item (bullet_conj) (nat_number))
+      (conj_item (bullet_conj)
+        (function_evaluation (identifier_ref)
+          (disj_list
+            (disj_item (bullet_disj) (nat_number))
+            (disj_item (bullet_disj) (nat_number))
+          )
+          (conj_list (conj_item (bullet_conj) (nat_number)))
+        )
+      )
+    )
+  )
+(double_line)))
+

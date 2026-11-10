@@ -1,0 +1,145 @@
+{
+ "copyright": "Copyright 2026 Christopher O'Connell",
+ "distinct_seeds": 907,
+ "kept_seeds_by_set": {
+  "fuzz-jazzer": 1235,
+  "inspection": 1,
+  "model-one-shot": 340
+ },
+ "other_inputs": {
+  "kept-seeds": {
+   "files": 1576,
+   "mention_paxosstore": 0
+  },
+  "model-near": {
+   "files": 1322,
+   "mention_paxosstore": 0
+  },
+  "retained": {
+   "files": 3000,
+   "mention_paxosstore": 0
+  },
+  "seeds": {
+   "files": 1924,
+   "mention_paxosstore": 0
+  }
+ },
+ "seed_table": [
+  [
+   "CommunityModules/LICENSE",
+   "MIT",
+   "file from",
+   2
+  ],
+  [
+   "CommunityModules/LICENSE",
+   "MIT",
+   "mutant of",
+   6
+  ],
+  [
+   "Examples/LICENSE.md",
+   "MIT",
+   "file from",
+   24
+  ],
+  [
+   "Examples/LICENSE.md",
+   "MIT",
+   "mutant of",
+   28
+  ],
+  [
+   "Examples/specifications/KeyValueStore/LICENSE",
+   "BSD-2-Clause",
+   "mutant of",
+   1
+  ],
+  [
+   "LICENSE",
+   "Apache-2.0",
+   "model spec",
+   146
+  ],
+  [
+   "rfcs/LICENSE",
+   "MIT",
+   "file from",
+   97
+  ],
+  [
+   "rfcs/LICENSE",
+   "MIT",
+   "mutant of",
+   1
+  ],
+  [
+   "tlaplus/LICENSE",
+   "MIT",
+   "file from",
+   174
+  ],
+  [
+   "tlaplus/LICENSE",
+   "MIT",
+   "mutant of",
+   155
+  ],
+  [
+   "tlaplus/general/performance/PaxosMadeSimple/LICENSE.md",
+   "MIT",
+   "file from",
+   1
+  ],
+  [
+   "tlapm/LICENSE",
+   "BSD-2-Clause",
+   "file from",
+   98
+  ],
+  [
+   "tlapm/LICENSE",
+   "BSD-2-Clause",
+   "mutant of",
+   50
+  ],
+  [
+   "tlapm/zenon/LICENSE",
+   "BSD-3-Clause",
+   "file from",
+   5
+  ],
+  [
+   "tlapm/zenon/LICENSE",
+   "BSD-3-Clause",
+   "mutant of",
+   7
+  ],
+  [
+   "tlx/LICENSE",
+   "MIT",
+   "file from",
+   24
+  ],
+  [
+   "tlx/LICENSE",
+   "MIT",
+   "mutant of",
+   44
+  ],
+  [
+   "tlx/crates/tlx-sema/modules/community/LICENSE",
+   "MIT",
+   "file from",
+   1
+  ],
+  [
+   "tree-sitter-tlaplus/LICENSE",
+   "MIT",
+   "file from",
+   43
+  ]
+ ],
+ "spdx": "Apache-2.0",
+ "tlx_corpus_external_seeds": 0
+}

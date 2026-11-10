@@ -1,0 +1,4 @@
+---- MODULE RevAssumeWF ----
+CONSTANT x, y, S
+THEOREM ASSUME WF_x(y) PROVE TRUE
+====

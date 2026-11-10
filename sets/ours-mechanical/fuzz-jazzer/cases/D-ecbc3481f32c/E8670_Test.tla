@@ -1,0 +1,4 @@
+---- MODULE E8670_Test ----
+THEOREM thm ==
+  ASSUME
+  []ASSUME  ASSUME

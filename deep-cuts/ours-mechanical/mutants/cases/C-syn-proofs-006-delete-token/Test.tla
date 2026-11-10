@@ -1,0 +1,6 @@
+
+---- MODULE Test ----
+PROPOSITION TRUE
+PROOF  DEF >
+====
+

@@ -1,0 +1,20 @@
+
+(source_file (module (header_line) name: (identifier) (header_line)
+  (operator_definition name: (identifier) (def_eq)
+    definition: (choose
+      intro: (identifier)
+      (set_in)
+      set: (nat_number_set)
+      expression: (boolean)
+    )
+  )
+  (operator_definition name: (identifier) (def_eq)
+    definition: (choose
+      intro: (tuple_of_identifiers (langle_bracket) (identifier) (identifier) (identifier) (rangle_bracket))
+      (set_in)
+      set: (identifier_ref)
+      expression: (boolean)
+    )
+  )
+(double_line)))
+

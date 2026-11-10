@@ -1,0 +1,4 @@
+---- MODULE RevAssumeTExBad ----
+CONSTANT x, y, S
+THEOREM ASSUME \AA , PROVE TRUE
+====

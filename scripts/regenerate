@@ -1,0 +1,93 @@
+#!/usr/bin/env python3
+# Copyright 2026 Christopher O'Connell
+# SPDX-License-Identifier: Apache-2.0
+"""Rebuild the sets that can be rebuilt, and compare them with what is here.
+
+Clones every repository in sources.lock at its pinned commit into .work/external (or
+uses --external), runs cmd/extract for the upstream sets and the mutants, and
+cmd/gensentences for the grammar sentences, under .work/regen. Needs git and Go. It
+changes nothing outside .work. Fuzz, model and inspection cases cannot be rebuilt: their
+bytes are here.
+
+    scripts/regenerate [--external DIR]
+"""
+import argparse
+import glob
+import hashlib
+import json
+import os
+import shutil
+import subprocess
+import sys
+
+
+def run(*argv, cwd=None):
+    subprocess.run(argv, cwd=cwd, check=True)
+
+
+def main():
+    root = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--external", default=os.path.join(root, ".work", "external"))
+    a = ap.parse_args()
+    a.external = os.path.abspath(a.external)
+    work = os.path.join(root, ".work", "regen")
+    shutil.rmtree(work, ignore_errors=True)
+    os.makedirs(work)
+    locks = []
+    with open(os.path.join(root, "sources.lock")) as f:
+        for line in f:
+            w = line.split()
+            if not line.startswith("#") and len(w) == 3:  # a fourth field: no case is extracted from it
+                locks.append(w)
+    for name, url, commit in locks:
+        d = os.path.join(a.external, name)
+        if os.path.isdir(os.path.join(d, ".git")) and subprocess.run(["git", "-C", d, "rev-parse", "HEAD"], stdout=subprocess.PIPE, text=True).stdout.strip() == commit:
+            continue
+        shutil.rmtree(d, ignore_errors=True)
+        os.makedirs(d)
+        run("git", "-C", d, "init", "-q")
+        run("git", "-C", d, "remote", "add", "origin", url)
+        run("git", "-C", d, "fetch", "-q", "--depth", "1", "origin", commit)
+        run("git", "-C", d, "checkout", "-q", "FETCH_HEAD")
+    cases = os.path.join(work, "cases")
+    run("go", "run", "./cmd/extract", "-external", a.external, "-cases", cases, "-manifest", os.path.join(work, "manifest.jsonl"), "-lock", "sources.lock", cwd=root)
+    jj = os.path.join(a.external, "tlaplus/tlatools/org.lamport.tlatools/javacc/tla+.jj")
+    run("go", "run", "./cmd/gensentences", "-jj", jj, "-out", cases, cwd=root)
+    same = differ = 0
+    missing = []
+    per = {}
+    for manifest in sorted(glob.glob(os.path.join(root, "sets/**/manifest.jsonl"), recursive=True) + glob.glob(os.path.join(root, "deep-cuts/**/manifest.jsonl"), recursive=True)):
+        rel = os.path.relpath(os.path.dirname(manifest), root)
+        with open(manifest, encoding="utf-8") as f:
+            f.readline()
+            for line in f:
+                row = json.loads(line)
+                if not (row["id"].startswith(("A-", "B-", "C-", "S-"))):
+                    continue
+                d = os.path.join(cases, row["id"])
+                if not os.path.isdir(d):
+                    missing.append(row["id"])
+                    continue
+                ok = True
+                for fl in row["files"]:
+                    if fl["role"] == "library":
+                        continue
+                    p = os.path.join(d, fl["path"])
+                    if not os.path.exists(p) or hashlib.sha256(open(p, "rb").read()).hexdigest() != fl["sha256"]:
+                        ok = False
+                c = per.setdefault(rel, [0, 0])
+                c[0 if ok else 1] += 1
+                if ok:
+                    same += 1
+                else:
+                    differ += 1
+                    print("DIFFERS", row["id"])
+    for rel in sorted(per):
+        print("%s\t%d same\t%d differ" % (rel, per[rel][0], per[rel][1]))
+    print("regenerated: %d same, %d differ, %d not produced" % (same, differ, len(missing)))
+    return 1 if differ or missing else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

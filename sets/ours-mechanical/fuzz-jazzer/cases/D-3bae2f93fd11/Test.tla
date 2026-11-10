@@ -1,0 +1,2 @@
+---- MODULE Test ----
+INSTANCE M WITH

@@ -1,0 +1,2 @@
+---- MODULE x ---- THEOREM ASSUME CONSTANT x PROVE "s" 
+====

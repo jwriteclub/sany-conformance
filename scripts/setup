@@ -1,0 +1,67 @@
+#!/bin/sh
+# Copyright 2026 Christopher O'Connell
+# SPDX-License-Identifier: Apache-2.0
+#
+# Get what scripts/verify runs against, under .work/jars/. Needs network once; after
+# that verify is offline. Needs curl or wget, and for the reference build git, a JDK
+# and Apache Ant.
+#
+#   scripts/setup release      the two published jars, checked against their pinned hashes
+#   scripts/setup reference    build tlaplus at the pinned commit
+#
+# The reference build's jar will not have the recorded SHA-256 unless the build date and
+# toolchain match: the jar's manifest holds the date. The class files are what matters,
+# and verify says which jar it ran.
+set -eu
+cd "$(dirname "$0")/.."
+mkdir -p .work/jars
+
+fetch() { # url out
+  if command -v curl >/dev/null 2>&1; then curl -fsSL -o "$2" "$1"; else wget -q -O "$2" "$1"; fi
+}
+sum256() {
+  if command -v sha256sum >/dev/null 2>&1; then sha256sum "$1" | cut -d' ' -f1; else shasum -a 256 "$1" | cut -d' ' -f1; fi
+}
+get_release() { # tag sha256
+  mkdir -p ".work/jars/$1"
+  out=".work/jars/$1/tla2tools.jar"
+  [ -f "$out" ] || fetch "https://github.com/tlaplus/tlaplus/releases/download/$1/tla2tools.jar" "$out"
+  got=$(sum256 "$out")
+  if [ "$got" != "$2" ]; then
+    echo "checksum mismatch for $out: got $got, want $2" >&2
+    rm -f "$out"
+    exit 1
+  fi
+  echo "$out $got"
+}
+
+case "${1:-}" in
+release)
+  get_release v1.7.4 936a262061c914694dfd669a543be24573c45d5aa0ff20a8b96b23d01e050e88
+  get_release v1.8.0 e20447644bfabd29d6bd0fc2c0eb1473fb301c1a0e4dfe1961938ce5a191edbf
+  ;;
+reference)
+  commit=$(awk '$1=="tlaplus"{print $3}' sources.lock)
+  src=.work/build/tlaplus
+  if [ ! -d "$src/.git" ] || [ "$(git -C "$src" rev-parse HEAD)" != "$commit" ]; then
+    rm -rf "$src"
+    mkdir -p "$src"
+    git -C "$src" init -q
+    git -C "$src" remote add origin https://github.com/tlaplus/tlaplus.git
+    git -C "$src" fetch -q --depth 1 origin "$commit"
+    git -C "$src" checkout -q FETCH_HEAD
+  fi
+  short=$(echo "$commit" | cut -c1-7)
+  # The info target walks full history and fails on a shallow clone; its properties only
+  # fill manifest attributes, so they are passed by hand.
+  (cd "$src/tlatools/org.lamport.tlatools" && ant -f customBuild.xml -Dgit.branch=detached -Dgit.tag=none "-Dgit.revision=$commit" "-Dgit.shortRevision=$short" -Dgit.commitsCount=0 compile compile-test dist)
+  mkdir -p .work/jars/dc6a944
+  cp "$src/tlatools/org.lamport.tlatools/dist/tla2tools.jar" .work/jars/dc6a944/tla2tools.jar
+  echo ".work/jars/dc6a944/tla2tools.jar $(sum256 .work/jars/dc6a944/tla2tools.jar)"
+  echo "the reference was recorded from 171c46c1ec562ff1893a709916ab2616865bb3a635529ec7da22c8699ae9c35a"
+  ;;
+*)
+  echo "usage: scripts/setup release|reference" >&2
+  exit 2
+  ;;
+esac

@@ -1,0 +1,23 @@
+#!/bin/sh
+# Copyright 2026 Christopher O'Connell
+# SPDX-License-Identifier: Apache-2.0
+#
+# Patch a copy of the pinned generated parser so that every LOOKAHEAD decision and every
+# syntax-error arm reports what it did, keeping its line numbers, and parse every .tla
+# under sets/ and deep-cuts/ with it, one JVM on one core. Parsing only, no semantics.
+# Needs a JDK on PATH, scripts/setup reference, and the pinned tlaplus sources (it uses the
+# clone scripts/setup reference made). Prints one line per event: event, files, smallest
+# file, its size. E:LINE is an error arm that ran; D:LINE:J0 and :J1 a lookahead decision's
+# scan false and true, :P0 and :P1 its predicate; O: the OpenStart alternatives.
+set -eu
+cd "$(dirname "$0")/../.."
+SRC=.work/build/tlaplus/tlatools/org.lamport.tlatools/src/tla2sany/parser/TLAplusParser.java
+JAR=.work/jars/dc6a944/tla2tools.jar
+OUT=.work/gtrace
+rm -rf "$OUT"
+mkdir -p "$OUT/src/tla2sany/parser" "$OUT/classes"
+python3 -I tools/grammar-trace/patch.py "$SRC" "$OUT/src/tla2sany/parser/TLAplusParser.java"
+javac -nowarn -encoding UTF-8 -d "$OUT/classes" -cp "$JAR" tools/grammar-trace/tla2sany/parser/T.java "$OUT/src/tla2sany/parser/TLAplusParser.java" tools/grammar-trace/GrammarTrace.java 2>&1 | grep -v '^Note:' || true
+find sets deep-cuts -name '*.tla' -type f > "$OUT/list.txt"
+wc -l < "$OUT/list.txt" >&2
+exec java -XX:ActiveProcessorCount=1 -Xss4m -Xmx1g -cp "$OUT/classes:$JAR" GrammarTrace "$OUT/list.txt"

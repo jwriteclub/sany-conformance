@@ -1,0 +1,17 @@
+
+(source_file (module (header_line) name: (identifier) (header_line)
+  (operator_definition name: (identifier) (def_eq) definition:
+    (disj_list
+      (disj_item
+        (bullet_disj)
+        (if_then_else
+          if: (nat_number)
+          then: (nat_number)
+          else: (nat_number)
+        )
+      )
+      (disj_item (bullet_disj) (nat_number))
+    )
+  )
+(double_line)))
+

@@ -1,0 +1,5 @@
+---- MODULE NewSubSel ----
+CONSTANT S
+THEOREM T == ASSUME NEW x \in S, TRUE PROVE TRUE
+A == T!1!1
+====

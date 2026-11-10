@@ -1,0 +1,2 @@
+---- MODULE x ---- THEOREM ASSUME VARIABLE x PROVE "s" 
+====

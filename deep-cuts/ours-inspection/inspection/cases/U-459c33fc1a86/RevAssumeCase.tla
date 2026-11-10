@@ -1,0 +1,4 @@
+---- MODULE RevAssumeCase ----
+CONSTANT x, y, S
+THEOREM ASSUME CASE 1 -> 2 PROVE TRUE
+====

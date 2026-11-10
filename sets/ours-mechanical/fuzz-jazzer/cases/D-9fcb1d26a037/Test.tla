@@ -1,0 +1,3 @@
+---- MODULE Test ----
+HIDE HIDE =
+====

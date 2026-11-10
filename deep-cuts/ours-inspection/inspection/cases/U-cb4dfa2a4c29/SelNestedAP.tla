@@ -1,0 +1,4 @@
+---- MODULE SelNestedAP ----
+THEOREM T == ASSUME ASSUME TRUE PROVE TRUE PROVE TRUE
+Foo == T!1
+====

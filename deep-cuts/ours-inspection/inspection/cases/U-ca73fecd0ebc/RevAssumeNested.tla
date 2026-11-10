@@ -1,0 +1,4 @@
+---- MODULE RevAssumeNested ----
+CONSTANT x, y, S
+THEOREM ASSUME ASSUME x PROVE y PROVE TRUE
+====

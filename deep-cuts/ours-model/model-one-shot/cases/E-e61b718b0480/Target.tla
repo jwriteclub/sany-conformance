@@ -1,0 +1,7 @@
+---- MODULE Target ----
+THEOREM T ==
+  ASSUME
+    lb :: ASSUME TRUE PROVE TRUE
+  PROVE TRUE
+USE DEFS T!lb
+====

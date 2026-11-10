@@ -1,0 +1,4 @@
+---- MODULE Q ----
+EXTENDS P
+CONSTANT A
+====

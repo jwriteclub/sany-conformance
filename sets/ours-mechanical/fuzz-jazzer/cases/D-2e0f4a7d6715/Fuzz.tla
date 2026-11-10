@@ -1,0 +1,1 @@
+---- MODULE1_BasicAssumeProveTest CONSTAN\ominusROVE

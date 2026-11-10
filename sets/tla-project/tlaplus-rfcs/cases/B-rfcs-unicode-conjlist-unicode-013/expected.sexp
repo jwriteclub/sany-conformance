@@ -1,0 +1,15 @@
+
+(source_file (module (header_line) (identifier) (header_line)
+  (operator_definition (identifier) (def_eq)
+    (bound_infix_op
+      (bound_infix_op
+        (conj_list (conj_item (bullet_conj) (nat_number)))
+        (slash)
+        (nat_number)
+      )
+      (land)
+      (nat_number)
+    )
+  )
+(double_line)))
+

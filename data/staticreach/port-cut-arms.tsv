@@ -1,0 +1,4 @@
+# Copyright 2026 Christopher O'Connell
+# SPDX-License-Identifier: Apache-2.0
+class	name	descriptor	ordinal	line	arm
+tla2sany/drivers/SANY	SANYmain0	([Ljava/lang/String;)V	469	758	0

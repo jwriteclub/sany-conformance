@@ -1,0 +1,6 @@
+---- MODULE Target ----
+THEOREM T ==
+  ASSUME VARIABLE x
+  PROVE TRUE
+HIDE T!1
+====

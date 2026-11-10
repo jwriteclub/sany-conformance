@@ -1,0 +1,13 @@
+# Copyright 2026 Christopher O'Connell
+# SPDX-License-Identifier: Apache-2.0
+# The repositories the sets come from, at the commits measured. A fourth field marks one
+# no case is extracted from: tlx's wrappers name it, and this pins what they name.
+# name url commit
+tlaplus https://github.com/tlaplus/tlaplus.git dc6a944429fe3e26104d38f9ff792d2d5d83f307
+Examples https://github.com/tlaplus/Examples.git 0e32a039a4286cc3e1b0f70c00eaff3178d49f85
+CommunityModules https://github.com/tlaplus/CommunityModules.git 1805e9d5e1cef05d74806309fb87788e69b48f26
+tree-sitter-tlaplus https://github.com/tlaplus-community/tree-sitter-tlaplus.git add40814fda369f6efd989977b2c498aaddde984
+tlx https://github.com/tlaplus-x/tlx.git bec5985379adbf143db9512cb1171dca37a804c2
+tlapm https://github.com/tlaplus/tlapm.git 568722253719604cea2cbfaff537c58208084a87
+rfcs https://github.com/tlaplus/rfcs.git f917f9c83769b99253d04f089fd40a3d9efd1beb
+PaxosStore-TLA https://github.com/Disalg-ICS-NJU/PaxosStore-TLA.git 0188955e7023b4350943a9961d9b83a0d87e9fe9 named-only

@@ -1,0 +1,4 @@
+---- MODULE Target ---- ----
+ASSUMPTION A == ENABLED []TRUE
+ASSUMPTION A == ENABLED []TRUE
+====

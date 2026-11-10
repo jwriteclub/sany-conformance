@@ -1,0 +1,1 @@
+---- MODULE ASS.T.SUME /\DOMAIN 2, Real 

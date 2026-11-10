@@ -1,0 +1,7 @@
+---- MODULE Target ----
+THEOREM thm ==
+  ASSUME
+    ASSUME TRUE PROVE TRUE,
+    []ASSUME TRUE []PROVE TRUE
+  PROVE TRUE
+====

@@ -1,0 +1,4 @@
+---- MODULE SchemaNewFact ----
+THEOREM Thm == ASSUME NEW CONSTANT e PROVE e = e
+THEOREM TRUE BY Thm!1
+====

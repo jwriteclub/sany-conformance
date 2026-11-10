@@ -1,0 +1,1 @@
+---- MODULE ASS ASSUM. TRUE

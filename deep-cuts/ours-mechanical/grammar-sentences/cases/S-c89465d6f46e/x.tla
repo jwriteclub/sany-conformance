@@ -1,0 +1,2 @@
+---- MODULE x ---- THEOREM ASSUME TEMPORAL x PROVE "s" 
+====

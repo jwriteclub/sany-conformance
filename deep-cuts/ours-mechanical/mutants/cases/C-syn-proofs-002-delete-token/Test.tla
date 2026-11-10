@@ -1,0 +1,5 @@
+
+---- MODULE Test ----
+PROPOSITION x == 
+====
+

@@ -1,0 +1,4 @@
+---- MODULE RevAssumeSFBad ----
+CONSTANT x, y, S
+THEOREM ASSUME SF_ , PROVE TRUE
+====

@@ -1,0 +1,7 @@
+---- MODULE Target ----
+THEOREM TRUE
+<1>a. SUFFICES
+  []ASSUME CONSTANT x \in S
+  PROVE TRUE
+<1>b. QED
+====

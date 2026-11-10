@@ -1,0 +1,4 @@
+---- MODULE Target ----
+RECURSIVE f
+ASSUMPTION TRUE
+====

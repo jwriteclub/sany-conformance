@@ -1,0 +1,7 @@
+---- MODULE OpenStartProofCase ----
+THEOREM TRUE
+PROOF
+<1>1. HAVE CASE TRUE -> TRUE
+<1>2. HAVE TRUE => CASE TRUE -> TRUE
+<1> QED OBVIOUS
+====

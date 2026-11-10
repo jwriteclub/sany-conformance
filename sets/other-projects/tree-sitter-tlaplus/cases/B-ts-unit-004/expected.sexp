@@ -1,0 +1,23 @@
+
+(source_file (module (header_line) (identifier) (header_line)
+  (instance (identifier_ref)
+    (substitution (identifier_ref) (gets)
+      (conj_list (conj_item (bullet_conj) (nat_number)))
+    )
+    (substitution (identifier_ref) (gets)
+      (conj_list (conj_item (bullet_conj) (nat_number)))
+    )
+    (substitution (identifier_ref) (gets)
+      (conj_list (conj_item (bullet_conj)
+        (disj_list
+          (disj_item (bullet_disj) (nat_number))
+          (disj_item (bullet_disj) (nat_number))
+        )
+      ))
+    )
+    (substitution (identifier_ref) (gets)
+      (disj_list (disj_item (bullet_disj) (nat_number)))
+    )
+  )
+(double_line)))
+

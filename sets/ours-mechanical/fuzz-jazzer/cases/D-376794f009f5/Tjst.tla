@@ -1,0 +1,1 @@
+---- MODULE PROPOSITIO\E]\E]]]]]]N 

@@ -1,0 +1,6 @@
+---- MODULE Target ----
+THEOREM T ==
+  ASSUME NEW CONSTANT x
+  PROVE TRUE
+USE T!1
+====

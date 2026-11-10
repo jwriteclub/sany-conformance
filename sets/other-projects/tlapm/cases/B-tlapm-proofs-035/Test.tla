@@ -1,0 +1,7 @@
+
+---- MODULE Test ----
+THEOREM TRUE
+<1> WITNESS TRUE OBVIOUS
+<1> QED
+====
+

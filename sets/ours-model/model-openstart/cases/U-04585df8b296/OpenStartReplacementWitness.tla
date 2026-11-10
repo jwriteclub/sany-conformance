@@ -1,0 +1,3 @@
+---- MODULE OpenStartReplacementWitness ----
+Value == TRUE
+====

@@ -1,0 +1,2 @@
+---- MODULE x ---- THEOREM ASSUME NEW STATE x PROVE "s" 
+====

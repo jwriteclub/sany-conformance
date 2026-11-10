@@ -1,0 +1,11 @@
+---- MODULE Target ----
+THEOREM T ==
+  ASSUME NEW CONSTANT x \in {v}
+  PROVE TRUE
+HIDE arget ----
+VARIABLE v
+THEOREM T ==
+ ASSUME NEW CONSTANT x \in {v}
+  PROVE TRUE
+HIDE T!T!1
+====

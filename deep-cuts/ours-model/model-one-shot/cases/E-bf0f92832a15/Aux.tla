@@ -1,0 +1,3 @@
+---- MODULE Aux ----
+CONSTANT c
+====

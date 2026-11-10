@@ -1,0 +1,3 @@
+---- MODULE Target ----
+EXTENDS A
+====

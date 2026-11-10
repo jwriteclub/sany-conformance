@@ -1,0 +1,2 @@
+---- MODULE x ---- CONSTANT x 
+====

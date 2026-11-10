@@ -1,0 +1,18 @@
+# Copyright 2026 Christopher O'Connell
+# SPDX-License-Identifier: Apache-2.0
+
+[package]
+name = "tlxcheck"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+tlx-sema = { path = "../../.work/external/tlx/crates/tlx-sema" }
+tlx-front = { path = "../../.work/external/tlx/crates/tlx-front" }
+
+[workspace]
+
+[profile.release]
+codegen-units = 1
+lto = "thin"

@@ -1,0 +1,570 @@
+#!/usr/bin/env python3
+# Copyright 2026 Christopher O'Connell
+# SPDX-License-Identifier: Apache-2.0
+"""Run stock SANY over the cases and compare with the recorded expected output.
+
+Needs Python 3.8+, a JVM and a tla2tools.jar, and nothing else: no network, no
+wrapper, no project tool. For each case it copies the case directory to a private
+temporary directory and runs, in it,
+
+    java -cp tla2tools.jar tla2sany.SANY Root.tla
+
+then the same with -error-codes when the jar accepts that switch, because the
+plain command exits 0 on a rejected spec and only that switch reports the verdict
+in the exit code. Machine-specific paths in the output are mapped; nothing else is
+changed. See docs/compare.md, "How to verify".
+
+    scripts/verify --jar tla2tools.jar                     every set and deep cut
+    scripts/verify --jar J --java /path/to/java --jobs 4
+    scripts/verify --jar J --sets sets/tla-project         only under this path
+    scripts/verify --jar J --only 'A-err-.*'               only matching ids
+    scripts/verify --jar J --report mismatches.tsv         one row per difference
+    scripts/verify --jar J --show CASE-ID                  run one, print both sides
+
+The exit status is 0 when every case matches on every compared field, 1 otherwise.
+A mismatch is a difference from the recorded reference, not necessarily a bug.
+"""
+import argparse
+import base64
+import concurrent.futures
+import glob
+import hashlib
+import json
+import os
+import re
+import shutil
+import signal
+import subprocess
+import sys
+import tempfile
+import threading
+import time
+import zipfile
+
+MANIFEST = "manifest.jsonl"
+MAX_OUTPUT = 64 * 1024 * 1024  # bytes kept per stream; a looping case can write far more
+
+RE_ESCAPED = re.compile(r"(?m)^Exception in thread .*$")
+RE_INTERNAL = re.compile(r"(?m)^(java\.lang\.[A-Za-z]+(?:Exception|Error)\b.*|tla2sany\.[A-Za-z.]*Exception\b.*)$")
+RE_CAUSED = re.compile(r"(?m)^Caused by: .*$")
+RE_FRAME = re.compile(r"(?m)^\s+at ([\w$.<>]+)\(([^)]*)\)")
+RE_HEADER = re.compile(r"\*\*\*Parse Error\*\*\*")
+RE_RESIDUAL = re.compile(r"Residual stack trace follows:")
+RE_ENCOUNTERED = re.compile(r'Encountered "(?s:.*?)" at line (\d+), column (\d+)')
+RE_ANYPOS = re.compile(r"line (\d+), col(?:umn)? (\d+)")
+RE_LEXICAL = re.compile(r"Lexical error at line (\d+), column (\d+)")
+RE_OPENCOMMENT = re.compile(r"Lexical \{error: EOF reached, possibly open comment starting around line (\d+)")
+RE_FAIRNESS = re.compile(r"Error in fairness expression at (\d+): (\d+)")
+RE_COULDNOT = re.compile(r"(?m)^Could not parse module (\S+) from file ")
+RE_SEMLOC = re.compile(r"(?m)^line (\d+), col (\d+) to line \d+, col \d+ of module (\S+)\s*$")
+RE_ERRBLOCK = re.compile(r"(?m)^(Semantic errors:|\*\*\* Errors: \d+)")
+RE_INMODULE = re.compile(r"(?m)^In module (\S+)\s*$")
+RE_TLC_TMP = re.compile(rb"tlc-\d+")
+RE_NESTED_TMP = re.compile(rb"\$TMP/\d+/")
+PROGRESS = ("****** SANY2 ", "Parsing file ", "Parsing module ", "Semantic processing of module ", "Linting of module ")
+# The text that says SANY refused the spec. The plain command exits 0 either way.
+RE_REJECT = re.compile(
+    r"(?m)^(\*\*\* Errors: \d+|\*\*\* Abort messages: \d+|\*\*\*Parse Error\*\*\*|Fatal errors while parsing TLA\+ spec|"
+    r"Could not parse module |Lexical \{?error|Cannot find the specified file )"
+)
+
+
+def sha256_bytes(b):
+    return hashlib.sha256(b).hexdigest()
+
+
+def sha256_file(path):
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def first_position(text, accepted):
+    """The first error's position, module:line:col, read from SANY's own text.
+
+    module:0:0 means SANY named a module and no position; :0:0 means neither. An
+    open-comment error gives a line only, module:line:0.
+    """
+    if accepted:
+        return None
+    best = None
+    line = col = 0
+
+    def consider(at, ln, cl):
+        nonlocal best, line, col
+        if best is not None and at > best:
+            return
+        best, line, col = at, int(ln), int(cl)
+
+    h = RE_HEADER.search(text)
+    if h:
+        block = text[h.end():]
+        r = RE_RESIDUAL.search(block)
+        if r:
+            block = block[: r.start()]
+        rx = RE_ENCOUNTERED if RE_ENCOUNTERED.search(block) else RE_ANYPOS
+        m = rx.search(block)
+        if m:
+            consider(h.end() + m.start(), m.group(1), m.group(2))
+    for rx, line_only in ((RE_LEXICAL, False), (RE_OPENCOMMENT, True), (RE_FAIRNESS, False)):
+        m = rx.search(text)
+        if m:
+            consider(m.start(), m.group(1), 0 if line_only else m.group(2))
+    if best is not None:
+        m = RE_COULDNOT.search(text)
+        return "%s:%d:%d" % (m.group(1) if m else "", line, col)
+    h = RE_ERRBLOCK.search(text)
+    if h:
+        m = RE_SEMLOC.search(text[h.start():])
+        if m:
+            return "%s:%s:%s" % (m.group(3), m.group(1), m.group(2))
+    m = RE_INMODULE.search(text)
+    if m:
+        return "%s:0:0" % m.group(1)
+    return ":0:0"
+
+
+def soft_text(text):
+    """Text without progress lines, trailing spaces and runs of blank lines."""
+    out = []
+    blank = True
+    for line in text.replace("\r\n", "\n").split("\n"):
+        if line.startswith(PROGRESS):
+            continue
+        if not line.strip():
+            if not blank:
+                out.append("")
+            blank = True
+            continue
+        blank = False
+        out.append(line.rstrip(" \t"))
+    while out and out[-1] == "":
+        out.pop()
+    return "\n".join(out) + "\n" if out else ""
+
+
+def stage_of(text):
+    """The last stage SANY announced before it stopped."""
+    stage = "start"
+    for line in text.split("\n"):
+        if line.startswith(("Parsing file ", "Parsing module ")):
+            stage = "parsing"
+        elif line.startswith("Semantic processing of module "):
+            stage = "semantic"
+        elif line.startswith("Linting of module "):
+            stage = "linting"
+    return stage
+
+
+def encode_text(obj, key, data):
+    try:
+        obj[key] = data.decode("utf-8")
+    except UnicodeDecodeError:
+        obj[key + "_base64"] = base64.b64encode(data).decode("ascii")
+
+
+def decode_text(obj, key):
+    if key in obj:
+        return obj[key].encode("utf-8")
+    if key + "_base64" in obj:
+        return base64.b64decode(obj[key + "_base64"])
+    return None
+
+
+class Runner:
+    def __init__(self, a):
+        self.java = a.java
+        self.jar = os.path.realpath(a.jar)
+        self.jvm_args = list(a.jvm_arg or [])
+        self.timeout = a.timeout
+        self.isolate_tmp = a.isolate_tmp
+        self.libs_root = a.libs_root
+        self.env = {k: v for k, v in os.environ.items() if k not in ("JAVA_TOOL_OPTIONS", "_JAVA_OPTIONS", "JDK_JAVA_OPTIONS", "CLASSPATH")}
+        self.props = java_props(self.java, self.env)
+        self.tmpdir = self.props.get("java.io.tmpdir", tempfile.gettempdir()).rstrip("/")
+        self.tmp_before = set(os.listdir(self.tmpdir)) if os.path.isdir(self.tmpdir) else set()
+        self.base = tempfile.mkdtemp(prefix="sany-verify-", dir=a.work)
+        self.seq = 0
+        self.lock = threading.Lock()
+        self.strict = not a.no_strict and jar_has_error_codes(self.java, self.jar, self.env, self.base)
+
+    def close(self):
+        shutil.rmtree(self.base, ignore_errors=True)
+
+    def next_dir(self):
+        with self.lock:
+            self.seq += 1
+            n = self.seq
+        d = os.path.join(self.base, "r%d" % n)
+        os.makedirs(os.path.join(d, "out"))
+        return d
+
+    def mapping(self, run, tmp, libs):
+        pairs = [(run, "$CASE"), (os.path.realpath(run), "$CASE"), (self.jar, "$JAR"), (self.tmpdir, "$TMP"), (os.path.realpath(self.tmpdir), "$TMP")]
+        if tmp:
+            pairs += [(tmp, "$TMP"), (os.path.realpath(tmp), "$TMP")]
+        for name, path in libs.items():
+            pairs += [(path, "$LIB/" + name), (os.path.realpath(path), "$LIB/" + name)]
+        pairs = sorted(set(pairs), key=lambda p: (-len(p[0]), p[0]))
+        return [(a.encode(), b.encode()) for a, b in pairs]
+
+    def spawn(self, argv, cwd, tag, outdir):
+        out, err = os.path.join(outdir, tag + ".out"), os.path.join(outdir, tag + ".err")
+        with open(out, "wb") as fo, open(err, "wb") as fe:
+            start = time.monotonic()
+            p = subprocess.Popen(argv, cwd=cwd, stdout=fo, stderr=fe, stdin=subprocess.DEVNULL, env=self.env, start_new_session=True)
+            try:
+                p.wait(self.timeout)
+                timed = False
+            except subprocess.TimeoutExpired:
+                timed = True
+                try:
+                    os.killpg(p.pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
+                p.wait()
+            wall = time.monotonic() - start
+        with open(out, "rb") as f:
+            so = f.read(MAX_OUTPUT)
+        with open(err, "rb") as f:
+            se = f.read(MAX_OUTPUT)
+        return p.returncode, timed, so, se, wall
+
+    def observe(self, case):
+        """One case: the plain command, then -error-codes if the jar has it."""
+        d = self.next_dir()
+        run = os.path.join(d, "case")
+        try:
+            shutil.copytree(case["path"], run)
+            libs = {}
+            if self.libs_root and case.get("libs"):
+                libs = {n: os.path.join(self.libs_root, n) for n in case["libs"] if n != "std"}
+            tmp = None
+            args = list(self.jvm_args)
+            if libs:
+                args.append("-DTLA-Library=" + ":".join(libs.values()))
+            if self.isolate_tmp:
+                tmp = os.path.join(d, "tmp")
+                os.makedirs(tmp)
+                args.append("-Djava.io.tmpdir=" + tmp)
+            base = [self.java] + args + ["-cp", self.jar, "tla2sany.SANY"]
+            code, timed, so, se, wall = self.spawn(base + [case["root_file"]], run, "plain", os.path.join(d, "out"))
+            mapping = self.mapping(run, tmp, libs)
+            so, se = normalise(so, mapping), normalise(se, mapping)
+            obs = {"id": case["id"], "exit_plain": None if timed else code, "wall_seconds": round(wall, 2)}
+            encode_text(obs, "stdout", so)
+            encode_text(obs, "stderr", se)
+            text = so.decode("utf-8", "replace")
+            errtext = se.decode("utf-8", "replace")
+            if timed:
+                obs.update(status="timeout", verdict=None, stage=stage_of(text), first_position=None)
+            else:
+                obs.update(classify(text, errtext))
+            if self.strict and not timed:
+                c2, t2, so2, se2, w2 = self.spawn(base + ["-error-codes", case["root_file"]], run, "strict", os.path.join(d, "out"))
+                obs["exit_error_codes"] = None if t2 else c2
+                so2, se2 = normalise(so2, mapping), normalise(se2, mapping)
+                obs["error_codes_text_same"] = so2 == so and se2 == se
+                if obs["status"] == "ok" and not t2:
+                    if (c2 == 0) != (obs["verdict"] == "accept"):
+                        obs["verdict_text_and_exit_disagree"] = True
+                        obs["verdict"] = "accept" if c2 == 0 else "reject"
+                        obs["first_position"] = first_position(text, c2 == 0)
+            return obs
+        except Exception as e:  # An infrastructure failure must never look like a SANY result.
+            return {"id": case["id"], "status": "infra", "verdict": None, "detail": repr(e)}
+        finally:
+            shutil.rmtree(d, ignore_errors=True)
+
+
+def classify(text, errtext):
+    """Status, verdict, stage and first position from what SANY printed. A crash counts
+    as a rejection at the stage it happened, and says so."""
+    crash = crash_of(text, errtext)
+    if crash:
+        return {"status": "crash", "verdict": "reject", "crash": crash, "stage": stage_of(text), "first_position": None}
+    rejected = bool(RE_REJECT.search(text))
+    return {"status": "ok", "verdict": "reject" if rejected else "accept", "stage": stage_of(text), "first_position": first_position(text, not rejected)}
+
+
+def normalise(data, mapping):
+    for a, b in mapping:
+        data = data.replace(a, b)
+    if b"$TMP/" in data:
+        data = RE_TLC_TMP.sub(b"tlc-N", data)
+        data = RE_NESTED_TMP.sub(b"$TMP/N/", data)
+    return data
+
+
+def crash_of(text, errtext):
+    """An escaped Java exception, or one SANY caught and logged. None if neither.
+
+    SANY wraps most in a FrontEndException, so the cause names the crash. A stack
+    overflow has no stable top frame, so it names none.
+    """
+    both = errtext + "\n" + text
+    m = RE_ESCAPED.search(both)
+    where = "escaped"
+    if not m:
+        # Older jars print AbortException as their ordinary report of a failed parse.
+        m = next((x for x in RE_INTERNAL.finditer(both) if "AbortException" not in x.group(0)), None)
+        where = "caught-and-logged"
+    if not m:
+        return None
+    line = m.group(0)
+    cause = RE_CAUSED.search(errtext)
+    start = cause.start() if cause else m.start()
+    ex = re.search(r"([\w$.]+(?:Exception|Error))\b", cause.group(0) if cause else line)
+    name = ex.group(1) if ex else line[:120]
+    frame = RE_FRAME.search(both[start:])
+    return {"kind": where, "exception": name, "frame": None if "StackOverflowError" in name or not frame else frame.group(1), "line": line[:300]}
+
+
+def java_props(java, env):
+    p = subprocess.run([java, "-XshowSettings:properties", "-version"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=env)
+    props = {}
+    for line in p.stdout.decode("utf-8", "replace").split("\n"):
+        m = re.match(r"\s+([\w.]+) = (.*)$", line)
+        if m:
+            props[m.group(1)] = m.group(2)
+    return props
+
+
+def java_flag(java, env, name):
+    p = subprocess.run([java, "-XX:+PrintFlagsFinal", "-version"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, env=env)
+    for line in p.stdout.decode("utf-8", "replace").split("\n"):
+        w = line.split()
+        if len(w) >= 4 and w[1] == name:
+            return w[3]
+    return None
+
+
+def jar_has_error_codes(java, jar, env, base):
+    d = tempfile.mkdtemp(dir=base)
+    p = subprocess.run([java, "-cp", jar, "tla2sany.SANY", "-error-codes", "NoSuchFile.tla"], cwd=d, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=env, stdin=subprocess.DEVNULL)
+    shutil.rmtree(d, ignore_errors=True)
+    return b"Illegal switch" not in p.stdout and b"Invalid option" not in p.stdout
+
+
+def jar_info(path):
+    info = {"file": os.path.basename(path), "sha256": sha256_file(path)}
+    try:
+        with zipfile.ZipFile(path) as z:
+            mf = z.read("META-INF/MANIFEST.MF").decode("utf-8", "replace").replace("\r\n ", "").replace("\n ", "")
+        for line in mf.splitlines():
+            for key, name in (("Implementation-Version", "implementation_version"), ("X-Git-Revision", "git_revision"), ("X-Git-Tag", "git_tag")):
+                if line.startswith(key + ":"):
+                    info[name] = line.split(":", 1)[1].strip()
+    except (KeyError, OSError, zipfile.BadZipFile):
+        pass
+    return info
+
+
+def fs_case_sensitive(path):
+    d = tempfile.mkdtemp(prefix="CaseProbe", dir=path)
+    try:
+        return not os.path.exists(os.path.join(os.path.dirname(d), os.path.basename(d).swapcase()))
+    finally:
+        os.rmdir(d)
+
+
+def environment(a, r):
+    p = r.props
+    env = {
+        "jar": jar_info(a.jar),
+        "jvm_vendor": p.get("java.vendor"),
+        "jvm_version": p.get("java.runtime.version"),
+        "jvm_name": p.get("java.vm.name"),
+        "os": p.get("os.name"),
+        "os_version": p.get("os.version"),
+        "arch": p.get("os.arch"),
+        "default_charset": p.get("file.encoding"),
+        "native_encoding": p.get("native.encoding"),
+        "sun_jnu_encoding": p.get("sun.jnu.encoding"),
+        "locale_env": {k: os.environ[k] for k in ("LC_ALL", "LC_CTYPE", "LANG") if k in os.environ},
+        "file_system_case_sensitive": fs_case_sensitive(r.base),
+        "thread_stack_kb": java_flag(a.java, r.env, "ThreadStackSize"),
+        "max_heap_bytes": java_flag(a.java, r.env, "MaxHeapSize"),
+        "command": " ".join(["java"] + list(a.jvm_arg or []) + ["-cp", "tla2tools.jar", "tla2sany.SANY", "<root file>"]),
+        "verdict_command": (" ".join(["java"] + list(a.jvm_arg or []) + ["-cp", "tla2tools.jar", "tla2sany.SANY", "-error-codes", "<root file>"])) if r.strict else None,
+        "isolated_tmp": bool(a.isolate_tmp),
+    }
+    return env
+
+
+def load_manifests(root, sets):
+    """Every case in the manifests under root, or under the given paths."""
+    roots = [os.path.join(root, s) for s in sets] if sets else [os.path.join(root, "sets"), os.path.join(root, "deep-cuts")]
+    cases = []
+    for r in roots:
+        for path in sorted(glob.glob(os.path.join(r, "**", MANIFEST), recursive=True)):
+            base = os.path.dirname(path)
+            with open(path, encoding="utf-8") as f:
+                head = json.loads(f.readline())
+                for line in f:
+                    row = json.loads(line)
+                    row["path"] = os.path.join(base, "cases", row["id"])
+                    row["manifest"] = os.path.relpath(base, root)
+                    cases.append(row)
+    return cases
+
+
+def check_files(case):
+    """A case whose bytes changed cannot be compared. None if they are as recorded."""
+    for f in case.get("files", []):
+        p = os.path.join(case["path"], f["path"])
+        if not os.path.exists(p):
+            return "missing " + f["path"]
+        if sha256_file(p) != f["sha256"]:
+            return "changed " + f["path"]
+    return None
+
+
+def compare(exp, obs, soft):
+    """The fields that differ, with both values."""
+    out = []
+    for key in ("status", "verdict", "first_position", "exit_plain"):
+        if exp.get(key) != obs.get(key):
+            out.append((key, exp.get(key), obs.get(key)))
+    if (exp.get("crash") or {}).get("exception") != (obs.get("crash") or {}).get("exception"):
+        out.append(("crash", (exp.get("crash") or {}).get("exception"), (obs.get("crash") or {}).get("exception")))
+    for key in ("stdout", "stderr"):
+        if key == "stderr" and "StackOverflowError" in ((exp.get("crash") or {}).get("exception") or ""):
+            continue  # the depth of the trace it prints changes from run to run
+        a, b = decode_text(exp, key), decode_text(obs, key)
+        if soft and a is not None and b is not None:
+            a = soft_text(a.decode("utf-8", "replace")).encode()
+            b = soft_text(b.decode("utf-8", "replace")).encode()
+        if a != b:
+            out.append((key, sha256_bytes(a or b""), sha256_bytes(b or b"")))
+    return out
+
+
+def stale_tmp_cleanup(tmpdir, before):
+    """Each JVM leaves an empty tlc-<random> directory in java.io.tmpdir, and a
+    <random> directory for a nested module. Remove the new, empty ones."""
+    try:
+        for n in os.listdir(tmpdir):
+            if n not in before and re.fullmatch(r"(tlc-)?\d+", n):
+                try:
+                    os.rmdir(os.path.join(tmpdir, n))
+                except OSError:
+                    pass
+    except OSError:
+        pass
+
+
+def main():
+    here = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--jar", required=True, help="the tla2tools.jar to test")
+    ap.add_argument("--java", default="java", help="the java binary (default: java on PATH)")
+    ap.add_argument("--jobs", type=int, default=max(1, (os.cpu_count() or 2) // 2), help="cases at once")
+    ap.add_argument("--timeout", type=float, default=300, help="seconds per JVM")
+    ap.add_argument("--root", default=here, help="repository root")
+    ap.add_argument("--sets", action="append", help="only manifests under this path, relative to the root; repeatable")
+    ap.add_argument("--only", help="only case ids matching this regular expression")
+    ap.add_argument("--report", help="write mismatches here as TSV")
+    ap.add_argument("--show", help="run one case id and print expected and observed")
+    ap.add_argument("--soft", action="store_true", help="ignore progress lines, trailing spaces and blank-line runs when comparing text")
+    ap.add_argument("--no-strict", action="store_true", help="skip the second JVM with -error-codes; the verdict then comes from the text alone")
+    ap.add_argument("--work", default=None, help="directory for temporary copies")
+    ap.add_argument("--keep-tmp", action="store_true", help="leave SANY's empty tlc-* directories in java.io.tmpdir")
+    ap.add_argument("--isolate-tmp", action="store_true", help="give each JVM its own java.io.tmpdir. Needed for jars that unpack standard modules into a shared directory, such as v1.7.4, when --jobs is above 1")
+    ap.add_argument("--jvm-arg", action="append", help="extra JVM argument, to test sensitivity to flags; not for recording")
+    ap.add_argument("--cases", help=argparse.SUPPRESS)  # JSONL of {id,path,root_file,libs}: recording before the tree exists
+    ap.add_argument("--libs-root", help=argparse.SUPPRESS)  # with --cases: put each case's libs on TLA-Library
+    ap.add_argument("--record", help=argparse.SUPPRESS)  # write observations and the environment; compare nothing
+    a = ap.parse_args()
+    # The JVM runs with the case directory as its working directory.
+    if os.sep in a.java:
+        a.java = os.path.abspath(a.java)
+    if a.libs_root:
+        a.libs_root = os.path.abspath(a.libs_root)
+    if a.work:
+        a.work = os.path.abspath(a.work)
+    if a.show:
+        a.only = "^" + re.escape(a.show) + "$"
+    if a.cases:
+        with open(a.cases, encoding="utf-8") as f:
+            cases = [json.loads(line) for line in f]
+    else:
+        cases = load_manifests(a.root, a.sets)
+    if a.only:
+        rx = re.compile(a.only)
+        cases = [c for c in cases if rx.search(c["id"])]
+    if not cases:
+        sys.exit("verify: no cases selected")
+    r = Runner(a)
+    env = environment(a, r)
+    print("jar %s sha256 %s" % (env["jar"]["file"], env["jar"]["sha256"]), file=sys.stderr)
+    print("%s %s %s %s, charset %s, case-sensitive file system: %s, %d cases, %d jobs" % (env["jvm_vendor"], env["jvm_version"], env["os"], env["arch"], env["default_charset"], env["file_system_case_sensitive"], len(cases), a.jobs), file=sys.stderr)
+    out = open(a.record, "w", encoding="utf-8") if a.record else None
+    if out:
+        out.write(json.dumps({"environment": env}, sort_keys=True) + "\n")
+    done = 0
+    bad = 0
+    known = 0
+    per = {}
+    fields = {}
+    rows = []
+    start = time.monotonic()
+    def one(c):
+        if not a.cases:
+            problem = check_files(c)
+            if problem:
+                return c, {"id": c["id"], "status": "bad-case", "detail": problem}
+        return c, r.observe(c)
+    try:
+        with concurrent.futures.ThreadPoolExecutor(a.jobs) as ex:
+            for c, o in ex.map(one, cases):
+                done += 1
+                if out:
+                    out.write(json.dumps(o, sort_keys=True) + "\n")
+                else:
+                    ms = per.setdefault(c["manifest"], [0, 0])
+                    if o.get("status") == "bad-case" or o.get("status") == "infra":
+                        diff = [(o["status"], "", o.get("detail", ""))]
+                    else:
+                        diff = compare(c["expected"], o, a.soft)
+                    ms[0] += 1
+                    if diff:
+                        ms[1] += 1
+                        bad += 1
+                        if c.get("depends_on"):
+                            known += 1
+                        for d in diff:
+                            fields[d[0]] = fields.get(d[0], 0) + 1
+                            rows.append((c["manifest"], c["id"]) + tuple(str(x) for x in d) + (",".join(c.get("depends_on", [])),))
+                    if a.show:
+                        print(json.dumps({"expected": c["expected"], "observed": o}, indent=1, sort_keys=True))
+                if done % 500 == 0:
+                    print("%d of %d, %.0f s" % (done, len(cases), time.monotonic() - start), file=sys.stderr, flush=True)
+    finally:
+        if out:
+            out.close()
+        r.close()
+        if not a.keep_tmp:
+            stale_tmp_cleanup(r.tmpdir, r.tmp_before)
+    if a.record:
+        return 0
+    if a.report:
+        with open(a.report, "w", encoding="utf-8") as f:
+            f.write("manifest\tid\tfield\texpected\tobserved\tknown_to_depend_on\n")
+            for row in rows:
+                f.write("\t".join(row) + "\n")
+    print("set\tcases\tmatch\tmismatch")
+    for m in sorted(per):
+        print("%s\t%d\t%d\t%d" % (m, per[m][0], per[m][0] - per[m][1], per[m][1]))
+    print("TOTAL\t%d\t%d\t%d" % (done, done - bad, bad))
+    if known:
+        print("%d of the mismatches are cases recorded as depending on platform, JVM flags, stack depth or charset (depends_on in the manifest)" % known)
+    for k in sorted(fields):
+        print("differing field %s: %d cases" % (k, fields[k]))
+    return 1 if bad else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
