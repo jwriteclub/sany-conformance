@@ -1,0 +1,75 @@
+{
+  "artifacts_sha256": {
+    "checking.jsonl.gz": "cdc23574aa0a1b7d91fec040d8cbb43076fd3489f7c232bf6d801366a1ae8c05",
+    "frontend.jsonl.gz": "e3914c326fb240a307a566873c82f4d69acdc85921da2576ba2113b82f7a2e0b"
+  },
+  "checking": {
+    "class_pairs": {
+      "assert-violation/assert-violation": 2,
+      "assumption-violation/assumption-violation": 123,
+      "config-error/config-error": 53,
+      "deadlock/deadlock": 18,
+      "evaluation-error/evaluation-error": 80,
+      "frontend-error/frontend-error": 36,
+      "liveness-evaluation-error/liveness-evaluation-error": 1,
+      "liveness-violation/liveness-violation": 46,
+      "other-error/other-error": 46,
+      "safety-evaluation-error/safety-evaluation-error": 6,
+      "safety-violation/safety-violation": 85,
+      "success/other-error": 1,
+      "success/success": 281
+    },
+    "counts": {
+      "class-equal": 777,
+      "counts-equal": 467,
+      "counts-present-both": 467,
+      "counts-present-either": 468,
+      "exit-equal": 777,
+      "finished-pairs": 778,
+      "manyan:finished": 781,
+      "manyan:memory-stop": 1,
+      "rows": 782,
+      "text-equal-after-hints": 775,
+      "tlc:finished": 778,
+      "tlc:timeout": 1,
+      "tlc:upstream-oracle-skip": 3,
+      "trace-equal": 217,
+      "trace-present-both": 217,
+      "trace-present-either": 217
+    },
+    "text_differences": [
+      "tests/spec/expressions/except_missing.tla",
+      "tests/spec/modules/recursive_deep.tla",
+      "tests/spec/stdlib/json_to_json.tla"
+    ]
+  },
+  "front": {
+    "counts": {
+      "held-local-TE": 1,
+      "prudence-pair-unavailable": 20,
+      "rows": 9453,
+      "sany-unavailable": 28,
+      "unavailable": 1,
+      "verdict": 9451
+    },
+    "difference_sany_classes": {
+      "missing-module": 8,
+      "module-cycle": 1,
+      "ok": 225,
+      "parse-error": 139,
+      "semantic-error": 621
+    },
+    "prudence/manyan": {
+      "accept/accept": 3881,
+      "accept/reject": 225,
+      "reject/accept": 769,
+      "reject/reject": 4558
+    },
+    "sany/manyan": {
+      "accept/accept": 3881,
+      "accept/reject": 225,
+      "reject/accept": 769,
+      "reject/reject": 4549
+    }
+  }
+}

@@ -25,6 +25,7 @@ Despite our best efforts (and billions of tokens spent on guided fuzzing) some p
 
 - [docs/compare.md](docs/compare.md): comparing an implementation with SANY, checking a SANY build, reading the report, and verifying.
 - [docs/results-prudence.md](docs/results-prudence.md): the published results for prudence.
+- [docs/results-manyan.md](docs/results-manyan.md): results for [manyan](https://github.com/soasme/manyan), front end against SANY and checking against TLC.
 - [docs/coverage.md](docs/coverage.md): what the corpus covers, why each case is here, coverage kept, what coverage means, and limits.
 - [docs/reference.md](docs/reference.md): the sets, the manifest format, the stock check, and the repository layout.
 - [FINDINGS.md](FINDINGS.md): oddities in SANY that this work turned up, with reproducers.
