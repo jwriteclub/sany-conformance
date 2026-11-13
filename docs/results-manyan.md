@@ -23,7 +23,7 @@ Measured on 2026-11-13 on macOS 15.5 arm64, one process per case.
 | Stock SANY | 3,881 | 4,549 | 769 | 225 | 8,430 / 9,424 (89.45%) |
 | prudence, complete calls | 3,881 | 4,558 | 769 | 225 | 8,439 / 9,433 (89.46%) |
 
-Only accept or reject is compared here, not error positions or messages. The SANY side is the manifests' recorded output; the prudence side is [`results/prudence-b801ed2/results.jsonl.gz`](../results/prudence-b801ed2/), whose SHA-256 is recorded in `identities.json`. Neither reference was rerun. Counts are cases, including related and duplicate inputs.
+Only accept or reject is compared here, not error positions or messages. The SANY side is the manifests' recorded output; the prudence side is [`results/prudence-b801ed2/results.jsonl.gz`](../results/prudence-b801ed2/results.jsonl.gz), whose SHA-256 is recorded in `identities.json`. Neither reference was rerun. Counts are cases, including related and duplicate inputs.
 
 Every input file's hash was checked against its manifest before the run. Each case used its original root filename, support files and library links, and no other modules were made visible.
 
